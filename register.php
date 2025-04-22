@@ -14,21 +14,19 @@ $success = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'] ?? '';
-    $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
     $confirm_password = $_POST['confirm_password'] ?? '';
 
-    if (empty($username) || empty($email) || empty($password) || empty($confirm_password)) {
-        $error = 'All fields are required';
+    if (empty($username) || empty($password) || empty($confirm_password)) {
+        $error = "All fields are required";
     } elseif ($password !== $confirm_password) {
-        $error = 'Passwords do not match';
-    } elseif (strlen($password) < 8) {
-        $error = 'Password must be at least 8 characters long';
+        $error = "Passwords do not match";
     } else {
         try {
-            $result = $auth->register($username, $email, $password);
+            $result = $auth->register($username, $password);
             if ($result) {
-                $success = 'Registration successful! Please login.';
+                header("Location: login.php");
+                exit();
             }
         } catch (Exception $e) {
             $error = $e->getMessage();
@@ -69,19 +67,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <form class="mt-8 space-y-6" method="POST" action="">
                 <div class="space-y-4">
-                    <div>
+                    <div class="form-group">
                         <label for="username" class="form-label">Username</label>
-                        <div class="relative">
-                            <i class="ri-user-line absolute left-2.5 top-2.5 text-gray-500"></i>
+                        <div class="input-group">
+                            <span class="input-group-text">
+                                <i class="fas fa-user"></i>
+                            </span>
                             <input type="text" id="username" name="username" required class="input pl-9" placeholder="Enter your username">
-                        </div>
-                    </div>
-
-                    <div>
-                        <label for="email" class="form-label">Email</label>
-                        <div class="relative">
-                            <i class="ri-mail-line absolute left-2.5 top-2.5 text-gray-500"></i>
-                            <input type="email" id="email" name="email" required class="input pl-9" placeholder="Enter your email">
                         </div>
                     </div>
 

@@ -27,7 +27,7 @@ $user = $auth->getCurrentUser();
 switch ($method) {
     case 'GET':
         // Get user profile
-        $stmt = $db->prepare("SELECT id, username, email, created_at FROM users WHERE id = ?");
+        $stmt = $db->prepare("SELECT id, username, created_at FROM users WHERE id = ?");
         $stmt->execute([$user['id']]);
         $profile = $stmt->fetch();
         
@@ -52,27 +52,17 @@ switch ($method) {
             $params[] = $data['username'];
         }
         
-        if (isset($data['email'])) {
-            $updates[] = "email = ?";
-            $params[] = $data['email'];
-        }
-        
         if (isset($data['password'])) {
             $updates[] = "password = ?";
             $params[] = password_hash($data['password'], PASSWORD_DEFAULT);
         }
         
-        if (empty($updates)) {
-            http_response_code(400);
-            echo json_encode(['error' => 'No valid fields to update']);
-            exit;
+        if (!empty($updates)) {
+            $params[] = $user['id'];
+            $sql = "UPDATE users SET " . implode(", ", $updates) . " WHERE id = ?";
+            $stmt = $db->prepare($sql);
+            $stmt->execute($params);
         }
-        
-        $params[] = $user['id'];
-        
-        $sql = "UPDATE users SET " . implode(", ", $updates) . " WHERE id = ?";
-        $stmt = $db->prepare($sql);
-        $stmt->execute($params);
         
         echo json_encode(['success' => true]);
         break;

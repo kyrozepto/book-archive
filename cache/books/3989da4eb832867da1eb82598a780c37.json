@@ -1,0 +1,2964 @@
+{
+    "numFound": 8515,
+    "start": 0,
+    "numFoundExact": true,
+    "num_found": 8515,
+    "documentation_url": "https://openlibrary.org/dev/docs/api/search",
+    "q": "cosmos",
+    "offset": null,
+    "docs": [
+        {
+            "author_key": [
+                "OL6787852A"
+            ],
+            "author_name": [
+                "Alexander von Humboldt"
+            ],
+            "cover_edition_key": "OL13568056M",
+            "cover_i": 8242805,
+            "edition_count": 63,
+            "first_publish_year": 1845,
+            "has_fulltext": true,
+            "ia": [
+                "cosmossurveyofge00humbrich",
+                "cosmosensayodeun01humbuoft",
+                "cosmossketchofph01humbuoft",
+                "cosmosessaiduned02humb",
+                "cu31924073049839",
+                "cosmosessaidune01humb",
+                "cosmossketchofph185601humb",
+                "cosmossketchofph02humbrich",
+                "sketchofphcosmos01humbrich",
+                "kosmosentwurf01humb",
+                "cosmossketchofph187701humb",
+                "cosmosensayodeun01humb",
+                "cosmossketchofph01humb",
+                "cosmossketchofph03humbrich",
+                "cosmosofph01humbrich",
+                "cosmosasketchap00paulgoog",
+                "cosmosasketchap07humbgoog",
+                "cosmos00sabigoog",
+                "cosmos01humbgoog",
+                "cosmos02humbgoog",
+                "cosmos03humbgoog",
+                "cosmos04humbgoog",
+                "cosmossketchofph0000humb"
+            ],
+            "ia_collection_s": "MBLWHOI;americana;americanuniversity-ol;belmont-ol;biodiversity;blc;cdl;cornell;dartmouthlibrary-ol;gerstein;gwulibraries-ol;internetarchivebooks;johnshopkins-ol;northeastern;printdisabled;thomasfisher;thomasfisherastronomy;toronto;university_of_toronto;universityofcoloradoboulder-ol;universityofottawa;wilsoncollege-ol;worksintranslation",
+            "key": "/works/OL1554090W",
+            "language": [
+                "eng",
+                "spa",
+                "ger",
+                "fre"
+            ],
+            "lending_edition_s": "OL14002164M",
+            "lending_identifier_s": "cosmossurveyofge00humbrich",
+            "public_scan_b": true,
+            "title": "Cosmos"
+        },
+        {
+            "author_key": [
+                "OL22105A"
+            ],
+            "author_name": [
+                "Aristotle"
+            ],
+            "cover_i": 129771,
+            "edition_count": 498,
+            "first_publish_year": 1479,
+            "has_fulltext": true,
+            "ia": [
+                "metaphysicsofari00aris",
+                "aristotlemetaphy00arisuoft",
+                "aristotleonhispr00aris",
+                "aristotlesmetaph0001aris",
+                "cu31924032292264",
+                "metaphysica01arisuoft",
+                "aristotleonhispr00arisuoft",
+                "aristotelismetap00aris",
+                "theworksofaristo09arisuoft",
+                "aristotelisopera01arisrich",
+                "theworksofaristo12arisuoft",
+                "worksofaristotle04aris",
+                "aristotlepoetics00aris_0",
+                "worksofaristotle07arisuoft",
+                "aristotelousperi01aris_0",
+                "theworksofaristo08arisuoft",
+                "worksofaristotle05arisuoft",
+                "aristotlestreati00aris_0",
+                "metaphysik00aris",
+                "rhetorictranslat00arisuoft",
+                "dissertationupon00arisiala",
+                "lemtaphysiquel00aris",
+                "treatiseonrhetor00arisuoft",
+                "theworksofaristo10arisuoft",
+                "worksofaristotl04aris",
+                "theworksofaristo11arisuoft",
+                "herhetoricofaris03arisuoft",
+                "b24864249",
+                "worksofaristotle01arisuoft",
+                "workstranslatedi10arisuoft",
+                "worksofaristotle06arisuoft",
+                "herhetoricofaris02arisuoft",
+                "worksofaristotle03arisuoft",
+                "worksofaristotle04arisuoft",
+                "therhetoricofari01arisuoft",
+                "MN40043ucmf_0",
+                "aristotelismeta00bonigoog",
+                "aristotelismeta01bonigoog",
+                "works00taylgoog",
+                "aristotelisoper00bekkgoog",
+                "rhetoricaristot12sandgoog",
+                "aristotelisoper00arisgoog",
+                "rhetoricaristot11sandgoog",
+                "aristotelousper00whargoog",
+                "rhetoricaristot08sandgoog",
+                "lametafisica0001aris",
+                "aristotleonhispr0000unse",
+                "aristotlesmetaph0000aris_k6x6",
+                "aristotlesmetaph0000aris_t4q9",
+                "aristotlesmetaph0000aris_f7n9",
+                "aristotleonhis1969aris",
+                "aristotlesmetaph00aris",
+                "aristotlesmetaph0000aris_m3c8",
+                "aristotleonhispr00arisrich",
+                "rhetoricpoetics0000aris",
+                "rhetoricofaristo0000aris",
+                "rhetoricofaristo00aris_0",
+                "aristotlesmetaph0000aris",
+                "aristotelousperi0000aris",
+                "onrhetorictheory0000aris",
+                "aristotlecontain0000aris",
+                "rhetoric00aris",
+                "onpoetrystyle0000aris_j3h1",
+                "metaphysicsnewly0000aris",
+                "metaphysicsbooks0000aris",
+                "metaphysics00aris_0",
+                "metaphysics0000aris_x4j4",
+                "metaphysics0000aris_x5z9",
+                "aristotleintrodu0000aris",
+                "aristotleonheave0000unse",
+                "aristotleselecti0000aris_j0d1",
+                "artofrhetoric0000aris_k6q6",
+                "onrhetorictheory0000aris_d0k6",
+                "artofrhetoric00aris",
+                "aristotlemetaphy00maki",
+                "aristotelesmetap01patz"
+            ],
+            "ia_collection_s": "Princeton;additional_collections;ambslibrary-ol;americana;americanuniversity-ol;auwcl-ol;barryuniversity-ol;belmont-ol;binghamton-ol;brynmawr-ol;cdl;claremont_school_of_theology;cornell;cua-ol;dartmouthlibrary-ol;denverpubliclibrary-ol;drakeuniversity-ol;duke_libraries;europeanlibraries;framingham-ol;greatbooks;greekclassicslist;gwulibraries-ol;inlibrary;internetarchivebooks;ithacacollege-ol;johnshopkins-ol;kalamazoocollege-ol;kellylibrary;library_of_congress;marygrovecollege;marymount-ol;medicalheritagelibrary;medicallibrary;microfilm;newyorkpubliclibrary;occidentalcollegelibrary-ol;openlibrary-d-ol;pimslibrary;printdisabled;randolph-macon-college-ol;riceuniversity-ol;robarts;rochester-ol;schroederlibrary-ol;swarthmore-ol;the-claremont-colleges-ol;toronto;trent_university;tulsacc-ol;udc-ol;uhmauicollege-ol;ukmhl;unb-ol;uni-ol;university_of_toronto;universityofarizona-ol;universityofcoloradoboulder-ol;universityofoklahoma-ol;universityofottawa;wellcomelibrary;wilsoncollege-ol;wrlc-ol",
+            "key": "/works/OL151515W",
+            "language": [
+                "ita",
+                "eng",
+                "heb",
+                "spa",
+                "urd",
+                "wel",
+                "per",
+                "grc",
+                "ger",
+                "fre",
+                "ukr",
+                "chi",
+                "nor",
+                "lat",
+                "gre",
+                "und",
+                "mul",
+                "ara"
+            ],
+            "lending_edition_s": "OL16857268M",
+            "lending_identifier_s": "metaphysicsofari00aris",
+            "public_scan_b": true,
+            "title": "La Poetica"
+        },
+        {
+            "author_key": [
+                "OL146605A"
+            ],
+            "author_name": [
+                "Edgar Rice Burroughs"
+            ],
+            "cover_edition_key": "OL9506915M",
+            "cover_i": 207226,
+            "edition_count": 207,
+            "first_publish_year": 1917,
+            "has_fulltext": true,
+            "ia": [
+                "princessofmars00burriala",
+                "princessofmars0000edga_t2w9",
+                "princessofmars0000burr_k9d8",
+                "princessofmars0000burr",
+                "princessofmars0000burr_g8a4",
+                "princessofmarsjo0000burr",
+                "princessofmars0000burr_s0k0",
+                "princessofmars00burr"
+            ],
+            "ia_collection_s": "additional_collections;americana;cdl;inlibrary;internetarchivebooks;openlibrary-d-ol;printdisabled;sciencefiction;tulsacc-ol",
+            "key": "/works/OL1418187W",
+            "language": [
+                "spa",
+                "rus",
+                "eng"
+            ],
+            "lending_edition_s": "OL7172526M",
+            "lending_identifier_s": "princessofmars00burriala",
+            "public_scan_b": true,
+            "title": "A Princess of Mars",
+            "id_standard_ebooks": [
+                "edgar-rice-burroughs/a-princess-of-mars"
+            ]
+        },
+        {
+            "author_key": [
+                "OL66452A",
+                "OL3024570A",
+                "OL2509633A",
+                "OL904271A"
+            ],
+            "author_name": [
+                "Miguel de Cervantes Saavedra",
+                "Michael J. Marshall",
+                "John Ormsby",
+                "Anonymous"
+            ],
+            "cover_i": 14428305,
+            "edition_count": 1587,
+            "first_publish_year": 1600,
+            "has_fulltext": true,
+            "ia": [
+                "elingeniosohidal00cervrs",
+                "firstpartofdelig00cervuoft",
+                "historyofdonquix00cerv_0",
+                "elingeniosedcrit04cerv",
+                "nybc205230",
+                "densindrigeadels03cerv",
+                "histoirededonqui02cerv",
+                "histoirededonqui02cerv",
+                "histoirededonqui02cerv",
+                "donquijotedelam00cerv",
+                "elingeniosohidal26cerv",
+                "elingeniosohida03cerv",
+                "elingeniosoh00cerv",
+                "adventuresofinge00cerv",
+                "adventuresofdonq1921cerv",
+                "nybc209000",
+                "histoiredeladmir01cerv",
+                "doncocht00cerv",
+                "elingeniosohidal07cerv",
+                "ingeniousgentlem03cerv",
+                "elingeniosohidal02cerv_0",
+                "elingeniosohidal11cerv",
+                "donquichottedela00cerv",
+                "cu31924008863924",
+                "elingeniosohidal00cerv",
+                "cu31924027656978",
+                "donquixotedelama02cervuoft",
+                "elingeniosohid00cervuoft",
+                "ingeniousgentlem01cervuoft",
+                "p4elingeniosohid02cerv",
+                "donquixotedelama00cerviala",
+                "historyofvalorou03cerviala",
+                "cu31924027657075",
+                "ingeniousgentlem04cervuoft",
+                "p1elingeniosohid03cerv",
+                "donquixoteoflama00cerv_0",
+                "donquijotedelama04cerv",
+                "c2elingeniosohid02cerv",
+                "elingeniosohidal1876cerv",
+                "donquichottedela01cervuoft",
+                "densindrigeadels01cerv",
+                "quijotedelcenten01cervuoft",
+                "denverstandigenv00cerv",
+                "elingeniosohidal02cerv_4",
+                "elingeniosohidal00cerv_3",
+                "elingeniosohida02cerv",
+                "elingeniosohida01cerv",
+                "elingeniosohidal0000cerv_j6r5",
+                "elingenios01cerv",
+                "elingeniosohid00cerv",
+                "desscharfsinnige00cerv",
+                "vidayhechosdeli04cerv",
+                "dersinnreichejun02cerv",
+                "donquichottedela06cerv",
+                "donquijote02cerv",
+                "elingeni02cerv",
+                "elquijotedelajuv00cerv",
+                "ingeniousgentle01cerv",
+                "elingenio01cerv",
+                "historyofvalorou02cerviala",
+                "historyofdonquix00cerv_1",
+                "ingeniousgentlem01cerv_0",
+                "donquixoteofmanc00cerv_0",
+                "donquixotedelama02cerv_0",
+                "lebenundthatende01cerv",
+                "cihm_80333",
+                "donquixotevonlam00cerv",
+                "hidalgodonquix01cerv",
+                "historyofingeni04cerv",
+                "historyofvalorou02cerv",
+                "historyofdonquix00cerv",
+                "donquixotedelama02cerv",
+                "donquixotedelama02cerv",
+                "ingeniousgentle02cerv",
+                "ingeniosohidalgo01cerv",
+                "lifeexploitsofin04cerv",
+                "elingenioso01cerv",
+                "ingeniousgentle03cerv",
+                "elingeniosohi00cerv",
+                "historyofingeni02cerv",
+                "adventuresofdo00cerv",
+                "donquijotedelama0000unse",
+                "lifeexploitsofin01cervuoft",
+                "ingeniousgentlem01cerv",
+                "donquijote00cervuoft",
+                "elingeniosohidal00cervuoft",
+                "donquixotedelama01cervuoft",
+                "historyadventure00cerv",
+                "lingnieuxcheva00cerv",
+                "historyofdonquix00cervuoft",
+                "ingeniousgentlem0195cerv",
+                "adventuresofdonq00cerv_5",
+                "p2elingeniosohid05cerv",
+                "estudiohistricot01madr",
+                "elingeniosohidal01cervuoft",
+                "historyofingenio01cerv",
+                "elingeniosodon02cerv",
+                "ingeniousgentlem00cerv",
+                "lifeexploitsofin02cerviala",
+                "lifeexploitsofi03cervuoft",
+                "donquixotedelama03cervuoft",
+                "cu31924096224518",
+                "donquixotedelama00cerv",
+                "nybc203136",
+                "historyofingenio00cerv",
+                "geshikhefundonik01cervuoft",
+                "historyofingenio01cerviala",
+                "elingeniosoh01cerv",
+                "lifeexploitsofin01cerv",
+                "aventurasdedonqu00cerv",
+                "1896elingeniosohid02cerv",
+                "vidayhechosdelin03cervuoft",
+                "cu31924027657174",
+                "lifeachievements00cervuoft",
+                "cu31924027658172",
+                "adventuresofdonq00cerv",
+                "vidayhechosdelin01cerv",
+                "lifeofdonquixote0000unse_1927",
+                "histoiredeladmi00saavgoog",
+                "elingeniosohida14saavgoog",
+                "firstpartdeligh00shelgoog",
+                "elingeniosohida01goog",
+                "elingeniosohida00ormsgoog",
+                "dersinnreicheju00saavgoog",
+                "historyingeniou08mottgoog",
+                "historyingeniou02saavgoog",
+                "elingeniosohida00goog",
+                "elingeniosohida00amergoog",
+                "elingeniosohida00selmgoog",
+                "dersinnreicheju01saavgoog",
+                "ingeniousgentle00conggoog",
+                "lifeandexploits01jarvgoog",
+                "donquixotedelam03saavgoog",
+                "historydonquixo00cogoog",
+                "lifeandexploits01saavgoog",
+                "elingeniosohida00puiggoog",
+                "elingeniosohida10saavgoog",
+                "historyvalorous01goog",
+                "historyandadven00unkngoog",
+                "historyvalorous00brangoog",
+                "elingeniosohida01castgoog",
+                "elingeniosohida21saavgoog",
+                "elingeniosohida30saavgoog",
+                "elingeniosohida29saavgoog",
+                "romancerodeelin00albogoog",
+                "ingeniousknight00saavgoog",
+                "elingeniosohida04saavgoog",
+                "elingeniosohida12saavgoog",
+                "dersinnreicheju00saargoog",
+                "histoiredeladir00mancgoog",
+                "histoiredeladmi00mancgoog",
+                "elingeniosohida00rogoog",
+                "elingeniosohida00dorgoog",
+                "elingeniosohida00barrgoog",
+                "histoirededonqu00gebhgoog",
+                "histoirededonqu00mrgoog",
+                "elingeniosohida00ochogoog",
+                "ingeniousgentle11saavgoog",
+                "vidayhechosdeli01siscgoog",
+                "elingeniosohida19saavgoog",
+                "adventuresdonqu00gilbgoog",
+                "vidayhechosdeli00siscgoog",
+                "elingeniosohida00quixgoog",
+                "historyandadven01smolgoog",
+                "historyingeniou00lalagoog",
+                "donquichottedel02florgoog",
+                "lifeandexploits00jarvgoog",
+                "historyingeniou03unkngoog",
+                "elingeniosohida00navagoog",
+                "donquixotedelam02saavgoog",
+                "adventuresdonqu00jarvgoog",
+                "elingeniosohida28saavgoog",
+                "elingeniosohida01saavgoog",
+                "historydonquixo04saavgoog",
+                "lingnieuxcheval00rouxgoog",
+                "historyingeniou00mottgoog",
+                "elingeniosohida00castgoog",
+                "elingeniosohida27saavgoog",
+                "lifeandachievem00saavgoog",
+                "lifeandexploits01johgoog",
+                "historydonquixo02saavgoog",
+                "historyingeniou00lockgoog",
+                "adventuresrenow00smolgoog",
+                "ingeniousgentlem0000cerv_n0b8",
+                "donquixote0000will",
+                "firstpartofdelig14cerv",
+                "donquijotedelama0000cerv",
+                "isbn_8479690631",
+                "donquixotecorecl00",
+                "firstpartofdelig00cerv",
+                "elingeniosohidal0000cerv_h9s9",
+                "hitroumnyyidalgo00serv",
+                "donquijotedelama0000cerv_d8i0",
+                "historyofthating0000cerv",
+                "adventuresofdon00cerv",
+                "adventuresofdon00cerv",
+                "adventuresofdon00cerv",
+                "donquijotedelama00cerv",
+                "aventurasdedonqu0000garc",
+                "donquijote0000cerv",
+                "donquixoteoflama0000unse",
+                "adventuresofdonq00cerv_0",
+                "isbn_9780393972818",
+                "elingeniosohidal0000cerv_a7q5",
+                "elhidalgodelaman00cerv",
+                "elingeniosohida000cerv",
+                "lingenieuxhidalg0000cerv",
+                "donquichottedela0000cerv",
+                "elingeniosohidal0002cerv",
+                "tangjihededonqui0000cerv",
+                "ingeniousgentlem0000cerv_j3e8",
+                "ingeniousgentlem0000cerv",
+                "donquixotebymigu00mig_ghh",
+                "donquixoteoflama00cerv",
+                "adventuresofdon00cerv",
+                "donquixote0000cerv_i5q1",
+                "adventofdonquixo00cerv",
+                "historyadventure0000cerv",
+                "adventuresofdonq00cerv_3",
+                "historyofdonquix0000cerv_p7l4",
+                "donquixotemanofl00cerv",
+                "donquijotedelama0000cerv_j2i5",
+                "ingenioushidalgo0000cerv",
+                "cervantessdonqui00bloo",
+                "donquixotefourth0000cerv",
+                "donquixotedelama00migu",
+                "donquijotedelama0000cerv_t9x4",
+                "donquixotedelama0001cerv",
+                "donquixoteofmanc00cerv",
+                "donquixote0000prue",
+                "ingeniousgentlem0000cerv_a8e1",
+                "ingeniousgentle00cerv",
+                "historyadventure0000cerv_o4k6",
+                "isbn_9780060188702",
+                "isbn_9788496412156",
+                "elingeniosohida00cerv",
+                "isbn_9780812972108",
+                "donquixotedelama0000cerv_v6n2",
+                "donquixote00sign",
+                "donquixote0000cerv",
+                "donquixotedelama0000cerv",
+                "donquixote0000cerv_z7f3",
+                "isbn_5020116874"
+            ],
+            "ia_collection_s": "JohnCarterBrownLibrary;Princeton;additional_collections;americana;americanuniversity-ol;belmont-ol;binghamton-ol;bostonpubliclibrary;bpljordan-ol;brigham_young_university;brighamyounguniversityidaho;cdl;claremont_school_of_theology;cnusd-ol;cornell;cua-ol;dartmouthlibrary-ol;delawarecountydistrictlibrary;denverpubliclibrary-ol;europeanlibraries;family_history_library;getty;greatbooks;gwulibraries-ol;harvardclassicssingles;inlibrary;internetarchivebooks;ithacacollege-ol;jcbfrench;johnadamsBPL;johnshopkins-ol;kalamazoocollege-ol;kellylibrary;library_of_atlantis;library_of_congress;lincolncollection;majorityworldcollection;marygrovecollege;microfilm;nationalyiddishbookcenter;occidentalcollegelibrary-ol;oliverwendellholmeslibrary;openlibrary-d-ol;phillipsacademy;pma-ol;popularchinesebooks;printdisabled;prscr;randolph-macon-college-ol;riceuniversity-ol;robarts;rochester-ol;sablecentre;stmaryscountylibrary;the-claremont-colleges-ol;toronto;trent_university;tulsacc-ol;ubclibrary;udc-ol;unb-ol;unclibraries;uni-ol;university_of_alberta_libraries;university_of_alberta_libraries_microfilm;university_of_illinois_urbana-champaign;university_of_toronto;university_pittsburgh;universityofarizona-ol;universityofcoloradoboulder-ol;universityofoklahoma-ol;universityofottawa;uoftpreservation;uslprototype;wilsoncollege-ol;wrlc-ol",
+            "key": "/works/OL503666W",
+            "language": [
+                "heb",
+                "por",
+                "swe",
+                "ori",
+                "lat",
+                "gle",
+                "yid",
+                "und",
+                "hin",
+                "chi",
+                "alb",
+                "spa",
+                "dut",
+                "dan",
+                "jpn",
+                "ara",
+                "eng",
+                "vie",
+                "rus",
+                "fre",
+                "hrv",
+                "baq",
+                "srp",
+                "gre",
+                "glg",
+                "ita",
+                "mar",
+                "ger",
+                "tel"
+            ],
+            "lending_edition_s": "OL24343614M",
+            "lending_identifier_s": "elingeniosohidal00cervrs",
+            "public_scan_b": true,
+            "title": "Don Quixote"
+        },
+        {
+            "author_key": [
+                "OL450295A"
+            ],
+            "author_name": [
+                "Carl Sagan"
+            ],
+            "cover_i": 8283901,
+            "edition_count": 52,
+            "first_publish_year": 1980,
+            "has_fulltext": true,
+            "ia": [
+                "unserkosmosereis0000saga",
+                "unserkosmoseiner0000saga",
+                "cosmossaga00saga",
+                "cosmossaga00saga",
+                "cosmos00saga",
+                "cosmos0000saga_k7h8",
+                "cosmossa00saga",
+                "cosmoscosm00saga",
+                "cosmos0000saga",
+                "shenmideyuzhouco0000saga"
+            ],
+            "ia_collection_s": "americana;americanuniversity-ol;barryuniversity-ol;binghamton-ol;calacademy-ol;cua-ol;dartmouthlibrary-ol;delawarecountydistrictlibrary;drakeuniversity-ol;framingham-ol;gwulibraries-ol;hamiltonpubliclibrary-ol;inlibrary;internetarchivebooks;ithacacollege-ol;johnshopkins-ol;kalamazoocollege-ol;library_of_atlantis;marymount-ol;occidentalcollegelibrary-ol;openlibrary-d-ol;popularchinesebooks;printdisabled;rochester-ol;salisburyfreelibrary-ol;schroederlibrary-ol;stmaryscountylibrary;the-claremont-colleges-ol;tulsacc-ol;unb-ol;uni-ol;universityofarizona-ol;universityofcoloradoboulder-ol;universityofoklahoma-ol;universityofthewest-ol;wilsoncollege-ol;worthingtonlibraries-ol",
+            "key": "/works/OL15829966W",
+            "language": [
+                "eng",
+                "pol",
+                "fre",
+                "tur",
+                "ger",
+                "por",
+                "rus",
+                "chi",
+                "kor",
+                "jpn",
+                "spa"
+            ],
+            "lending_edition_s": "OL27314609M",
+            "lending_identifier_s": "unserkosmosereis0000saga",
+            "public_scan_b": false,
+            "title": "Cosmos"
+        },
+        {
+            "author_key": [
+                "OL2644885A",
+                "OL10431641A"
+            ],
+            "author_name": [
+                "Brian Greene",
+                "Javier Garc\u00eda Sanz"
+            ],
+            "cover_edition_key": "OL23271856M",
+            "cover_i": 6650337,
+            "edition_count": 21,
+            "first_publish_year": 2004,
+            "has_fulltext": true,
+            "ia": [
+                "tkanjesvemirapro0000gree",
+                "deontrafelingvan0000gree",
+                "fabricofcosmossp00gree",
+                "fabriccosmos00gree"
+            ],
+            "ia_collection_s": "americana;americanuniversity-ol;barryuniversity-ol;binghamton-ol;dartmouthlibrary-ol;drakeuniversity-ol;framingham-ol;inlibrary;internetarchivebooks;ithacacollege-ol;johnshopkins-ol;kalamazoocollege-ol;marymount-ol;printdisabled;randolph-macon-college-ol;schroederlibrary-ol;udc-ol;unb-ol;universityofarizona-ol;universityofcoloradoboulder-ol;universityofoklahoma-ol;wilsoncollege-ol;worthingtonlibraries-ol",
+            "key": "/works/OL1909291W",
+            "language": [
+                "dut",
+                "eng",
+                "srp",
+                "ita"
+            ],
+            "lending_edition_s": "OL27133863M",
+            "lending_identifier_s": "tkanjesvemirapro0000gree",
+            "public_scan_b": false,
+            "title": "The fabric of the cosmos"
+        },
+        {
+            "author_key": [
+                "OL11089188A"
+            ],
+            "author_name": [
+                "Libros Maestros"
+            ],
+            "edition_count": 64,
+            "first_publish_year": 2019,
+            "has_fulltext": false,
+            "key": "/works/OL30151247W",
+            "language": [
+                "spa"
+            ],
+            "public_scan_b": false,
+            "title": "Resumen Completo"
+        },
+        {
+            "author_key": [
+                "OL26681A",
+                "OL4413204A"
+            ],
+            "author_name": [
+                "Nathaniel Hawthorne",
+                "Austin Warren"
+            ],
+            "cover_edition_key": "OL34878267M",
+            "cover_i": 12155935,
+            "edition_count": 817,
+            "first_publish_year": 1850,
+            "has_fulltext": true,
+            "ia": [
+                "scarletletter0000hawt_j1b0",
+                "isbn_9781516895748",
+                "scarletletter0000unse_a6y1",
+                "isbn_9781499551396",
+                "scarletletterrom0000hawt_y8i6"
+            ],
+            "ia_collection_s": "inlibrary;internetarchivebooks;printdisabled",
+            "key": "/works/OL25074095W",
+            "language": [
+                "chi",
+                "eng"
+            ],
+            "lending_edition_s": "OL34888102M",
+            "lending_identifier_s": "scarletletter0000hawt_j1b0",
+            "public_scan_b": false,
+            "title": "The Scarlet Letter"
+        },
+        {
+            "author_key": [
+                "OL29303A"
+            ],
+            "author_name": [
+                "Dante Alighieri"
+            ],
+            "cover_edition_key": "OL5315843M",
+            "cover_i": 6549496,
+            "edition_count": 290,
+            "first_publish_year": 1595,
+            "has_fulltext": true,
+            "ia": [
+                "paradisoofdante00dant",
+                "divinecomedyofda03dant_0",
+                "paradiseofdantea00dantiala",
+                "paradisoofdantea00dantrich",
+                "paradisoofdantea00dant",
+                "paradisoofdantea00dantuoft",
+                "ladivinacommedia02dantuoft",
+                "ladivinacommedia00dant",
+                "ladivinacommedi00wittgoog",
+                "ladivinacommedi00grangoog",
+                "paradiso0000dant",
+                "paradiso0000dant_t0u3",
+                "paradiso0000dant_k1w9",
+                "paradisoverseren00dant",
+                "paradise0003dant",
+                "paradise0000dant",
+                "paradiso0000dant_e9n3",
+                "divinecomedy3par0000dant",
+                "paradiso0000dant_g9m7",
+                "paradiso0000dant_u7n3",
+                "paradise00dant_0"
+            ],
+            "ia_collection_s": "Wellesley_College_Library;americana;binghamton-ol;blc;bostonpubliclibrary;cdl;claremont_school_of_theology;cnusd-ol;getty;hamiltonpubliclibrary-ol;inlibrary;internetarchivebooks;kellylibrary;marymount-ol;pimslibrary;printdisabled;randolph-macon-college-ol;robarts;the-claremont-colleges-ol;toronto;university_of_toronto",
+            "key": "/works/OL93230W",
+            "language": [
+                "ita",
+                "eng",
+                "spa",
+                "arm",
+                "por",
+                "fre",
+                "ger",
+                "ukr",
+                "lat",
+                "mul"
+            ],
+            "lending_edition_s": "OL24987912M",
+            "lending_identifier_s": "paradisoofdante00dant",
+            "public_scan_b": true,
+            "title": "Il Paradiso"
+        },
+        {
+            "author_key": [
+                "OL12823A"
+            ],
+            "author_name": [
+                "\u03a0\u03bb\u03ac\u03c4\u03c9\u03bd"
+            ],
+            "cover_edition_key": "OL7057755M",
+            "cover_i": 14373566,
+            "edition_count": 115,
+            "first_publish_year": 1562,
+            "has_fulltext": true,
+            "ia": [
+                "dialoguesofplato00platuoft",
+                "dialoguesofplato05plat",
+                "cu31924092280605",
+                "dialoguesofplat05plat",
+                "b24750189_0005",
+                "dialoguesofplato05platuoft",
+                "aliteralversion05platuoft",
+                "worksofplatonew05platiala",
+                "worksnewliteralv05platuoft",
+                "b29340986_0005",
+                "laws01750gut",
+                "lawsofplato01plat_0",
+                "dialoguesbiogra01triagoog",
+                "worksplato00carygoog",
+                "laws0000plat",
+                "laws00plat"
+            ],
+            "ia_collection_s": "americana;cdl;cornell;dartmouthlibrary-ol;duke_libraries;europeanlibraries;gutenberg;gwulibraries-ol;inlibrary;internetarchivebooks;kellylibrary;medicalheritagelibrary;medicallibrary;pimslibrary;printdisabled;rcplondon;riceuniversity-ol;robarts;rochester-ol;toronto;ukmhl;university_of_toronto;universityofoklahoma-ol;wellcomelibrary",
+            "key": "/works/OL51792W",
+            "language": [
+                "rum",
+                "eng",
+                "gre",
+                "fre",
+                "grc",
+                "ger",
+                "frm",
+                "spa"
+            ],
+            "lending_edition_s": "OL7154635M",
+            "lending_identifier_s": "dialoguesofplato00platuoft",
+            "public_scan_b": true,
+            "title": "\u039d\u03cc\u03bc\u03bf\u03b9",
+            "id_project_gutenberg": [
+                "1750"
+            ]
+        },
+        {
+            "author_key": [
+                "OL7044246A"
+            ],
+            "author_name": [
+                "\u5218\u6148\u6b23"
+            ],
+            "cover_edition_key": "OL27897732M",
+            "cover_i": 10526598,
+            "edition_count": 25,
+            "first_publish_year": 2008,
+            "has_fulltext": true,
+            "ia": [
+                "santiiiheisenlin008800",
+                "darkforest0000liuc",
+                "darkforest0000liuc_z6r7"
+            ],
+            "ia_collection_s": "internetarchivebooks;printdisabled;toronto;universityofcoloradoboulder-ol",
+            "key": "/works/OL16314245W",
+            "language": [
+                "tur",
+                "chi",
+                "por",
+                "eng",
+                "fre",
+                "pol",
+                "spa",
+                "ger",
+                "ita"
+            ],
+            "public_scan_b": false,
+            "title": "The Dark Forest (The Three-Body Problem Series Book 2)"
+        },
+        {
+            "author_key": [
+                "OL24946A",
+                "OL7694811A",
+                "OL7694810A"
+            ],
+            "author_name": [
+                "Carlo Ginzburg",
+                "Anne C. Tedeschi",
+                "John Tedeschi"
+            ],
+            "cover_edition_key": "OL7869984M",
+            "cover_i": 566032,
+            "edition_count": 18,
+            "first_publish_year": 1976,
+            "has_fulltext": true,
+            "ia": [
+                "cheesewormscosmo00ginz",
+                "cheeseworms00ginz",
+                "elquesoylosgusan00ginz"
+            ],
+            "ia_collection_s": "belmont-ol;binghamton-ol;cua-ol;framingham-ol;gwulibraries-ol;inlibrary;internetarchivebooks;ithacacollege-ol;johnshopkins-ol;marymount-ol;printdisabled;the-claremont-colleges-ol;unb-ol;uni-ol;universityofarizona-ol;universityofcoloradoboulder-ol;universityofoklahoma-ol;universityofthewest-ol",
+            "key": "/works/OL14872792W",
+            "language": [
+                "eng",
+                "fre",
+                "ger",
+                "por",
+                "ita",
+                "spa"
+            ],
+            "lending_edition_s": "OL7869984M",
+            "lending_identifier_s": "cheesewormscosmo00ginz",
+            "public_scan_b": false,
+            "title": "Il formaggio e i vermi"
+        },
+        {
+            "author_key": [
+                "OL2675573A",
+                "OL1389915A",
+                "OL3308171A"
+            ],
+            "author_name": [
+                "Stephen Hawking",
+                "Lucy Hawking",
+                "Hugh Dancy"
+            ],
+            "cover_edition_key": "OL24598204M",
+            "cover_i": 6681655,
+            "edition_count": 35,
+            "first_publish_year": 1998,
+            "has_fulltext": true,
+            "ia": [
+                "laclavesecretade0000lucy",
+                "georgesetlessecr0000hawk",
+                "georgessecretkey0000hawk_k9a0",
+                "georgessecretkey0000hawk_b6a0",
+                "georgessecretkey00hawk",
+                "georgessecretkey0000hawk",
+                "georgessecretkey0000hawk_t1j0"
+            ],
+            "ia_collection_s": "americana;cnusd-ol;delawarecountydistrictlibrary-ol;goffstownlibrary-ol;inlibrary;internetarchivebooks;miltonpubliclibrary-ol;openlibrary-d-ol;printdisabled;stmaryscountylibrary;uni-ol;universityofoklahoma-ol;worthingtonlibraries-ol",
+            "key": "/works/OL5714585W",
+            "language": [
+                "tur",
+                "spa",
+                "kor",
+                "ita",
+                "jpn",
+                "cat",
+                "ger",
+                "pol",
+                "eng",
+                "por",
+                "fre"
+            ],
+            "lending_edition_s": "OL47115012M",
+            "lending_identifier_s": "laclavesecretade0000lucy",
+            "public_scan_b": false,
+            "title": "George's Secret Key to the Universe"
+        },
+        {
+            "author_key": [
+                "OL18969A"
+            ],
+            "author_name": [
+                "John Dewey"
+            ],
+            "cover_i": 6723526,
+            "edition_count": 24,
+            "first_publish_year": 1909,
+            "has_fulltext": true,
+            "ia": [
+                "howwethink00deweiala",
+                "howwethink00dewegoog",
+                "howwethink0000dewe_f0q5",
+                "commentnouspenso0000dewe",
+                "howwethinkrestat00dewerich"
+            ],
+            "ia_collection_s": "americana;cdl;inlibrary;internetarchivebooks;printdisabled",
+            "key": "/works/OL111357W",
+            "language": [
+                "fre",
+                "eng"
+            ],
+            "lending_edition_s": "OL7236952M",
+            "lending_identifier_s": "howwethink00deweiala",
+            "public_scan_b": true,
+            "subtitle": "a restatement of the relation of reflective thinking to the educative process",
+            "title": "How we think"
+        },
+        {
+            "author_key": [
+                "OL29303A"
+            ],
+            "author_name": [
+                "Dante Alighieri"
+            ],
+            "cover_edition_key": "OL14081259M",
+            "cover_i": 11621024,
+            "edition_count": 1334,
+            "first_publish_year": 1472,
+            "has_fulltext": true,
+            "ia": [
+                "commedi03dant",
+                "commedia01dant",
+                "lacomediadidante00dant",
+                "diegttlichekomd00dant",
+                "divinacommediaen00dantuoft",
+                "divinecomedy00dantrich",
+                "lacommedi00dant",
+                "lacommedadia00dantuoft",
+                "ladivinacommedia00dant_2",
+                "ladivinacommedia00ildant",
+                "divinecomedyofda00dant_4",
+                "dantesgttliche00dantuoft",
+                "visionorhellpurg00dantiala",
+                "divine00comedyofdadantrich",
+                "dantesdivinacomm03dant",
+                "divinecomedyofda01dantiala",
+                "ladivinacommed00dant",
+                "oxfdivinecom00dantuoft",
+                "ladivinecomdi00dant",
+                "ladivinecofior00dant",
+                "ladivinacommbass03dant",
+                "cu31924014258499",
+                "divinacommedia01dantuoft",
+                "lesplusanciennes00dantuoft",
+                "ladivinacomedi00dant",
+                "ladivinacomedia00dantuoft",
+                "ladivinacomme01dant",
+                "ladivinacom00dant",
+                "ladivinacommedia00dant_1",
+                "commediadida02dantuoft",
+                "ladivinacommed1923dantuoft",
+                "divinacommedia00dantuoft",
+                "divinacommedia02dantuoft",
+                "lacommedia0102dantuoft",
+                "divinecomedydant02dant",
+                "bwb_S0-BYQ-669_20",
+                "divinecomedyofda00dantrich",
+                "divinecomedybein00dant",
+                "ladivinecomdie00dantuoft",
+                "johnsonalighieri00dantrich",
+                "ladivinecomartau00dantuoft",
+                "infernoofdantewi00dantuoft",
+                "visionorhellpur00dantuoft",
+                "divinecomedyofda1909dant",
+                "divinecomedyofda01dant",
+                "divinecomedy00dantiala",
+                "divinacommediaof01dantuoft",
+                "commedia01dantuoft",
+                "divinecomedyofda00dantiala",
+                "ladivinacommed02dantuoft",
+                "divinecomedyofda00dantuoft",
+                "uvresdedantealig00dantuoft",
+                "lacommedia00dantuoft",
+                "visionorhellpurg00dant",
+                "divinecomedy01dantiala",
+                "dantesgttlich00dantuoft",
+                "visionorhellpurg00dantuoft",
+                "divinecomedyofda19021dant",
+                "ladivinacommedia00dantrich",
+                "dantevisionorhe00dantuoft",
+                "ladivinacommedi03dantuoft",
+                "ladivinacommedi00dantuoft",
+                "ladivinacommed1896dantuoft",
+                "ladivinacommedia12dant",
+                "ladivinacomm192103dantuoft",
+                "ladivinacomme03dantuoft",
+                "ladivinacom03dant",
+                "ladivinacommedia00dant_0",
+                "ladivinacommed1887dantuoft",
+                "ladivinacommedia00dant_3",
+                "divinacomedia00dant",
+                "ladivinacomedia21dant",
+                "ladivineco00dant",
+                "ladivineco00dant",
+                "ladivinecomd00dant",
+                "ladivinecomd00dant",
+                "ladivineco00dant",
+                "ladivinecomd00dant",
+                "ladivinacommedi02dantuoft",
+                "visionofdanteali00dantuoft",
+                "divinecomedyctra00dantuoft",
+                "visionorhell00dant",
+                "ladivinacommedia00dantuoft",
+                "visionofdanteal00dant",
+                "divinecomedydante01dantrich",
+                "divinecomedy00dantuoft",
+                "comedydivine00dantrich",
+                "divinecomedyofda1901dant",
+                "divinecomedyofda00dant_3",
+                "divinecomedyofdadant",
+                "divinecomedyofda19022dant",
+                "divinecomedy1901dant",
+                "divinecom00dant",
+                "divinecome00dant",
+                "divinecome00dant",
+                "divinecomedy02dantuoft",
+                "divinecomedy01dantuoft",
+                "divinecomed01dant",
+                "divinecomed00dant",
+                "divinecomedy03dant",
+                "divinecomedyofda03dant_2",
+                "divinecomedyofda02dant_2",
+                "ladivinecom00dant",
+                "dantealighieris01philgoog",
+                "dantealighieris00philgoog",
+                "dantealighieris00enkgoog",
+                "lacomediadidant00bosogoog",
+                "commediadidante00tommgoog",
+                "gttlichekomdie00eitngoog",
+                "lacommedia02alizgoog",
+                "lacommedia01alizgoog",
+                "ladivinacommedi00andegoog",
+                "ladiviniacommed00andegoog",
+                "divinecomedydan00mincgoog",
+                "divinecomedy01unkngoog",
+                "divinecomedydan18aliggoog",
+                "ladivinacommedi84aliggoog",
+                "ladivinacommedi04lombgoog",
+                "ladivinacommedi02scargoog",
+                "ladivinacommedi85aliggoog",
+                "ladivinacommedi88aliggoog",
+                "ladivinacommedi73aliggoog",
+                "ladivinacommedi67aliggoog",
+                "ladivinacommedi28aliggoog",
+                "ladivinacommedi56aliggoog",
+                "ladivinacommedi93aliggoog",
+                "ladivinacommedi80aliggoog",
+                "ladivinacommedi39aliggoog",
+                "ladivinacommedi06aliggoog",
+                "ladivinacommedi83aliggoog",
+                "ladivinacommedi79aliggoog",
+                "ladivinacommedi54aliggoog",
+                "ladivinacommedi29aliggoog",
+                "ladivinacommedi10costgoog",
+                "divinecomedy05aliggoog",
+                "ladivinacommedi07lombgoog",
+                "ladivinacommedi04crusgoog",
+                "ladivinacommedi03crusgoog",
+                "dantealighieris03aliggoog",
+                "ladivinecomdie01lamegoog",
+                "ladivinecomdie02aliggoog",
+                "ladivinecomdie00lamegoog",
+                "ladivinacommedi00alligoog",
+                "ladivinacommedi02maffgoog",
+                "ladivinacommedi04zottgoog",
+                "ladivinacommedi08costgoog",
+                "ladivinecomdie00montgoog",
+                "ladivinecomdie01fiorgoog",
+                "ladivinacommedi00cappgoog",
+                "ladivinacommedi01goog",
+                "ladivinacommedi00zottgoog",
+                "ladivinacommedi00foregoog",
+                "ladivinacommedi01zottgoog",
+                "ladivinacommedi00lombgoog",
+                "ladivinacommedi01polagoog",
+                "ladivinacommedi09lombgoog",
+                "ladivinacommedi00greggoog",
+                "ladivinacommedi00mrgoog",
+                "ladivinacommedi00buttgoog",
+                "divinecomedy00plumgoog",
+                "divinecomedy03aliggoog",
+                "ladivinecomdie00aliggoog",
+                "divinacommedia00goog",
+                "ladivinacommedi00foscgoog",
+                "ladivinacommedi03lombgoog",
+                "ladivinacommedi03wittgoog",
+                "ladivinecomdie00warngoog",
+                "ladivinacommedi05grangoog",
+                "ladivinacommedi00benngoog",
+                "ladivinacommedi00scargoog",
+                "ladivinacommedi01crusgoog",
+                "ladivinacommedi01benngoog",
+                "ladivinacommedi01ventgoog",
+                "ladivinacommedi01scargoog",
+                "ladivinacommedi57aliggoog",
+                "ladivinacommedi68aliggoog",
+                "ladivinacommedi89aliggoog",
+                "ladivinacommedi71aliggoog",
+                "ladivinacommedi12aliggoog",
+                "ladivinacommedi66aliggoog",
+                "ladivinacommedi69aliggoog",
+                "ladivinacommedi59aliggoog",
+                "ladivinacommedi14aliggoog",
+                "ladivinacommedi08aliggoog",
+                "ladivinacommedi65aliggoog",
+                "ladivinacommedi30aliggoog",
+                "ladivinacommedi90aliggoog",
+                "ladivinacommedi72aliggoog",
+                "commedia02tommgoog",
+                "visionorhellpur04carygoog",
+                "divinacommediad00unkngoog",
+                "divinecomedydan00kuhngoog",
+                "ladivinecomdie02reyngoog",
+                "lacommediadidan00biangoog",
+                "ladivinacommedi04fratgoog",
+                "ladivinacommedi00fratgoog",
+                "divinacomedia00pinhgoog",
+                "ladivinacomedia02aliggoog",
+                "lacommediainter00aliggoog",
+                "visiondantealig04carygoog",
+                "ladivinecomdied00forggoog",
+                "ladivinecomdie04aliggoog",
+                "commedia00aliggoog",
+                "ladivinacommedi04scargoog",
+                "lacommediadidan00negrgoog",
+                "dantesdivinacom00tozegoog",
+                "comedydantealig00banngoog",
+                "lacomediadedant00goog",
+                "ladivinacommedi05fratgoog",
+                "commedia00tommgoog",
+                "dantealighierisd03dant",
+                "divinecomedy0000dant_a0w0",
+                "divinecomedyhell0000dant",
+                "divinecomedyinfe00dant",
+                "divinecomedyofdant00dant",
+                "divinacommedia0000dant",
+                "divinecomedyvisi0000dant",
+                "lacommedia0000dant",
+                "dantescomedyintr0000dant",
+                "divinecomedythe0000dant",
+                "divinecomedynewp0000dant",
+                "divinecomedytext0000dant",
+                "divinecomedypurg0000dant",
+                "divinecomedy0000dant_k1o6",
+                "divinecomedy0002unse",
+                "divinecomedy00dant",
+                "divinecomedyever0000dant",
+                "ladivinacomedia0000dupl",
+                "divinecomedy0000dant",
+                "divinecomedyinfe0000dant",
+                "divinecomedy0000dant_z9t9",
+                "comedyofdanteali0000dant",
+                "divinecomedynewp00dant",
+                "ladivinacomedia0000dant",
+                "divinecomedycarl00dant",
+                "divinecomedy0001dant_w8z3",
+                "divinecomedy0000dant_l7y1",
+                "divinecomedycarl00dant_0",
+                "divinecomedyinfe0000dant_k1z7",
+                "divinecomedy0002dant",
+                "divinecomedyofda0001dant"
+            ],
+            "ia_collection_s": "Princeton;americana;americanuniversity-ol;barryuniversity-ol;belmont-ol;binghamton-ol;bostonpubliclibrary;bplhoughton;brigham_young_university;cdl;cnusd-ol;cornell;cua-ol;dartmouthlibrary-ol;delawarecountydistrictlibrary-ol;denverpubliclibrary-ol;drakeuniversity-ol;europeanlibraries;framingham-ol;getty;greatbooks;gwulibraries-ol;harvardclassicssingles;inlibrary;internetarchivebooks;ithacacollege-ol;johnshopkins-ol;kalamazoocollege-ol;kellylibrary;library_of_congress;marygrovecollege;marymount-ol;newyorkpubliclibrary;occidentalcollegelibrary-ol;openlibrary-d-ol;pimslibrary;printdisabled;prscr;randolph-macon-college-ol;riceuniversity-ol;robarts;rochester-ol;sablecentre;shenzhen;the-claremont-colleges-ol;toronto;tulsacc-ol;uclalibrarypreservation;udc-ol;unb-ol;unclibraries;uni-ol;university_of_california_libraries;university_of_illinois_urbana-champaign;university_of_toronto;universityofarizona-ol;universityofcoloradoboulder-ol;universityofoklahoma-ol;universityofottawa;uoftpreservation;wilsoncollege-ol;wrlc-ol",
+            "key": "/works/OL93082W",
+            "language": [
+                "pro",
+                "urd",
+                "por",
+                "lat",
+                "hun",
+                "gle",
+                "chi",
+                "cat",
+                "dut",
+                "spa",
+                "dan",
+                "wel",
+                "kor",
+                "mul",
+                "jpn",
+                "rum",
+                "eng",
+                "arm",
+                "rus",
+                "grc",
+                "fre",
+                "gre",
+                "pol",
+                "ita",
+                "ger",
+                "ukr",
+                "fur"
+            ],
+            "lending_edition_s": "OL24367358M",
+            "lending_identifier_s": "commedi03dant",
+            "public_scan_b": true,
+            "title": "Divina Commedia",
+            "id_project_gutenberg": [
+                "16190"
+            ]
+        },
+        {
+            "author_key": [
+                "OL25712A",
+                "OL19807A",
+                "OL7312948A"
+            ],
+            "author_name": [
+                "Terry Pratchett",
+                "Stephen Baxter",
+                "Gabriel Dols Gallardo"
+            ],
+            "cover_edition_key": "OL27208399M",
+            "cover_i": 13069796,
+            "edition_count": 16,
+            "first_publish_year": 2013,
+            "has_fulltext": true,
+            "ia": [
+                "longcosmos0000prat_v5k8",
+                "longcosmos0000prat_x1u9",
+                "longcosmosnovel0000terr",
+                "longcosmos0000terr",
+                "longcosmos0000prat",
+                "isbn_9782841726370"
+            ],
+            "ia_collection_s": "hamiltonpubliclibrary-ol;internetarchivebooks;printdisabled",
+            "key": "/works/OL17801812W",
+            "language": [
+                "fre",
+                "eng"
+            ],
+            "public_scan_b": false,
+            "title": "The Long Cosmos"
+        },
+        {
+            "author_key": [
+                "OL2644885A",
+                "OL9145279A"
+            ],
+            "author_name": [
+                "Brian Greene",
+                "C\u00e9line Laroche"
+            ],
+            "cover_edition_key": "OL25651831M",
+            "cover_i": 7322416,
+            "edition_count": 10,
+            "first_publish_year": 2011,
+            "has_fulltext": true,
+            "ia": [
+                "hiddenrealitypar00gree_0",
+                "hiddenrealitypar00bgre"
+            ],
+            "ia_collection_s": "americanuniversity-ol;barryuniversity-ol;belmont-ol;binghamton-ol;cua-ol;dartmouthlibrary-ol;delawarecountydistrictlibrary-ol;denverpubliclibrary-ol;drakeuniversity-ol;gwulibraries-ol;hamiltonpubliclibrary-ol;internetarchivebooks;ithacacollege-ol;kalamazoocollege-ol;printdisabled;randolph-macon-college-ol;rochester-ol;stmaryscountylibrary;the-claremont-colleges-ol;udc-ol;uhmauicollege-ol;uni-ol;universityofarizona-ol;universityofcoloradoboulder-ol;universityofoklahoma-ol;wilsoncollege-ol;worthingtonlibraries-ol",
+            "key": "/works/OL15663797W",
+            "language": [
+                "eng"
+            ],
+            "public_scan_b": false,
+            "title": "The Hidden Reality"
+        },
+        {
+            "author_key": [
+                "OL7171698A"
+            ],
+            "author_name": [
+                "Jack Cheng"
+            ],
+            "cover_edition_key": "OL27339659M",
+            "cover_i": 8803792,
+            "edition_count": 8,
+            "first_publish_year": 2017,
+            "has_fulltext": false,
+            "key": "/works/OL20158699W",
+            "language": [
+                "eng"
+            ],
+            "public_scan_b": false,
+            "title": "See You in the Cosmos"
+        },
+        {
+            "author_key": [
+                "OL7548227A"
+            ],
+            "author_name": [
+                "Shamrock Logbook"
+            ],
+            "cover_edition_key": "OL41042897M",
+            "cover_i": 13164048,
+            "edition_count": 642,
+            "first_publish_year": 2000,
+            "has_fulltext": false,
+            "key": "/works/OL27471935W",
+            "language": [
+                "eng"
+            ],
+            "public_scan_b": false,
+            "title": "Address Book"
+        },
+        {
+            "author_key": [
+                "OL392185A",
+                "OL2701649A",
+                "OL2774934A",
+                "OL2703357A",
+                "OL7481654A",
+                "OL9954627A",
+                "OL9998840A",
+                "OL1713492A",
+                "OL10816613A",
+                "OL11174200A",
+                "OL11328212A",
+                "OL13067780A"
+            ],
+            "author_name": [
+                "E. D. Smith",
+                "Edward Elmer Smith",
+                "Frederick E. Smith",
+                "E. E. Smith",
+                "Edward E. Smith",
+                "\u201cDoc\u201d E.E. Smith",
+                "E. E. &quot;Doc&quot; Smith",
+                "E. E. Smith",
+                "E.E. \"Doc Smith",
+                "Edward Elmer  Smith",
+                "Edward \"Doc\" Smith",
+                "Edward Doc\" Smith"
+            ],
+            "cover_edition_key": "OL7501434M",
+            "cover_i": 4627686,
+            "edition_count": 67,
+            "first_publish_year": 1948,
+            "has_fulltext": true,
+            "ia": [
+                "triplanetary0000smit",
+                "triplanetary00smit",
+                "triplanetaryfirs0000smit"
+            ],
+            "ia_collection_s": "inlibrary;internetarchivebooks;printdisabled",
+            "key": "/works/OL2685469W",
+            "language": [
+                "eng"
+            ],
+            "lending_edition_s": "OL8456632M",
+            "lending_identifier_s": "triplanetary0000smit",
+            "public_scan_b": true,
+            "title": "Triplanetary",
+            "id_standard_ebooks": [
+                "e-e-smith/triplanetary"
+            ]
+        },
+        {
+            "author_key": [
+                "OL18969A"
+            ],
+            "author_name": [
+                "John Dewey"
+            ],
+            "cover_edition_key": "OL7721625M",
+            "cover_i": 6738842,
+            "edition_count": 40,
+            "first_publish_year": 1916,
+            "has_fulltext": true,
+            "ia": [
+                "democracyeducati00deweuoft",
+                "democracyandeduc00deweuoft",
+                "democracyeducati00deweiala",
+                "democracyeducati0000dewe_p0k0",
+                "democracyeducati0000dewe_r8d0",
+                "democracyeducati00dewe"
+            ],
+            "ia_collection_s": "americana;binghamton-ol;cdl;framingham-ol;georgetown-university-law-library-ol;inlibrary;internetarchivebooks;kellylibrary;printdisabled;toronto;uni-ol;university_of_toronto",
+            "key": "/works/OL111359W",
+            "language": [
+                "eng",
+                "heb"
+            ],
+            "lending_edition_s": "OL6585880M",
+            "lending_identifier_s": "democracyeducati00deweuoft",
+            "public_scan_b": true,
+            "subtitle": "an introduction to the philosophy of education",
+            "title": "Democracy and Education"
+        },
+        {
+            "author_key": [
+                "OL107911A"
+            ],
+            "author_name": [
+                "George Bernard Shaw"
+            ],
+            "cover_edition_key": "OL2539594M",
+            "cover_i": 8245287,
+            "edition_count": 88,
+            "first_publish_year": 1909,
+            "has_fulltext": true,
+            "ia": [
+                "major_barbara_1204_librivox",
+                "majorbarbarascre00shaw",
+                "majorbarbara00shawgoog",
+                "majorbarbaradefi00shaw",
+                "majorbarbara0000shaw",
+                "majorbarbara00shaw",
+                "majorbarbar00shaw",
+                "majorbarbaradefi00shaw_0",
+                "majorbarbarament0000geor",
+                "majorbarbarafacs0000shaw",
+                "majorbarbara0000shaw_z9e6",
+                "majorbarbara0000shaw_i5q8",
+                "majorbarbara000shaw"
+            ],
+            "ia_collection_s": "americana;americanuniversity-ol;audio_bookspoetry;belmont-ol;binghamton-ol;cnusd-ol;dartmouthlibrary-ol;delawarecountydistrictlibrary;hamiltonpubliclibrary-ol;inlibrary;internetarchivebooks;johnshopkins-ol;library_of_atlantis;librivoxaudio;occidentalcollegelibrary-ol;openlibrary-d-ol;printdisabled;trent_university;universityofarizona-ol;universityofcoloradoboulder-ol;wilsoncollege-ol",
+            "key": "/works/OL1066517W",
+            "language": [
+                "eng",
+                "fre",
+                "ger",
+                "kor",
+                "spa"
+            ],
+            "lending_edition_s": "OL32622832M",
+            "lending_identifier_s": "major_barbara_1204_librivox",
+            "public_scan_b": true,
+            "title": "Major Barbara",
+            "id_librivox": [
+                "6348"
+            ]
+        },
+        {
+            "author_key": [
+                "OL42322A"
+            ],
+            "author_name": [
+                "H. Beam Piper"
+            ],
+            "cover_edition_key": "OL8242608M",
+            "cover_i": 1591936,
+            "edition_count": 63,
+            "first_publish_year": 1961,
+            "has_fulltext": true,
+            "ia": [
+                "littlefuzzy0000hbea",
+                "littlefuzzy00pipe",
+                "isbn_9780843959116"
+            ],
+            "ia_collection_s": "americana;inlibrary;internetarchivebooks;printdisabled;uslprototype",
+            "key": "/works/OL579085W",
+            "language": [
+                "eng",
+                "ger"
+            ],
+            "lending_edition_s": "OL43297900M",
+            "lending_identifier_s": "littlefuzzy0000hbea",
+            "public_scan_b": true,
+            "title": "Little Fuzzy",
+            "id_standard_ebooks": [
+                "h-beam-piper/little-fuzzy"
+            ]
+        },
+        {
+            "author_key": [
+                "OL9606981A"
+            ],
+            "author_name": [
+                "United Unicorn United Unicorn Nations"
+            ],
+            "edition_count": 108,
+            "first_publish_year": 2020,
+            "has_fulltext": false,
+            "key": "/works/OL25449460W",
+            "language": [
+                "eng"
+            ],
+            "public_scan_b": false,
+            "title": "My Sticker Album"
+        },
+        {
+            "author_key": [
+                "OL8937815A"
+            ],
+            "author_name": [
+                "Brothergravydesigns"
+            ],
+            "edition_count": 214,
+            "first_publish_year": 2016,
+            "has_fulltext": false,
+            "key": "/works/OL41204451W",
+            "language": [
+                "eng"
+            ],
+            "public_scan_b": false,
+            "title": "Journal"
+        },
+        {
+            "author_key": [
+                "OL584895A"
+            ],
+            "author_name": [
+                "Richard Tarnas"
+            ],
+            "cover_edition_key": "OL7591265M",
+            "cover_i": 1237422,
+            "edition_count": 4,
+            "first_publish_year": 2005,
+            "has_fulltext": true,
+            "ia": [
+                "cosmospsycheinti00tarn"
+            ],
+            "ia_collection_s": "americanuniversity-ol;binghamton-ol;gwulibraries-ol;internetarchivebooks;johnshopkins-ol;printdisabled;spokanepubliclibrary-ol;uhmauicollege-ol;unb-ol;universityofarizona-ol;universityofcoloradoboulder-ol;universityofoklahoma-ol;wilsoncollege-ol",
+            "key": "/works/OL3500788W",
+            "language": [
+                "eng"
+            ],
+            "public_scan_b": false,
+            "title": "Cosmos and Psyche"
+        },
+        {
+            "author_key": [
+                "OL21039A"
+            ],
+            "author_name": [
+                "Michio Kaku"
+            ],
+            "cover_edition_key": "OL8362761M",
+            "cover_i": 744966,
+            "edition_count": 5,
+            "first_publish_year": 2004,
+            "has_fulltext": true,
+            "ia": [
+                "parallelworldsjo00kakurich",
+                "parallelworldsbe0000kaku"
+            ],
+            "ia_collection_s": "americana;gbell;internetarchivebooks;printdisabled",
+            "key": "/works/OL14861738W",
+            "language": [
+                "eng"
+            ],
+            "public_scan_b": false,
+            "subtitle": "A Journey Through Creation, Higher Dimensions, and the Future of the Cosmos",
+            "title": "Parallel Worlds"
+        },
+        {
+            "author_key": [
+                "OL2703408A"
+            ],
+            "author_name": [
+                "Elisabetta Dami"
+            ],
+            "cover_edition_key": "OL26491260M",
+            "cover_i": 8569917,
+            "edition_count": 8,
+            "first_publish_year": 2015,
+            "has_fulltext": true,
+            "ia": [
+                "desafogalcticoen0000stil",
+                "galacticgoal00stil"
+            ],
+            "ia_collection_s": "americana;cnusd-ol;denverpubliclibrary-ol;hamiltonpubliclibrary-ol;inlibrary;internetarchivebooks;miltonpubliclibrary-ol;openlibrary-d-ol;printdisabled;worthingtonlibraries-ol",
+            "key": "/works/OL17916874W",
+            "language": [
+                "spa",
+                "ita",
+                "eng"
+            ],
+            "lending_edition_s": "OL27209819M",
+            "lending_identifier_s": "desafogalcticoen0000stil",
+            "public_scan_b": false,
+            "title": "Sfida galattica all'ultimo gol"
+        },
+        {
+            "author_key": [
+                "OL1794738A",
+                "OL7729758A",
+                "OL9942534A",
+                "OL12546854A"
+            ],
+            "author_name": [
+                "Mircea Eliade",
+                "Cristian Butnariu",
+                "V\u00edctor Obiols Llandrich",
+                "Llu\u00eds Duch \u00c1lvarez"
+            ],
+            "cover_edition_key": "OL8837535M",
+            "cover_i": 966806,
+            "edition_count": 54,
+            "first_publish_year": 1949,
+            "has_fulltext": true,
+            "ia": [
+                "elmitodeleternor0000unse",
+                "lemythedeleterne0000mirc",
+                "mythofeternalret1954elia",
+                "cosmoshistory0000unse",
+                "cosmoshistorymyt00elia",
+                "mythofexternal00elia",
+                "mythofeternalr00elia",
+                "mythofeternalret0000elia"
+            ],
+            "ia_collection_s": "americana;americanuniversity-ol;belmont-ol;dartmouthlibrary-ol;gwulibraries-ol;inlibrary;internetarchivebooks;marygrovecollege;pma-ol;printdisabled;riceuniversity-ol;rochester-ol;saiacs-ol;the-claremont-colleges-ol;trent_university;unb-ol;uni-ol;wilsoncollege-ol;wrlc-ol",
+            "key": "/works/OL748595W",
+            "language": [
+                "eng",
+                "und",
+                "fre",
+                "ger",
+                "rus",
+                "spa"
+            ],
+            "lending_edition_s": "OL26438837M",
+            "lending_identifier_s": "elmitodeleternor0000unse",
+            "public_scan_b": false,
+            "subtitle": "arch\u00e9types et r\u00e9p\u00e9tition",
+            "title": "Le Mythe de l'\u00e9ternel retour"
+        },
+        {
+            "author_key": [
+                "OL11065500A"
+            ],
+            "author_name": [
+                "Cosmos Cosmos"
+            ],
+            "edition_count": 1,
+            "first_publish_year": 2019,
+            "has_fulltext": false,
+            "key": "/works/OL30049606W",
+            "language": [
+                "fre"
+            ],
+            "public_scan_b": false,
+            "title": "Royaumes de Gama"
+        },
+        {
+            "author_key": [
+                "OL220398A"
+            ],
+            "author_name": [
+                "Philip Jos\u00e9 Farmer"
+            ],
+            "cover_edition_key": "OL21501429M",
+            "cover_i": 8038964,
+            "edition_count": 9,
+            "first_publish_year": 1968,
+            "has_fulltext": true,
+            "ia": [
+                "privatecosmos00phil",
+                "privatecosmos0000phil_z8s7"
+            ],
+            "ia_collection_s": "inlibrary;internetarchivebooks;printdisabled",
+            "key": "/works/OL273078W",
+            "language": [
+                "eng"
+            ],
+            "lending_edition_s": "OL7526312M",
+            "lending_identifier_s": "privatecosmos00phil",
+            "public_scan_b": false,
+            "title": "A Private Cosmos"
+        },
+        {
+            "author_key": [
+                "OL335680A"
+            ],
+            "author_name": [
+                "Helen Garner"
+            ],
+            "cover_edition_key": "OL17173520M",
+            "cover_i": 6308841,
+            "edition_count": 8,
+            "first_publish_year": 1992,
+            "has_fulltext": true,
+            "ia": [
+                "cosmocosmolino0000garn",
+                "cosmocosmolino00garn"
+            ],
+            "ia_collection_s": "inlibrary;internetarchivebooks;printdisabled",
+            "key": "/works/OL2431261W",
+            "language": [
+                "eng"
+            ],
+            "lending_edition_s": "OL28481589M",
+            "lending_identifier_s": "cosmocosmolino0000garn",
+            "public_scan_b": false,
+            "title": "Cosmo Cosmolino"
+        },
+        {
+            "author_key": [
+                "OL34221A"
+            ],
+            "author_name": [
+                "Isaac Asimov"
+            ],
+            "cover_edition_key": "OL1863530M",
+            "cover_i": 7897293,
+            "edition_count": 8,
+            "first_publish_year": 1991,
+            "has_fulltext": true,
+            "ia": [
+                "atomjourneyacros00asim",
+                "atomjourneyacros0000asim_k9j9"
+            ],
+            "ia_collection_s": "americanuniversity-ol;binghamton-ol;cnusd-ol;dartmouthlibrary-ol;framingham-ol;gwulibraries-ol;inlibrary;internetarchivebooks;ithacacollege-ol;printdisabled;rochester-ol;udc-ol;uhmauicollege-ol;uni-ol;universityofarizona-ol;universityofcoloradoboulder-ol;wilsoncollege-ol",
+            "key": "/works/OL46342W",
+            "language": [
+                "eng"
+            ],
+            "lending_edition_s": "OL1863530M",
+            "lending_identifier_s": "atomjourneyacros00asim",
+            "public_scan_b": false,
+            "subtitle": "journey across the subatomic cosmos",
+            "title": "Atom"
+        },
+        {
+            "author_key": [
+                "OL1073213A",
+                "OL3263766A"
+            ],
+            "author_name": [
+                "Claus E. Rolfs",
+                "William S. Rodney"
+            ],
+            "cover_edition_key": "OL2387711M",
+            "cover_i": 4977373,
+            "edition_count": 2,
+            "first_publish_year": 1988,
+            "has_fulltext": true,
+            "ia": [
+                "cauldronsincosmo0000rolf"
+            ],
+            "ia_collection_s": "binghamton-ol;drakeuniversity-ol;framingham-ol;gwulibraries-ol;internetarchivebooks;ithacacollege-ol;johnshopkins-ol;occidentalcollegelibrary-ol;printdisabled;randolph-macon-college-ol;rochester-ol;the-claremont-colleges-ol;udc-ol;unb-ol;universityofarizona-ol;universityofcoloradoboulder-ol;universityofoklahoma-ol;wrlc-ol",
+            "key": "/works/OL4970475W",
+            "language": [
+                "eng"
+            ],
+            "public_scan_b": false,
+            "title": "Cauldrons in the cosmos"
+        },
+        {
+            "author_key": [
+                "OL2703408A"
+            ],
+            "author_name": [
+                "Elisabetta Dami"
+            ],
+            "cover_edition_key": "OL26487419M",
+            "cover_i": 8232679,
+            "edition_count": 8,
+            "first_publish_year": 2014,
+            "has_fulltext": true,
+            "ia": [
+                "laamenazadelplan0000elis",
+                "alienescape00stil"
+            ],
+            "ia_collection_s": "americana;cnusd-ol;delawarecountydistrictlibrary-ol;denverpubliclibrary-ol;hamiltonpubliclibrary-ol;inlibrary;internetarchivebooks;miltonpubliclibrary-ol;openlibrary-d-ol;printdisabled;worthingtonlibraries-ol",
+            "key": "/works/OL17912315W",
+            "language": [
+                "eng",
+                "ita"
+            ],
+            "lending_edition_s": "OL28318060M",
+            "lending_identifier_s": "laamenazadelplan0000elis",
+            "public_scan_b": false,
+            "title": "Minaccia dal pianeta Blurgo"
+        },
+        {
+            "author_key": [
+                "OL21169A"
+            ],
+            "author_name": [
+                "Walker Percy"
+            ],
+            "cover_edition_key": "OL24753333M",
+            "cover_i": 6807080,
+            "edition_count": 9,
+            "first_publish_year": 1983,
+            "has_fulltext": true,
+            "ia": [
+                "lostincosmoslast00perc",
+                "lostincosmos00perc",
+                "lostincosmoslast00perc"
+            ],
+            "ia_collection_s": "americana;americanuniversity-ol;binghamton-ol;bostonuniversitylibraries-ol;cua-ol;dartmouthlibrary-ol;delawarecountydistrictlibrary;denverpubliclibrary-ol;gwulibraries-ol;internetarchivebooks;johnshopkins-ol;kalamazoocollege-ol;library_of_atlantis;marymount-ol;occidentalcollegelibrary-ol;printdisabled;randolph-macon-college-ol;riceuniversity-ol;rochester-ol;the-claremont-colleges-ol;unb-ol;uni-ol;universityofcoloradoboulder-ol;universityofoklahoma-ol;wilsoncollege-ol",
+            "key": "/works/OL15843883W",
+            "language": [
+                "eng"
+            ],
+            "public_scan_b": false,
+            "title": "Lost in the cosmos"
+        },
+        {
+            "author_key": [
+                "OL14043965A"
+            ],
+            "author_name": [
+                "Carl Sagan"
+            ],
+            "edition_count": 12,
+            "first_publish_year": 2015,
+            "has_fulltext": false,
+            "key": "/works/OL40415580W",
+            "language": [
+                "spa",
+                "eng"
+            ],
+            "public_scan_b": false,
+            "title": "Cosmos"
+        },
+        {
+            "author_key": [
+                "OL709919A",
+                "OL397760A",
+                "OL866719A"
+            ],
+            "author_name": [
+                "David A. Freidel",
+                "Linda Schele",
+                "Joy Parker"
+            ],
+            "cover_edition_key": "OL1395375M",
+            "cover_i": 3930936,
+            "edition_count": 5,
+            "first_publish_year": 1993,
+            "has_fulltext": true,
+            "ia": [
+                "mayacosmosthreet00frei",
+                "mayacosmosthreet0000frei"
+            ],
+            "ia_collection_s": "americana;binghamton-ol;bostonuniversitylibraries-ol;dartmouthlibrary-ol;denverpubliclibrary-ol;gwulibraries-ol;inlibrary;internetarchivebooks;kalamazoocollege-ol;marygrovecollege;printdisabled;randolph-macon-college-ol;rochester-ol;the-claremont-colleges-ol;uhmauicollege-ol;unb-ol;uni-ol;universityofarizona-ol;universityofcoloradoboulder-ol;universityofthewest-ol",
+            "key": "/works/OL3903049W",
+            "language": [
+                "eng",
+                "spa"
+            ],
+            "lending_edition_s": "OL23101786M",
+            "lending_identifier_s": "mayacosmosthreet00frei",
+            "public_scan_b": false,
+            "title": "Maya cosmos"
+        },
+        {
+            "author_key": [
+                "OL526842A"
+            ],
+            "author_name": [
+                "Jenny Strauss Clay"
+            ],
+            "cover_edition_key": "OL3684607M",
+            "cover_i": 357703,
+            "edition_count": 8,
+            "first_publish_year": 2003,
+            "has_fulltext": true,
+            "ia": [
+                "hesiodscosmos0000clay"
+            ],
+            "ia_collection_s": "americanuniversity-ol;binghamton-ol;dartmouthlibrary-ol;gwulibraries-ol;internetarchivebooks;johnshopkins-ol;printdisabled;randolph-macon-college-ol;riceuniversity-ol;rochester-ol;trent_university;udc-ol;universityofcoloradoboulder-ol;universityofoklahoma-ol;wilsoncollege-ol",
+            "key": "/works/OL3233632W",
+            "language": [
+                "eng"
+            ],
+            "public_scan_b": false,
+            "title": "Hesiod's cosmos"
+        },
+        {
+            "author_key": [
+                "OL34096A"
+            ],
+            "author_name": [
+                "Witold Gombrowicz"
+            ],
+            "cover_edition_key": "OL3399515M",
+            "cover_i": 162629,
+            "edition_count": 15,
+            "first_publish_year": 1965,
+            "has_fulltext": true,
+            "ia": [
+                "cosmos0000gomb",
+                "cosmos00gomb"
+            ],
+            "ia_collection_s": "americanuniversity-ol;binghamton-ol;dartmouthlibrary-ol;denverpubliclibrary-ol;gwulibraries-ol;internetarchivebooks;johnshopkins-ol;printdisabled;rochester-ol;the-claremont-colleges-ol;universityofarizona-ol;universityofcoloradoboulder-ol;universityofoklahoma-ol;wilsoncollege-ol",
+            "key": "/works/OL37089W",
+            "language": [
+                "fre",
+                "pol",
+                "rus",
+                "eng",
+                "spa"
+            ],
+            "public_scan_b": false,
+            "title": "Kosmos"
+        },
+        {
+            "author_key": [
+                "OL934561A"
+            ],
+            "author_name": [
+                "Cosmos."
+            ],
+            "edition_count": 1,
+            "first_publish_year": 1997,
+            "has_fulltext": false,
+            "key": "/works/OL4590478W",
+            "public_scan_b": false,
+            "title": "Cosmos Pri Maths 5 Pb Cameroon"
+        },
+        {
+            "author_key": [
+                "OL934561A"
+            ],
+            "author_name": [
+                "Cosmos."
+            ],
+            "edition_count": 1,
+            "first_publish_year": 1997,
+            "has_fulltext": false,
+            "key": "/works/OL4590479W",
+            "public_scan_b": false,
+            "title": "Cosmos Pri Maths 6 Pb Cameroon"
+        },
+        {
+            "author_key": [
+                "OL7678600A"
+            ],
+            "author_name": [
+                "Cosmos"
+            ],
+            "cover_edition_key": "OL27454615M",
+            "cover_i": 8913231,
+            "edition_count": 2,
+            "first_publish_year": 1917,
+            "has_fulltext": false,
+            "key": "/works/OL20256514W",
+            "public_scan_b": false,
+            "title": "The Basis of Durable Peace"
+        },
+        {
+            "author_key": [
+                "OL65430A"
+            ],
+            "author_name": [
+                "Maurice G. Dantec"
+            ],
+            "cover_edition_key": "OL10686325M",
+            "cover_i": 2405572,
+            "edition_count": 5,
+            "first_publish_year": 2005,
+            "has_fulltext": true,
+            "ia": [
+                "cosmosincorporat0000dant_o3p0",
+                "cosmosincorporat0000dant"
+            ],
+            "ia_collection_s": "dartmouthlibrary-ol;inlibrary;internetarchivebooks;printdisabled",
+            "key": "/works/OL785563W",
+            "language": [
+                "fre",
+                "eng"
+            ],
+            "lending_edition_s": "OL32779122M",
+            "lending_identifier_s": "cosmosincorporat0000dant_o3p0",
+            "public_scan_b": false,
+            "title": "Cosmos incorporated"
+        },
+        {
+            "author_key": [
+                "OL8335453A"
+            ],
+            "author_name": [
+                "Chanda Prescod-Weinstein"
+            ],
+            "cover_edition_key": "OL29704067M",
+            "cover_i": 10406574,
+            "edition_count": 4,
+            "first_publish_year": 2021,
+            "has_fulltext": false,
+            "key": "/works/OL21806051W",
+            "language": [
+                "eng"
+            ],
+            "public_scan_b": false,
+            "title": "The Disordered Cosmos"
+        },
+        {
+            "author_key": [
+                "OL7678600A"
+            ],
+            "author_name": [
+                "Cosmos"
+            ],
+            "edition_count": 1,
+            "first_publish_year": 1917,
+            "has_fulltext": false,
+            "key": "/works/OL31279064W",
+            "public_scan_b": false,
+            "title": "The Basis for Durable Peace"
+        },
+        {
+            "author_key": [
+                "OL934561A"
+            ],
+            "author_name": [
+                "Cosmos."
+            ],
+            "edition_count": 1,
+            "first_publish_year": 1917,
+            "has_fulltext": false,
+            "key": "/works/OL4590473W",
+            "language": [
+                "eng"
+            ],
+            "public_scan_b": false,
+            "title": "The basis of durable peace"
+        },
+        {
+            "author_key": [
+                "OL934561A"
+            ],
+            "author_name": [
+                "Cosmos."
+            ],
+            "edition_count": 1,
+            "first_publish_year": 1997,
+            "has_fulltext": false,
+            "key": "/works/OL4590474W",
+            "public_scan_b": false,
+            "title": "Cosmos Pri Maths 1 Pb Cameroon"
+        },
+        {
+            "author_key": [
+                "OL934561A"
+            ],
+            "author_name": [
+                "Cosmos."
+            ],
+            "edition_count": 1,
+            "first_publish_year": 1997,
+            "has_fulltext": false,
+            "key": "/works/OL4590475W",
+            "public_scan_b": false,
+            "title": "Cosmos Pri Maths 2 Pb Cameroon"
+        },
+        {
+            "author_key": [
+                "OL934561A"
+            ],
+            "author_name": [
+                "Cosmos."
+            ],
+            "edition_count": 1,
+            "first_publish_year": 1997,
+            "has_fulltext": false,
+            "key": "/works/OL4590476W",
+            "public_scan_b": false,
+            "title": "Cosmos Pri Maths 3 Pb Cameroon"
+        },
+        {
+            "author_key": [
+                "OL934561A"
+            ],
+            "author_name": [
+                "Cosmos."
+            ],
+            "edition_count": 1,
+            "first_publish_year": 1997,
+            "has_fulltext": false,
+            "key": "/works/OL4590477W",
+            "public_scan_b": false,
+            "title": "Cosmos Pri Maths 4 Pb Cameroon"
+        },
+        {
+            "author_key": [
+                "OL934561A"
+            ],
+            "author_name": [
+                "Cosmos."
+            ],
+            "edition_count": 1,
+            "first_publish_year": 1999,
+            "has_fulltext": false,
+            "key": "/works/OL4590480W",
+            "public_scan_b": false,
+            "title": "Cosmos Pri Maths 7 Pb Cameroon"
+        },
+        {
+            "author_key": [
+                "OL934561A"
+            ],
+            "author_name": [
+                "Cosmos."
+            ],
+            "edition_count": 1,
+            "first_publish_year": 1997,
+            "has_fulltext": false,
+            "key": "/works/OL4590481W",
+            "public_scan_b": false,
+            "title": "Cosmos Pri Maths 7 Wb Cameroon"
+        },
+        {
+            "author_key": [
+                "OL934561A"
+            ],
+            "author_name": [
+                "Cosmos."
+            ],
+            "edition_count": 1,
+            "first_publish_year": 1984,
+            "has_fulltext": false,
+            "key": "/works/OL4590482W",
+            "language": [
+                "ita"
+            ],
+            "public_scan_b": false,
+            "title": "I racconti della giovinezza"
+        },
+        {
+            "author_key": [
+                "OL934561A"
+            ],
+            "author_name": [
+                "Cosmos."
+            ],
+            "cover_edition_key": "OL11284872M",
+            "cover_i": 2642374,
+            "edition_count": 1,
+            "first_publish_year": 2006,
+            "has_fulltext": false,
+            "key": "/works/OL4590483W",
+            "language": [
+                "eng"
+            ],
+            "public_scan_b": false,
+            "title": "Poetry, Lyrics, and Reflections"
+        },
+        {
+            "author_key": [
+                "OL934561A"
+            ],
+            "author_name": [
+                "Cosmos."
+            ],
+            "edition_count": 1,
+            "first_publish_year": 1912,
+            "has_fulltext": false,
+            "key": "/works/OL4590484W",
+            "language": [
+                "eng"
+            ],
+            "public_scan_b": false,
+            "title": "The position of landcsape in art"
+        },
+        {
+            "author_key": [
+                "OL7678600A"
+            ],
+            "author_name": [
+                "Cosmos"
+            ],
+            "edition_count": 1,
+            "first_publish_year": 2018,
+            "has_fulltext": false,
+            "key": "/works/OL32444015W",
+            "language": [
+                "kor"
+            ],
+            "public_scan_b": false,
+            "title": "Wint'\u014f uj\u016d"
+        },
+        {
+            "author_key": [
+                "OL20538A"
+            ],
+            "author_name": [
+                "William Poundstone"
+            ],
+            "cover_edition_key": "OL32716M",
+            "cover_i": 580173,
+            "edition_count": 3,
+            "first_publish_year": 1999,
+            "has_fulltext": true,
+            "ia": [
+                "carlsaganlifeinc00poun"
+            ],
+            "ia_collection_s": "americana;belmont-ol;binghamton-ol;bostonuniversitylibraries-ol;cnusd-ol;cua-ol;dartmouthlibrary-ol;drakeuniversity-ol;gwulibraries-ol;hamiltonpubliclibrary-ol;inlibrary;internetarchivebooks;johnshopkins-ol;kalamazoocollege-ol;printdisabled;randolph-macon-college-ol;riceuniversity-ol;rochester-ol;spokanepubliclibrary-ol;the-claremont-colleges-ol;udc-ol;uni-ol;universityofarizona-ol;universityofcoloradoboulder-ol;worthingtonlibraries-ol;wrlc-ol",
+            "key": "/works/OL118147W",
+            "language": [
+                "eng"
+            ],
+            "lending_edition_s": "OL23245215M",
+            "lending_identifier_s": "carlsaganlifeinc00poun",
+            "public_scan_b": false,
+            "subtitle": "a life in the cosmos",
+            "title": "Carl Sagan"
+        },
+        {
+            "author_key": [
+                "OL1388459A"
+            ],
+            "author_name": [
+                "Devin Scillian"
+            ],
+            "cover_edition_key": "OL3672133M",
+            "cover_i": 1952092,
+            "edition_count": 5,
+            "first_publish_year": 2003,
+            "has_fulltext": true,
+            "ia": [
+                "cosmosmoon00scil"
+            ],
+            "ia_collection_s": "inlibrary;internetarchivebooks;printdisabled",
+            "key": "/works/OL5706719W",
+            "language": [
+                "eng"
+            ],
+            "lending_edition_s": "OL3672133M",
+            "lending_identifier_s": "cosmosmoon00scil",
+            "public_scan_b": false,
+            "title": "Cosmo's moon"
+        },
+        {
+            "author_key": [
+                "OL11210891A"
+            ],
+            "author_name": [
+                "Miracle Cosmos"
+            ],
+            "edition_count": 10,
+            "first_publish_year": 2020,
+            "has_fulltext": false,
+            "key": "/works/OL30691559W",
+            "language": [
+                "eng"
+            ],
+            "public_scan_b": false,
+            "title": "Christmas Coloring Book for Adults"
+        },
+        {
+            "author_key": [
+                "OL3050887A"
+            ],
+            "author_name": [
+                "Javier Pulido"
+            ],
+            "edition_count": 1,
+            "first_publish_year": 2013,
+            "has_fulltext": false,
+            "key": "/works/OL32841030W",
+            "language": [
+                "spa"
+            ],
+            "public_scan_b": false,
+            "title": "Epifan\u00eda cosmo"
+        },
+        {
+            "author_key": [
+                "OL12952735A"
+            ],
+            "author_name": [
+                "Grant-Grey Guda"
+            ],
+            "edition_count": 1,
+            "first_publish_year": 2014,
+            "has_fulltext": false,
+            "key": "/works/OL39265895W",
+            "public_scan_b": false,
+            "title": "Cosmos"
+        },
+        {
+            "author_key": [
+                "OL7375142A"
+            ],
+            "author_name": [
+                "Witold Gombrowicz"
+            ],
+            "cover_edition_key": "OL27687683M",
+            "cover_i": 9127190,
+            "edition_count": 4,
+            "first_publish_year": 2010,
+            "has_fulltext": false,
+            "key": "/works/OL20461422W",
+            "language": [
+                "eng"
+            ],
+            "public_scan_b": false,
+            "title": "Cosmos"
+        },
+        {
+            "author_key": [
+                "OL2703408A"
+            ],
+            "author_name": [
+                "Elisabetta Dami"
+            ],
+            "cover_edition_key": "OL26491344M",
+            "cover_i": 8239247,
+            "edition_count": 8,
+            "first_publish_year": 2016,
+            "has_fulltext": true,
+            "ia": [
+                "peligrobasuraesp0000stil",
+                "bewarespacejunk00stil"
+            ],
+            "ia_collection_s": "inlibrary;internetarchivebooks;printdisabled",
+            "key": "/works/OL17916977W",
+            "language": [
+                "eng",
+                "ita"
+            ],
+            "lending_edition_s": "OL28351549M",
+            "lending_identifier_s": "peligrobasuraesp0000stil",
+            "public_scan_b": false,
+            "title": "Pericolo spazzatura spaziale"
+        },
+        {
+            "author_key": [
+                "OL34096A"
+            ],
+            "author_name": [
+                "Witold Gombrowicz"
+            ],
+            "edition_count": 1,
+            "first_publish_year": 1966,
+            "has_fulltext": false,
+            "key": "/works/OL11069387W",
+            "language": [
+                "fre"
+            ],
+            "public_scan_b": false,
+            "title": "Cosmos"
+        },
+        {
+            "author_key": [
+                "OL237052A"
+            ],
+            "author_name": [
+                "Arthur Howard"
+            ],
+            "cover_edition_key": "OL380442M",
+            "cover_i": 113133,
+            "edition_count": 4,
+            "first_publish_year": 1999,
+            "has_fulltext": true,
+            "ia": [
+                "cosmozooms0000arth",
+                "cosmozooms0000howa"
+            ],
+            "ia_collection_s": "inlibrary;internetarchivebooks;printdisabled",
+            "key": "/works/OL1972908W",
+            "language": [
+                "eng"
+            ],
+            "lending_edition_s": "OL9615438M",
+            "lending_identifier_s": "cosmozooms0000arth",
+            "public_scan_b": false,
+            "title": "Cosmo Zooms"
+        },
+        {
+            "author_key": [
+                "OL10570648A"
+            ],
+            "author_name": [
+                "Cosmos Mindeleff"
+            ],
+            "edition_count": 8,
+            "first_publish_year": 2015,
+            "has_fulltext": false,
+            "key": "/works/OL28508807W",
+            "language": [
+                "eng"
+            ],
+            "public_scan_b": false,
+            "title": "Cliff Ruins of Canyon de Chelly, Arizona"
+        },
+        {
+            "author_key": [
+                "OL90288A"
+            ],
+            "author_name": [
+                "Claude Des Presles"
+            ],
+            "edition_count": 1,
+            "first_publish_year": 1989,
+            "has_fulltext": false,
+            "key": "/works/OL982447W",
+            "language": [
+                "fre"
+            ],
+            "public_scan_b": false,
+            "title": "Cosmos II"
+        },
+        {
+            "author_key": [
+                "OL1136206A"
+            ],
+            "author_name": [
+                "Antonio Lockward Artiles"
+            ],
+            "cover_i": 6878651,
+            "edition_count": 4,
+            "first_publish_year": 1966,
+            "has_fulltext": false,
+            "key": "/works/OL5140279W",
+            "language": [
+                "spa"
+            ],
+            "public_scan_b": false,
+            "title": "Hotel Cosmos"
+        },
+        {
+            "author_key": [
+                "OL255926A"
+            ],
+            "author_name": [
+                "Victor Eftimiu"
+            ],
+            "edition_count": 1,
+            "first_publish_year": 1971,
+            "has_fulltext": false,
+            "key": "/works/OL2083329W",
+            "language": [
+                "rum"
+            ],
+            "public_scan_b": false,
+            "title": "Cosmos"
+        },
+        {
+            "author_key": [
+                "OL4993532A"
+            ],
+            "author_name": [
+                "Fran\u00e7ois Hertel"
+            ],
+            "edition_count": 1,
+            "first_publish_year": 1945,
+            "has_fulltext": false,
+            "key": "/works/OL17963493W",
+            "language": [
+                "fre"
+            ],
+            "public_scan_b": false,
+            "title": "Cosmos"
+        },
+        {
+            "author_key": [
+                "OL135707A"
+            ],
+            "author_name": [
+                "Franc\u0327ois Hertel"
+            ],
+            "edition_count": 1,
+            "first_publish_year": 1945,
+            "has_fulltext": false,
+            "key": "/works/OL1331644W",
+            "language": [
+                "fre"
+            ],
+            "public_scan_b": false,
+            "title": "Cosmos"
+        },
+        {
+            "author_key": [
+                "OL2904387A"
+            ],
+            "author_name": [
+                "Christian Davenport"
+            ],
+            "cover_edition_key": "OL27754294M",
+            "cover_i": 9167513,
+            "edition_count": 6,
+            "first_publish_year": 2018,
+            "has_fulltext": false,
+            "key": "/works/OL19738307W",
+            "language": [
+                "eng"
+            ],
+            "public_scan_b": false,
+            "title": "The space barons"
+        },
+        {
+            "author_key": [
+                "OL1433905A"
+            ],
+            "author_name": [
+                "Ann Druyan"
+            ],
+            "cover_edition_key": "OL27928464M",
+            "cover_i": 9304111,
+            "edition_count": 2,
+            "first_publish_year": 2017,
+            "has_fulltext": false,
+            "key": "/works/OL20654644W",
+            "public_scan_b": false,
+            "subtitle": "Possible Worlds",
+            "title": "Cosmos"
+        },
+        {
+            "author_key": [
+                "OL7518712A"
+            ],
+            "author_name": [
+                "Ian Flynn"
+            ],
+            "edition_count": 1,
+            "first_publish_year": 2018,
+            "has_fulltext": false,
+            "key": "/works/OL19761561W",
+            "language": [
+                "eng"
+            ],
+            "public_scan_b": false,
+            "title": "Cosmo"
+        },
+        {
+            "author_key": [
+                "OL6814936A"
+            ],
+            "author_name": [
+                "Jo Marchant"
+            ],
+            "cover_edition_key": "OL29854222M",
+            "cover_i": 10450863,
+            "edition_count": 9,
+            "first_publish_year": 2020,
+            "has_fulltext": false,
+            "key": "/works/OL21686564W",
+            "language": [
+                "eng"
+            ],
+            "public_scan_b": false,
+            "title": "Human Cosmos"
+        },
+        {
+            "author_key": [
+                "OL2683172A",
+                "OL2746603A"
+            ],
+            "author_name": [
+                "A. Uns\u00f6ld",
+                "William H. McCrea"
+            ],
+            "cover_edition_key": "OL27990196M",
+            "cover_i": 9377391,
+            "edition_count": 3,
+            "first_publish_year": 2013,
+            "has_fulltext": false,
+            "key": "/works/OL20700584W",
+            "language": [
+                "eng"
+            ],
+            "public_scan_b": false,
+            "title": "The New Cosmos."
+        },
+        {
+            "author_key": [
+                "OL5048233A"
+            ],
+            "author_name": [
+                "Dan McGirt"
+            ],
+            "edition_count": 2,
+            "first_publish_year": 1989,
+            "has_fulltext": true,
+            "ia": [
+                "jasoncosmo0000mcgi"
+            ],
+            "ia_collection_s": "inlibrary;internetarchivebooks;printdisabled",
+            "key": "/works/OL11824972W",
+            "language": [
+                "eng"
+            ],
+            "lending_edition_s": "OL17319072M",
+            "lending_identifier_s": "jasoncosmo0000mcgi",
+            "public_scan_b": false,
+            "title": "Jason Cosmo"
+        },
+        {
+            "author_key": [
+                "OL4738321A"
+            ],
+            "author_name": [
+                "Anthony John Patrick Ayres"
+            ],
+            "edition_count": 2,
+            "first_publish_year": 1973,
+            "has_fulltext": false,
+            "key": "/works/OL11291946W",
+            "language": [
+                "eng"
+            ],
+            "public_scan_b": false,
+            "title": "Cosmos series"
+        },
+        {
+            "author_key": [
+                "OL543164A"
+            ],
+            "author_name": [
+                "S. E. Smith"
+            ],
+            "edition_count": 2,
+            "first_publish_year": 2023,
+            "has_fulltext": false,
+            "key": "/works/OL31170794W",
+            "language": [
+                "ger"
+            ],
+            "public_scan_b": false,
+            "title": "Cosmos' Versprechen"
+        },
+        {
+            "author_key": [
+                "OL120150A"
+            ],
+            "author_name": [
+                "Rodolphe Dub\u00e9"
+            ],
+            "edition_count": 2,
+            "first_publish_year": 1945,
+            "has_fulltext": false,
+            "key": "/works/OL1189285W",
+            "language": [
+                "fre"
+            ],
+            "public_scan_b": false,
+            "title": "Cosmos"
+        },
+        {
+            "author_key": [
+                "OL2830402A"
+            ],
+            "author_name": [
+                "Georgia Cosmos"
+            ],
+            "cover_edition_key": "OL7991181M",
+            "cover_i": 1411574,
+            "edition_count": 5,
+            "first_publish_year": 2005,
+            "has_fulltext": false,
+            "key": "/works/OL8478030W",
+            "language": [
+                "eng"
+            ],
+            "public_scan_b": false,
+            "title": "Huguenot Prophecy And Clandestine Worship in the Eighteenth Century"
+        },
+        {
+            "author_key": [
+                "OL10570648A"
+            ],
+            "author_name": [
+                "Cosmos Mindeleff"
+            ],
+            "edition_count": 6,
+            "first_publish_year": 2017,
+            "has_fulltext": false,
+            "key": "/works/OL30029873W",
+            "language": [
+                "eng"
+            ],
+            "public_scan_b": false,
+            "title": "Navaho Houses"
+        },
+        {
+            "author_key": [
+                "OL6325025A"
+            ],
+            "author_name": [
+                "Cosmopolitan"
+            ],
+            "cover_i": 7987239,
+            "edition_count": 1,
+            "has_fulltext": true,
+            "ia": [
+                "cosmokamasutra7700newy"
+            ],
+            "ia_collection_s": "inlibrary;internetarchivebooks;openlibrary-d-ol;printdisabled",
+            "key": "/works/OL17712022W",
+            "lending_edition_s": "OL26313389M",
+            "lending_identifier_s": "cosmokamasutra7700newy",
+            "public_scan_b": false,
+            "subtitle": "77 mind-blowing sex positions",
+            "title": "The Cosmo Kama sutra"
+        },
+        {
+            "author_key": [
+                "OL768561A",
+                "OL2683172A",
+                "OL2682317A"
+            ],
+            "author_name": [
+                "Albrecht Uns\u00f6ld",
+                "A. Uns\u00f6ld",
+                "B. Baschek"
+            ],
+            "cover_edition_key": "OL3168246M",
+            "cover_i": 1192526,
+            "edition_count": 12,
+            "first_publish_year": 1969,
+            "has_fulltext": true,
+            "ia": [
+                "newcosmos0000unso_a8e0",
+                "newcosmos0000unso"
+            ],
+            "ia_collection_s": "americanuniversity-ol;drakeuniversity-ol;gwulibraries-ol;inlibrary;internetarchivebooks;johnshopkins-ol;kalamazoocollege-ol;printdisabled;the-claremont-colleges-ol;trent_university;unb-ol;universityofarizona-ol;universityofcoloradoboulder-ol;wilsoncollege-ol",
+            "key": "/works/OL4101425W",
+            "language": [
+                "eng",
+                "ger"
+            ],
+            "lending_edition_s": "OL1546792M",
+            "lending_identifier_s": "newcosmos0000unso_a8e0",
+            "public_scan_b": false,
+            "title": "Neue Kosmos"
+        },
+        {
+            "author_key": [
+                "OL765755A"
+            ],
+            "author_name": [
+                "Clifford D. Simak"
+            ],
+            "cover_i": 7777957,
+            "edition_count": 7,
+            "first_publish_year": 2009,
+            "has_fulltext": false,
+            "key": "/works/OL17538161W",
+            "language": [
+                "eng"
+            ],
+            "public_scan_b": false,
+            "title": "Hellhounds of the Cosmos"
+        },
+        {
+            "author_key": [
+                "OL1124718A"
+            ],
+            "author_name": [
+                "Louis Berman"
+            ],
+            "cover_edition_key": "OL4436771M",
+            "cover_i": 4404808,
+            "edition_count": 5,
+            "first_publish_year": 1973,
+            "has_fulltext": true,
+            "ia": [
+                "exploringcosmos00berm"
+            ],
+            "ia_collection_s": "internetarchivebooks;printdisabled",
+            "key": "/works/OL5106426W",
+            "language": [
+                "eng"
+            ],
+            "public_scan_b": false,
+            "title": "Exploring the cosmos"
+        },
+        {
+            "author_key": [
+                "OL3461713A"
+            ],
+            "author_name": [
+                "Mohamed S et el"
+            ],
+            "edition_count": 1,
+            "first_publish_year": 2000,
+            "has_fulltext": false,
+            "key": "/works/OL9430649W",
+            "public_scan_b": false,
+            "title": "Cosmos"
+        },
+        {
+            "author_key": [
+                "OL2823515A"
+            ],
+            "author_name": [
+                "Emily Lyle"
+            ],
+            "edition_count": 1,
+            "first_publish_year": 1991,
+            "has_fulltext": false,
+            "key": "/works/OL8461512W",
+            "language": [
+                "eng"
+            ],
+            "public_scan_b": false,
+            "title": "Archaic Cosmos (Polygon Cosmos)"
+        },
+        {
+            "author_key": [
+                "OL9648208A"
+            ],
+            "author_name": [
+                "Jo\u00e3o Fernandes da Silva J\u00fanior"
+            ],
+            "edition_count": 1,
+            "first_publish_year": 2017,
+            "has_fulltext": false,
+            "key": "/works/OL29653378W",
+            "language": [
+                "por"
+            ],
+            "public_scan_b": false,
+            "title": "Cosmos"
+        },
+        {
+            "author_key": [
+                "OL14283266A"
+            ],
+            "author_name": [
+                "Joao da Silva"
+            ],
+            "edition_count": 1,
+            "first_publish_year": 2013,
+            "has_fulltext": false,
+            "key": "/works/OL40059638W",
+            "language": [
+                "por"
+            ],
+            "public_scan_b": false,
+            "title": "Cosmos"
+        },
+        {
+            "author_key": [
+                "OL543164A"
+            ],
+            "author_name": [
+                "S. E. Smith"
+            ],
+            "cover_edition_key": "OL26878277M",
+            "cover_i": 8571798,
+            "edition_count": 1,
+            "first_publish_year": 2015,
+            "has_fulltext": false,
+            "key": "/works/OL19658691W",
+            "public_scan_b": false,
+            "title": "Cosmos' Promise: Cosmos' Gateway"
+        },
+        {
+            "cover_edition_key": "OL7202807M",
+            "cover_i": 5677788,
+            "edition_count": 1,
+            "first_publish_year": 1873,
+            "has_fulltext": true,
+            "ia": [
+                "cosmospoem00londuoft"
+            ],
+            "ia_collection_s": "robarts;toronto;university_of_toronto",
+            "key": "/works/OL16325151W",
+            "lending_edition_s": "OL7202807M",
+            "lending_identifier_s": "cosmospoem00londuoft",
+            "public_scan_b": true,
+            "title": "Cosmos"
+        },
+        {
+            "author_key": [
+                "OL4824551A"
+            ],
+            "author_name": [
+                "Jos\u00e9 Ram\u00f3n Heredia"
+            ],
+            "edition_count": 1,
+            "first_publish_year": 1950,
+            "has_fulltext": false,
+            "key": "/works/OL11462880W",
+            "language": [
+                "spa"
+            ],
+            "public_scan_b": false,
+            "title": "Maravillado cosmos"
+        },
+        {
+            "author_key": [
+                "OL6491718A"
+            ],
+            "author_name": [
+                "GOVERT SCHILLING"
+            ],
+            "cover_edition_key": "OL22608895M",
+            "cover_i": 10237599,
+            "edition_count": 1,
+            "first_publish_year": 2004,
+            "has_fulltext": true,
+            "ia": [
+                "evolvingcosmos0000schi"
+            ],
+            "ia_collection_s": "dartmouthlibrary-ol;gwulibraries-ol;inlibrary;internetarchivebooks;openlibrary-d-ol;printdisabled;riceuniversity-ol;universityofarizona-ol",
+            "key": "/works/OL13635233W",
+            "language": [
+                "und"
+            ],
+            "lending_edition_s": "OL22608895M",
+            "lending_identifier_s": "evolvingcosmos0000schi",
+            "public_scan_b": false,
+            "title": "EVOLVING COSMOS"
+        },
+        {
+            "author_key": [
+                "OL384447A"
+            ],
+            "author_name": [
+                "James Applewhite"
+            ],
+            "cover_edition_key": "OL28799071M",
+            "cover_i": 12994593,
+            "edition_count": 1,
+            "first_publish_year": 2014,
+            "has_fulltext": true,
+            "ia": [
+                "cosmospoem0000appl"
+            ],
+            "ia_collection_s": "internetarchivebooks;printdisabled",
+            "key": "/works/OL21271092W",
+            "language": [
+                "eng"
+            ],
+            "public_scan_b": false,
+            "title": "Cosmos"
+        },
+        {
+            "author_key": [
+                "OL6476385A"
+            ],
+            "author_name": [
+                "JENNY STRAUSS CLAY"
+            ],
+            "cover_edition_key": "OL22554659M",
+            "cover_i": 9477795,
+            "edition_count": 1,
+            "has_fulltext": false,
+            "key": "/works/OL13618525W",
+            "language": [
+                "und"
+            ],
+            "public_scan_b": false,
+            "title": "HESIOD'S COSMOS"
+        },
+        {
+            "author_key": [
+                "OL1433905A"
+            ],
+            "author_name": [
+                "Ann Druyan"
+            ],
+            "cover_edition_key": "OL32434146M",
+            "cover_i": 11094557,
+            "edition_count": 4,
+            "first_publish_year": 2020,
+            "has_fulltext": false,
+            "key": "/works/OL20894953W",
+            "public_scan_b": false,
+            "subtitle": "Possible Worlds",
+            "title": "Cosmos"
+        },
+        {
+            "author_key": [
+                "OL543164A"
+            ],
+            "author_name": [
+                "S. E. Smith"
+            ],
+            "cover_edition_key": "OL32645362M",
+            "cover_i": 11275907,
+            "edition_count": 1,
+            "first_publish_year": 2013,
+            "has_fulltext": false,
+            "key": "/works/OL24609068W",
+            "public_scan_b": false,
+            "title": "Cosmos' Promise : Cosmos' Gateway Book 4"
+        },
+        {
+            "author_key": [
+                "OL2405975A"
+            ],
+            "author_name": [
+                "Cosmos Mindeleff"
+            ],
+            "cover_edition_key": "OL8539899M",
+            "cover_i": 1850719,
+            "edition_count": 5,
+            "first_publish_year": 1897,
+            "has_fulltext": true,
+            "ia": [
+                "cliffruinsofcany00mindrich"
+            ],
+            "ia_collection_s": "americana;cdl",
+            "key": "/works/OL203286W",
+            "language": [
+                "eng"
+            ],
+            "lending_edition_s": "OL7183864M",
+            "lending_identifier_s": "cliffruinsofcany00mindrich",
+            "public_scan_b": true,
+            "title": "The cliff ruins of Canyon de Chelly, Arizona"
+        }
+    ]
+}

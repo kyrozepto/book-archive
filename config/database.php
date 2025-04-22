@@ -18,7 +18,6 @@ try {
     $pdo->exec("CREATE TABLE IF NOT EXISTS users (
         id INT AUTO_INCREMENT PRIMARY KEY,
         username VARCHAR(50) NOT NULL UNIQUE,
-        email VARCHAR(100) NOT NULL UNIQUE,
         password VARCHAR(255) NOT NULL,
         api_key VARCHAR(64) NOT NULL UNIQUE,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -52,6 +51,16 @@ try {
         FOREIGN KEY (collection_id) REFERENCES collections(id) ON DELETE SET NULL
     )");
     
+    // Create collection_items table
+    $pdo->exec("CREATE TABLE IF NOT EXISTS collection_items (
+        collection_id INT NOT NULL,
+        item_id INT NOT NULL,
+        added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY (collection_id, item_id),
+        FOREIGN KEY (collection_id) REFERENCES collections(id) ON DELETE CASCADE,
+        FOREIGN KEY (item_id) REFERENCES items(id) ON DELETE CASCADE
+    )");
+    
     // Create tags table
     $pdo->exec("CREATE TABLE IF NOT EXISTS tags (
         id INT AUTO_INCREMENT PRIMARY KEY,
@@ -69,6 +78,9 @@ try {
     )");
     
 } catch(PDOException $e) {
-    die("Database error: " . $e->getMessage());
+    header('Content-Type: application/json');
+    http_response_code(500);
+    echo json_encode(['error' => 'Database initialization failed', 'details' => $e->getMessage()]);
+    exit;
 }
 ?> 

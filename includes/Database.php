@@ -15,16 +15,33 @@ class Database {
                 ]
             );
         } catch (PDOException $e) {
-            die("Connection failed: " . $e->getMessage());
+            header('Content-Type: application/json');
+            http_response_code(500);
+            echo json_encode(['error' => 'Database connection failed', 'details' => $e->getMessage()]);
+            exit;
         }
     }
 
     public function prepare($sql) {
-        return $this->pdo->prepare($sql);
+        try {
+            return $this->pdo->prepare($sql);
+        } catch (PDOException $e) {
+            header('Content-Type: application/json');
+            http_response_code(500);
+            echo json_encode(['error' => 'Database query preparation failed', 'details' => $e->getMessage()]);
+            exit;
+        }
     }
 
     public function query($sql) {
-        return $this->pdo->query($sql);
+        try {
+            return $this->pdo->query($sql);
+        } catch (PDOException $e) {
+            header('Content-Type: application/json');
+            http_response_code(500);
+            echo json_encode(['error' => 'Database query failed', 'details' => $e->getMessage()]);
+            exit;
+        }
     }
 
     public function lastInsertId() {

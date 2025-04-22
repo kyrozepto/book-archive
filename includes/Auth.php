@@ -9,12 +9,12 @@ class Auth {
         $this->db = new Database();
     }
 
-    public function register($username, $email, $password) {
-        // Check if username or email already exists
-        $stmt = $this->db->prepare("SELECT id FROM users WHERE username = ? OR email = ?");
-        $stmt->execute([$username, $email]);
+    public function register($username, $password) {
+        // Check if username already exists
+        $stmt = $this->db->prepare("SELECT id FROM users WHERE username = ?");
+        $stmt->execute([$username]);
         if ($stmt->rowCount() > 0) {
-            throw new Exception("Username or email already exists");
+            throw new Exception("Username already exists");
         }
 
         // Hash password
@@ -24,19 +24,22 @@ class Auth {
         $api_key = bin2hex(random_bytes(32));
 
         // Insert new user
-        $stmt = $this->db->prepare("INSERT INTO users (username, email, password, api_key) VALUES (?, ?, ?, ?)");
-        return $stmt->execute([$username, $email, $hashedPassword, $api_key]);
+        $stmt = $this->db->prepare("INSERT INTO users (username, password, api_key) VALUES (?, ?, ?)");
+        if ($stmt->execute([$username, $hashedPassword, $api_key])) {
+            return $api_key;
+        }
+        return false;
     }
 
     public function login($username, $password) {
-        $stmt = $this->db->prepare("SELECT id, password, api_key FROM users WHERE username = ? OR email = ?");
-        $stmt->execute([$username, $username]);
+        $stmt = $this->db->prepare("SELECT id, password, api_key FROM users WHERE username = ?");
+        $stmt->execute([$username]);
         $user = $stmt->fetch();
 
         if ($user && password_verify($password, $user['password'])) {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['api_key'] = $user['api_key'];
-            return true;
+            return $user['api_key'];
         }
 
         return false;
@@ -56,7 +59,7 @@ class Auth {
             return null;
         }
 
-        $stmt = $this->db->prepare("SELECT id, username, email, api_key FROM users WHERE api_key = ?");
+        $stmt = $this->db->prepare("SELECT id, username, api_key, created_at FROM users WHERE api_key = ?");
         $stmt->execute([$_SESSION['api_key']]);
         return $stmt->fetch();
     }

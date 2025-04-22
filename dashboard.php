@@ -11,9 +11,14 @@ if (!isset($_SESSION['api_key'])) {
 }
 
 $api_key = $_SESSION['api_key'];
+$user = $auth->getCurrentUser();
 
-// Placeholder for user data - replace with actual data fetch
-$user_name = "User Name";
+if (!$user) {
+    header('Location: index.php');
+    exit;
+}
+
+$user_name = $user['username'];
 $user_avatar = "https://via.placeholder.com/40"; // Default or fetched avatar
 ?>
 <!DOCTYPE html>
@@ -39,17 +44,16 @@ $user_avatar = "https://via.placeholder.com/40"; // Default or fetched avatar
             <nav class="sidebar__nav">
                 <ul>
                     <li><a href="#" class="nav-item active"><i class="ri-book-2-line"></i><span>All Books</span></a></li>
-                    <li><a href="#" class="nav-item"><i class="ri-heart-3-line"></i><span>Favorites</span></a></li>
+                    <li><a href="#" class="nav-item" id="all-journals-btn"><i class="ri-article-line"></i><span>All Journals</span></a></li>
+                    <li><a href="notes.php" class="nav-item"><i class="ri-sticky-note-line"></i><span>Notes</span></a></li>
                     <li><a href="#" class="nav-item"><i class="ri-share-line"></i><span>Shared</span></a></li>
                 </ul>
 
                 <div class="sidebar__section">
                     <h2 class="sidebar__section-title">Collections</h2>
                     <ul>
-                        <li><a href="#" class="nav-item"><i class="ri-folder-line"></i><span>Fiction</span></a></li>
-                        <li><a href="#" class="nav-item"><i class="ri-folder-line"></i><span>Non-Fiction</span></a></li>
-                        <li><a href="#" class="nav-item"><i class="ri-folder-line"></i><span>Science</span></a></li>
-                        <li><a href="#" class="nav-item"><i class="ri-folder-add-line"></i><span>New Collection</span></a></li>
+                        <li><a href="collections.php" class="nav-item"><i class="ri-folder-line"></i><span>My Collections</span></a></li>
+                        <li><a href="#" class="nav-item" onclick="showNewCollectionModal()"><i class="ri-folder-add-line"></i><span>New Collection</span></a></li>
                     </ul>
                 </div>
             </nav>
@@ -99,7 +103,6 @@ $user_avatar = "https://via.placeholder.com/40"; // Default or fetched avatar
                     <div class="tabs">
                         <button class="tab active" data-tab="recent">Recent</button>
                         <button class="tab" data-tab="popular">Popular</button>
-                        <button class="tab" data-tab="new">New</button>
                     </div>
                      <!-- Or Add Filter/Sort options -->
                      <!-- <button class="button button--secondary"><i class="ri-filter-3-line"></i> Filter</button> -->
@@ -158,63 +161,235 @@ $user_avatar = "https://via.placeholder.com/40"; // Default or fetched avatar
         const emptyState = document.getElementById('empty-state');
         const apiKey = '<?php echo $api_key; ?>';
         let searchTimeout;
+        let currentTab = 'recent';
+        let currentMode = 'books'; // 'books' or 'journals'
+
+        // Add event listener for All Journals button
+        document.getElementById('all-journals-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            currentMode = 'journals';
+            document.querySelector('.nav-item.active').classList.remove('active');
+            this.classList.add('active');
+            document.querySelector('.content-title').textContent = 'All Journals';
+            searchInput.placeholder = 'Search papers by title, author, or arXiv ID...';
+            bookGrid.innerHTML = '';
+            showEmptyState();
+        });
+
+        // Add event listener for All Books button
+        document.querySelector('.nav-item:first-child').addEventListener('click', function(e) {
+            e.preventDefault();
+            currentMode = 'books';
+            document.querySelector('.nav-item.active').classList.remove('active');
+            this.classList.add('active');
+            document.querySelector('.content-title').textContent = 'All Books';
+            searchInput.placeholder = 'Search books by title, author, or ISBN...';
+            bookGrid.innerHTML = '';
+            showEmptyState();
+        });
 
         // --- Search Functionality ---
         function performSearch() {
             const searchTerm = searchInput.value.trim();
-            // Optional: Add minimum search term length
-            // if (searchTerm.length < 3) {
-            //     bookGrid.innerHTML = ''; // Clear previous results
-            //     loadingState.style.display = 'none';
-            //     emptyState.style.display = 'none';
-            //     return;
-            // }
+            if (searchTerm.length < 2) {
+                showErrorState('Please enter at least 2 characters to search');
+                return;
+            }
 
             showLoading();
 
-            fetch(`api/books.php?search=${encodeURIComponent(searchTerm)}`, {
-                headers: { 'X-API-Key': apiKey }
+            if (currentMode === 'books') {
+                // Existing book search code
+            fetch(`/book-archive/api/books.php?search=${encodeURIComponent(searchTerm)}&tab=${currentTab}`, {
+                headers: { 
+                    'X-API-Key': apiKey,
+                    'Content-Type': 'application/json'
+                }
             })
             .then(response => {
                 if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                    return response.json().then(errorData => {
+                        throw new Error(errorData.details || `Error: ${response.status}`);
+                    });
                 }
                 return response.json();
             })
-            .then(data => displayBooks(data.docs))
+            .then(data => {
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+                if (!data.docs || data.docs.length === 0) {
+                    showEmptyState();
+                    return;
+                }
+                displayBooks(data.docs);
+            })
             .catch(error => {
                 console.error('Error fetching books:', error);
-                showErrorState('Failed to load books. Please try again.');
-                showToast('Error searching for books', 'error');
+                showErrorState(error.message || 'Failed to load books. Please try again.');
+                showToast(error.message || 'Error searching for books', 'error');
+            });
+            } else {
+                // Journal search using our API endpoint
+                fetch(`/book-archive/api/journals.php?search=${encodeURIComponent(searchTerm)}&start=0&max_results=20`, {
+                    headers: { 
+                        'X-API-Key': apiKey,
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        return response.json().then(errorData => {
+                            throw new Error(errorData.error || `Error: ${response.status}`);
+                        });
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.error) {
+                        throw new Error(data.error);
+                    }
+                    if (!data.papers || data.papers.length === 0) {
+                        showEmptyState();
+                        return;
+                    }
+                    displayPapers(data.papers);
+                })
+                .catch(error => {
+                    console.error('Error fetching papers:', error);
+                    showErrorState(error.message || 'Failed to load papers. Please try again.');
+                    showToast(error.message || 'Error searching for papers', 'error');
+                });
+            }
+        }
+
+        function displayPapers(papers) {
+            loadingState.style.display = 'none';
+            bookGrid.innerHTML = '';
+
+            papers.forEach(paper => {
+                const paperCard = document.createElement('article');
+                paperCard.className = 'book-card';
+                paperCard.setAttribute('data-paper-id', paper.id);
+                paperCard.onclick = () => handleBookCardClick(paper.id);
+                paperCard.innerHTML = `
+                    <div class="book-card__content">
+                        <h3 class="book-card__title" title="${paper.title}">${paper.title}</h3>
+                        <p class="book-card__author">${paper.authors.join(', ')}</p>
+                        <p class="book-card__summary">${paper.summary}</p>
+                        <div class="book-card__actions">
+                            <div class="dropdown">
+                                <button class="button button--icon-only button--subtle dropdown-toggle" aria-label="More actions" onclick="event.stopPropagation(); toggleDropdown('${paper.id}', this)">
+                                    <i class="ri-more-2-fill"></i>
+                                </button>
+                                <div class="dropdown-menu" id="dropdown-${paper.id}">
+                                    <a href="${paper.pdfLink}" class="dropdown-item" target="_blank" onclick="event.stopPropagation();"><i class="ri-file-pdf-line"></i><span>View PDF</span></a>
+                                    <button class="dropdown-item" onclick="event.stopPropagation(); addToCollection('${paper.id}')"><i class="ri-folder-add-line"></i><span>Add to Collection</span></button>
+                                    <div class="dropdown-divider"></div>
+                                    <button class="dropdown-item" onclick="event.stopPropagation(); showPaperDetails('${paper.id}')"><i class="ri-eye-line"></i><span>View Details</span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                bookGrid.appendChild(paperCard);
             });
         }
 
+        function showPaperDetails(paperId) {
+            // Find the paper in the current results
+            const paperCard = document.querySelector(`[data-paper-id="${paperId}"]`);
+            const originalContent = paperCard.innerHTML;
+            paperCard.innerHTML = '<div class="loading-placeholder"><p>Loading paper details...</p></div>';
+
+            // Fetch detailed paper information from our API
+            fetch(`/book-archive/api/journals.php?search=${paperId}&max_results=1`, {
+                headers: { 
+                    'X-API-Key': apiKey,
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.error) {
+                        throw new Error(data.error);
+                    }
+                    if (!data.papers || data.papers.length === 0) {
+                        throw new Error('Paper not found');
+                    }
+
+                    const paper = data.papers[0];
+                    const detailsHtml = `
+                        <div class="book-details">
+                            <div class="book-details__content">
+                                <div class="book-details__info">
+                                    <h1 class="book-details__title">${paper.title}</h1>
+                                    <p class="book-details__author">${paper.authors.join(', ')}</p>
+                                    <p class="book-details__meta">Published: ${new Date(paper.published).toLocaleDateString()}</p>
+                                    <p class="book-details__meta">Last Updated: ${new Date(paper.updated).toLocaleDateString()}</p>
+                                    <div class="book-details__description">
+                                        ${paper.summary}
+                                    </div>
+                                    <div class="book-details__actions">
+                                        <a href="${paper.pdfLink}" class="button" target="_blank">
+                                            <i class="ri-file-pdf-line"></i> View PDF
+                                        </a>
+                                        <button class="button button--secondary" onclick="addToCollection('${paper.id}')">
+                                            <i class="ri-folder-add-line"></i> Add to Collection
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    paperCard.innerHTML = detailsHtml;
+                })
+                .catch(error => {
+                    console.error('Error fetching paper details:', error);
+                    paperCard.innerHTML = originalContent;
+                    showToast('Failed to load paper details', 'error');
+                });
+        }
+
+        // Update existing event listeners
         searchInput.addEventListener('input', () => {
             clearTimeout(searchTimeout);
-            // Debounce search: wait 500ms after user stops typing
             searchTimeout = setTimeout(performSearch, 500);
         });
 
         searchInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
-                clearTimeout(searchTimeout); // Prevent duplicate search
+                clearTimeout(searchTimeout);
                 performSearch();
             }
         });
 
         // --- Display Logic ---
         function showLoading() {
-            bookGrid.innerHTML = ''; // Clear previous results
+            bookGrid.innerHTML = '';
             loadingState.style.display = 'block';
             emptyState.style.display = 'none';
         }
 
         function showErrorState(message) {
-             bookGrid.innerHTML = '';
-             loadingState.style.display = 'none';
-             emptyState.style.display = 'flex'; // Use flex for alignment
-             emptyState.querySelector('p').textContent = message || 'An error occurred.';
-             emptyState.querySelector('.empty-state__subtext').style.display = 'none'; // Hide subtext for errors
+            bookGrid.innerHTML = '';
+            loadingState.style.display = 'none';
+            emptyState.style.display = 'flex';
+            emptyState.querySelector('p').textContent = message;
+            emptyState.querySelector('.empty-state__subtext').style.display = 'none';
+        }
+
+        function showEmptyState() {
+            bookGrid.innerHTML = '';
+            loadingState.style.display = 'none';
+            emptyState.style.display = 'flex';
+            emptyState.querySelector('p').textContent = 'No books found matching your search.';
+            emptyState.querySelector('.empty-state__subtext').style.display = 'block';
         }
 
         function displayBooks(books) {
@@ -233,6 +408,7 @@ $user_avatar = "https://via.placeholder.com/40"; // Default or fetched avatar
                     const bookCard = document.createElement('article');
                     bookCard.className = 'book-card';
                     bookCard.setAttribute('data-book-id', bookKey);
+                    bookCard.onclick = () => handleBookCardClick(bookKey);
                     bookCard.innerHTML = `
                         <div class="book-card__image-container">
                              <img src="${coverUrl}" alt="Cover for ${book.title}" class="book-card__image" loading="lazy" onerror="this.onerror=null; this.src='https://placehold.co/300x450/e2e8f0/94a3b8?text=No+Cover';">
@@ -242,16 +418,15 @@ $user_avatar = "https://via.placeholder.com/40"; // Default or fetched avatar
                             <p class="book-card__author">${author}</p>
                             <div class="book-card__actions">
                                 <div class="dropdown">
-                                    <button class="button button--icon-only button--subtle dropdown-toggle" aria-label="More actions" onclick="toggleDropdown('${bookKey}', this)">
+                                    <button class="button button--icon-only button--subtle dropdown-toggle" aria-label="More actions" onclick="event.stopPropagation(); toggleDropdown('${bookKey}', this)">
                                         <i class="ri-more-2-fill"></i>
                                     </button>
                                     <div class="dropdown-menu" id="dropdown-${bookKey}">
-                                        <button class="dropdown-item" onclick="updateStatus('${bookKey}', 'wishlist', this)"><i class="ri-bookmark-line"></i><span>Add to Wishlist</span></button>
-                                        <button class="dropdown-item" onclick="updateStatus('${bookKey}', 'reading', this)"><i class="ri-book-open-line"></i><span>Mark as Reading</span></button>
-                                        <button class="dropdown-item" onclick="updateStatus('${bookKey}', 'read', this)"><i class="ri-check-line"></i><span>Mark as Read</span></button>
+                                        <button class="dropdown-item" onclick="event.stopPropagation(); updateStatus('${bookKey}', 'wishlist', this)"><i class="ri-bookmark-line"></i><span>Add to Wishlist</span></button>
+                                        <button class="dropdown-item" onclick="event.stopPropagation(); updateStatus('${bookKey}', 'reading', this)"><i class="ri-book-open-line"></i><span>Mark as Reading</span></button>
+                                        <button class="dropdown-item" onclick="event.stopPropagation(); updateStatus('${bookKey}', 'read', this)"><i class="ri-check-line"></i><span>Mark as Read</span></button>
                                         <div class="dropdown-divider"></div>
-                                        <button class="dropdown-item" onclick="addToCollection('${bookKey}')"><i class="ri-folder-add-line"></i><span>Add to Collection</span></button>
-                                        <button class="dropdown-item" onclick="shareBook('${bookKey}')"><i class="ri-share-line"></i><span>Share</span></button>
+                                        <button class="dropdown-item" onclick="event.stopPropagation(); showBookDetails('${bookKey}')"><i class="ri-eye-line"></i><span>View Details</span></button>
                                     </div>
                                 </div>
                             </div>
@@ -466,6 +641,192 @@ $user_avatar = "https://via.placeholder.com/40"; // Default or fetched avatar
              // You might want to load 'Recent' books by default if your API supports it
              // fetchDefaultBooks();
         });
+
+        // Add after the displayBooks function
+        function showBookDetails(bookId) {
+            // Show loading state
+            const bookCard = document.querySelector(`[data-book-id="${bookId}"]`);
+            const originalContent = bookCard.innerHTML;
+            bookCard.innerHTML = '<div class="loading-placeholder"><p>Loading book details...</p></div>';
+
+            // Fetch book details from Open Library API
+            fetch(`https://openlibrary.org/works/${bookId}.json`)
+                .then(response => response.json())
+                .then(data => {
+                    // Create book details view
+                    const detailsHtml = `
+                        <div class="book-details">
+                            <div class="book-details__header">
+                                <button class="button button--icon-only" onclick="closeBookDetails('${bookId}')">
+                                    <i class="ri-arrow-left-line"></i>
+                                </button>
+                                <h2>${data.title}</h2>
+                            </div>
+                            <div class="book-details__content">
+                                <div class="book-details__cover">
+                                    <img src="https://covers.openlibrary.org/b/id/${data.covers?.[0] || ''}-L.jpg" 
+                                         alt="Cover for ${data.title}"
+                                         onerror="this.src='https://placehold.co/300x450/e2e8f0/94a3b8?text=No+Cover'">
+                                </div>
+                                <div class="book-details__info">
+                                    <h3>${data.title}</h3>
+                                    <p class="book-details__author">${data.authors?.map(a => a.author.key).join(', ') || 'Unknown Author'}</p>
+                                    <p class="book-details__description">${data.description?.value || data.description || 'No description available'}</p>
+                                    <div class="book-details__actions">
+                                        <button class="button" onclick="showAddToCollectionModal('${bookId}')">
+                                            <i class="ri-folder-add-line"></i> Add to Collection
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    bookCard.innerHTML = detailsHtml;
+                })
+                .catch(error => {
+                    console.error('Error fetching book details:', error);
+                    bookCard.innerHTML = originalContent;
+                    showToast('Failed to load book details', 'error');
+                });
+        }
+
+        function closeBookDetails(bookId) {
+            const bookCard = document.querySelector(`[data-book-id="${bookId}"]`);
+            // Restore original book card content
+            displayBooks([{
+                key: bookId,
+                title: bookCard.querySelector('h2').textContent,
+                author_name: [bookCard.querySelector('.book-details__author').textContent],
+                cover_i: bookCard.querySelector('img').src.match(/\/b\/id\/(\d+)-/)?.[1]
+            }]);
+        }
+
+        function showAddToCollectionModal(bookId) {
+            // Create modal HTML
+            const modalHtml = `
+                <div class="modal" id="add-to-collection-modal">
+                    <div class="modal__content">
+                        <div class="modal__header">
+                            <h3>Add to Collection</h3>
+                            <button class="button button--icon-only" onclick="closeModal()">
+                                <i class="ri-close-line"></i>
+                            </button>
+                        </div>
+                        <div class="modal__body">
+                            <div class="form-group">
+                                <label for="collection-select">Select Collection</label>
+                                <select id="collection-select" class="form-control">
+                                    <option value="">Loading collections...</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="new-collection">Or Create New Collection</label>
+                                <input type="text" id="new-collection" class="form-control" placeholder="Collection name">
+                            </div>
+                        </div>
+                        <div class="modal__footer">
+                            <button class="button button--secondary" onclick="closeModal()">Cancel</button>
+                            <button class="button" onclick="addToCollection('${bookId}')">Add</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Add modal to document
+            document.body.insertAdjacentHTML('beforeend', modalHtml);
+
+            // Load collections
+            fetch('/book-archive/api/collections.php', {
+                headers: { 'X-API-Key': apiKey }
+            })
+            .then(response => response.json())
+            .then(collections => {
+                const select = document.getElementById('collection-select');
+                select.innerHTML = '<option value="">Select a collection</option>';
+                collections.forEach(collection => {
+                    select.innerHTML += `<option value="${collection.id}">${collection.name}</option>`;
+                });
+            })
+            .catch(error => {
+                console.error('Error loading collections:', error);
+                showToast('Failed to load collections', 'error');
+            });
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('add-to-collection-modal');
+            if (modal) {
+                modal.remove();
+            }
+        }
+
+        async function addToCollection(bookId) {
+            const select = document.getElementById('collection-select');
+            const newCollection = document.getElementById('new-collection');
+            let collectionId = select.value;
+
+            // If new collection name is provided, create it first
+            if (newCollection.value) {
+                try {
+                    const response = await fetch('/book-archive/api/collections.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-API-Key': apiKey
+                        },
+                        body: JSON.stringify({
+                            name: newCollection.value
+                        })
+                    });
+                    const data = await response.json();
+                    if (!response.ok) throw new Error(data.error || 'Failed to create collection');
+                    collectionId = data.id;
+                } catch (error) {
+                    showToast(error.message, 'error');
+                    return;
+                }
+            }
+
+            if (!collectionId) {
+                showToast('Please select or create a collection', 'error');
+                return;
+            }
+
+            // Add book to collection
+            try {
+                const response = await fetch('/book-archive/api/collections.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-API-Key': apiKey
+                    },
+                    body: JSON.stringify({
+                        collection_id: collectionId,
+                        book_id: bookId
+                    })
+                });
+                const data = await response.json();
+                if (!response.ok) throw new Error(data.error || 'Failed to add book to collection');
+                
+                showToast('Book added to collection successfully', 'success');
+                closeModal();
+                closeBookDetails(bookId);
+            } catch (error) {
+                showToast(error.message, 'error');
+            }
+        }
+
+        // Handle book card click
+        function handleBookCardClick(id) {
+            const card = document.querySelector(`[data-paper-id="${id}"]`) || document.querySelector(`[data-book-id="${id}"]`);
+            if (!card) return;
+
+            if (card.hasAttribute('data-paper-id')) {
+                window.location.href = `journal-details.php?id=${id}`;
+            } else {
+                window.location.href = `book-details.php?id=${id}`;
+            }
+        }
 
     </script>
 </body>
