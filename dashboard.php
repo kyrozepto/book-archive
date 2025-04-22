@@ -56,7 +56,7 @@ $user_name = $user['username'];
             <header class="header">
                 <div class="search-container">
                     <i class="ri-search-line search-icon"></i>
-                    <input type="search" placeholder="Search books by title, author, or ISBN..." class="search-input" id="search-input">
+                    <input type="search" placeholder="Search books by title, author, or ISBN" class="search-input" id="search-input">
                 </div>
                 <div class="header-actions">
                     <a href="logout.php" class="nav-item nav-item--logout"><i class="ri-logout-box-r-line"></i> Logout</a>
@@ -101,7 +101,7 @@ $user_name = $user['username'];
             document.querySelector('.nav-item.active').classList.remove('active');
             this.classList.add('active');
             document.querySelector('.content-title').textContent = 'Journals';
-            searchInput.placeholder = 'Search papers by title, author, or arXiv ID...';
+            searchInput.placeholder = 'Search papers by title, author, or arXiv ID';
             bookGrid.innerHTML = '';
             showEmptyState();
         });

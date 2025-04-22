@@ -23,6 +23,7 @@ try {
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )");
 
+    // Create notes table
     $pdo->exec("CREATE TABLE IF NOT EXISTS notes (
         id INT(11) NOT NULL AUTO_INCREMENT,
         user_id INT(11) NOT NULL,
