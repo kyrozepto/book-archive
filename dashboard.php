@@ -43,21 +43,12 @@ $user_avatar = "https://via.placeholder.com/40"; // Default or fetched avatar
             </div>
             <nav class="sidebar__nav">
                 <ul>
-                    <li><a href="#" class="nav-item active"><i class="ri-book-2-line"></i><span>All Books</span></a></li>
+                    <li><a href="dashboard.php" class="nav-item active"><i class="ri-book-2-line"></i><span>All Books</span></a></li>
                     <li><a href="#" class="nav-item" id="all-journals-btn"><i class="ri-article-line"></i><span>All Journals</span></a></li>
                     <li><a href="notes.php" class="nav-item"><i class="ri-sticky-note-line"></i><span>Notes</span></a></li>
-                    <li><a href="#" class="nav-item"><i class="ri-share-line"></i><span>Shared</span></a></li>
                 </ul>
-
-                <div class="sidebar__section">
-                    <h2 class="sidebar__section-title">Collections</h2>
-                    <ul>
-                        <li><a href="collections.php" class="nav-item"><i class="ri-folder-line"></i><span>My Collections</span></a></li>
-                        <li><a href="#" class="nav-item" onclick="showNewCollectionModal()"><i class="ri-folder-add-line"></i><span>New Collection</span></a></li>
-                    </ul>
-                </div>
             </nav>
-             <div class="sidebar__footer">
+            <div class="sidebar__footer">
                 <a href="logout.php" class="nav-item nav-item--logout"><i class="ri-logout-box-r-line"></i><span>Logout</span></a>
             </div>
         </aside>
@@ -70,29 +61,7 @@ $user_avatar = "https://via.placeholder.com/40"; // Default or fetched avatar
                     <input type="search" placeholder="Search books by title, author, or ISBN..." class="search-input" id="search-input">
                 </div>
                 <div class="header-actions">
-                     <button class="button button--secondary button--icon-only" aria-label="Add New Book">
-                        <i class="ri-add-line"></i>
-                    </button>
-                     <button class="button button--icon-only" aria-label="Notifications">
-                        <i class="ri-notification-3-line"></i>
-                        <!-- Add badge here if there are notifications -->
-                    </button>
-                    <div class="user-menu">
-                        <button class="user-menu__toggle" aria-label="User Menu">
-                            <img src="<?php echo htmlspecialchars($user_avatar); ?>" alt="User Avatar" class="user-avatar">
-                            <i class="ri-arrow-down-s-line"></i>
-                        </button>
-                        <div class="user-menu__dropdown">
-                            <div class="user-menu__info">
-                                <span class="user-menu__name"><?php echo htmlspecialchars($user_name); ?></span>
-                                <!-- <span class="user-menu__email">user@example.com</span> -->
-                            </div>
-                            <a href="#" class="user-menu__item"><i class="ri-user-line"></i> Profile</a>
-                            <a href="#" class="user-menu__item"><i class="ri-settings-3-line"></i> Settings</a>
-                            <hr class="user-menu__divider">
-                            <a href="logout.php" class="user-menu__item user-menu__item--logout"><i class="ri-logout-box-r-line"></i> Logout</a>
-                        </div>
-                    </div>
+                    <a href="logout.php" class="nav-item nav-item--logout"><i class="ri-logout-box-r-line"></i> Logout</a>
                 </div>
             </header>
 

@@ -76,21 +76,9 @@ $user_avatar = "https://via.placeholder.com/40";
                     <a href="dashboard.php" class="button button--secondary">
                         <i class="ri-arrow-left-line"></i> Back to Dashboard
                     </a>
-                    <div class="user-menu">
-                        <button class="user-menu__toggle" aria-label="User Menu">
-                            <img src="<?php echo htmlspecialchars($user_avatar); ?>" alt="User Avatar" class="user-avatar">
-                            <i class="ri-arrow-down-s-line"></i>
-                        </button>
-                        <div class="user-menu__dropdown">
-                            <div class="user-menu__info">
-                                <span class="user-menu__name"><?php echo htmlspecialchars($user_name); ?></span>
-                            </div>
-                            <a href="#" class="user-menu__item"><i class="ri-user-line"></i> Profile</a>
-                            <a href="#" class="user-menu__item"><i class="ri-settings-3-line"></i> Settings</a>
-                            <hr class="user-menu__divider">
-                            <a href="logout.php" class="user-menu__item user-menu__item--logout"><i class="ri-logout-box-r-line"></i> Logout</a>
-                        </div>
-                    </div>
+                </div>
+                <div class="header-actions">
+                    <a href="logout.php" class="nav-item nav-item--logout"><i class="ri-logout-box-r-line"></i> Logout</a>
                 </div>
             </header>
 
@@ -249,9 +237,6 @@ $user_avatar = "https://via.placeholder.com/40";
                                     <a href="${paper.pdfLink}" class="button" target="_blank">
                                         <i class="ri-file-pdf-line"></i> View PDF
                                     </a>
-                                    <button class="button button--secondary" onclick="showAddToCollectionModal()">
-                                        <i class="ri-folder-add-line"></i> Add to Collection
-                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -262,121 +247,6 @@ $user_avatar = "https://via.placeholder.com/40";
             } catch (error) {
                 console.error('Error loading paper details:', error);
                 showToast(error.message || 'Failed to load paper details', 'error');
-            }
-        }
-
-        // Show add to collection modal
-        function showAddToCollectionModal() {
-            const modalHtml = `
-                <div class="modal" id="add-to-collection-modal">
-                    <div class="modal__content">
-                        <div class="modal__header">
-                            <h3>Add to Collection</h3>
-                            <button class="button button--icon-only" onclick="closeModal()">
-                                <i class="ri-close-line"></i>
-                            </button>
-                        </div>
-                        <div class="modal__body">
-                            <div class="form-group">
-                                <label for="collection-select">Select Collection</label>
-                                <select id="collection-select" class="form-control">
-                                    <option value="">Loading collections...</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="new-collection">Or Create New Collection</label>
-                                <input type="text" id="new-collection" class="form-control" placeholder="Collection name">
-                            </div>
-                        </div>
-                        <div class="modal__footer">
-                            <button class="button button--secondary" onclick="closeModal()">Cancel</button>
-                            <button class="button" onclick="addToCollection()">Add</button>
-                        </div>
-                    </div>
-                </div>
-            `;
-
-            document.body.insertAdjacentHTML('beforeend', modalHtml);
-
-            // Load collections
-            fetch('/book-archive/api/collections.php', {
-                headers: { 'X-API-Key': apiKey }
-            })
-            .then(response => response.json())
-            .then(collections => {
-                const select = document.getElementById('collection-select');
-                select.innerHTML = '<option value="">Select a collection</option>';
-                collections.forEach(collection => {
-                    select.innerHTML += `<option value="${collection.id}">${collection.name}</option>`;
-                });
-            })
-            .catch(error => {
-                console.error('Error loading collections:', error);
-                showToast('Failed to load collections', 'error');
-            });
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('add-to-collection-modal');
-            if (modal) {
-                modal.remove();
-            }
-        }
-
-        async function addToCollection() {
-            const select = document.getElementById('collection-select');
-            const newCollection = document.getElementById('new-collection');
-            let collectionId = select.value;
-
-            if (newCollection.value) {
-                try {
-                    const response = await fetch('/book-archive/api/collections.php', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-API-Key': apiKey
-                        },
-                        body: JSON.stringify({
-                            name: newCollection.value
-                        })
-                    });
-                    const data = await response.json();
-                    if (!response.ok) throw new Error(data.error || 'Failed to create collection');
-                    collectionId = data.id;
-                } catch (error) {
-                    showToast(error.message, 'error');
-                    return;
-                }
-            }
-
-            if (!collectionId) {
-                showToast('Please select or create a collection', 'error');
-                return;
-            }
-
-            try {
-                const response = await fetch('/book-archive/api/collections.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-API-Key': apiKey
-                    },
-                    body: JSON.stringify({
-                        collection_id: collectionId,
-                        paper_id: paperId,
-                        type: 'paper',
-                        title: document.querySelector('.paper-details__title').textContent,
-                        author: document.querySelector('.paper-details__author').textContent,
-                        pdf_link: document.querySelector('.paper-details__actions a').href
-                    })
-                });
-                const data = await response.json();
-                if (!response.ok) throw new Error(data.error || 'Failed to add paper to collection');
-                
-                showToast('Paper added to collection successfully', 'success');
-                closeModal();
-            } catch (error) {
-                showToast(error.message, 'error');
             }
         }
 

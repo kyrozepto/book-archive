@@ -49,6 +49,7 @@ $user_avatar = "https://via.placeholder.com/40";
             <nav class="sidebar__nav">
                 <ul>
                     <li><a href="dashboard.php" class="nav-item"><i class="ri-book-2-line"></i><span>All Books</span></a></li>
+                    <li><a href="#" class="nav-item" id="all-journals-btn"><i class="ri-article-line"></i><span>All Journals</span></a></li>
                     <li><a href="notes.php" class="nav-item"><i class="ri-sticky-note-line"></i><span>Notes</span></a></li>
                     <li><a href="#" class="nav-item"><i class="ri-share-line"></i><span>Shared</span></a></li>
                 </ul>
@@ -73,21 +74,9 @@ $user_avatar = "https://via.placeholder.com/40";
                     <a href="dashboard.php" class="button button--secondary">
                         <i class="ri-arrow-left-line"></i> Back to Dashboard
                     </a>
-                    <div class="user-menu">
-                        <button class="user-menu__toggle" aria-label="User Menu">
-                            <img src="<?php echo htmlspecialchars($user_avatar); ?>" alt="User Avatar" class="user-avatar">
-                            <i class="ri-arrow-down-s-line"></i>
-                        </button>
-                        <div class="user-menu__dropdown">
-                            <div class="user-menu__info">
-                                <span class="user-menu__name"><?php echo htmlspecialchars($user_name); ?></span>
-                            </div>
-                            <a href="#" class="user-menu__item"><i class="ri-user-line"></i> Profile</a>
-                            <a href="#" class="user-menu__item"><i class="ri-settings-3-line"></i> Settings</a>
-                            <hr class="user-menu__divider">
-                            <a href="logout.php" class="user-menu__item user-menu__item--logout"><i class="ri-logout-box-r-line"></i> Logout</a>
-                        </div>
-                    </div>
+                </div>
+                <div class="header-actions">
+                    <a href="logout.php" class="nav-item nav-item--logout"><i class="ri-logout-box-r-line"></i> Logout</a>
                 </div>
             </header>
 
@@ -263,9 +252,6 @@ $user_avatar = "https://via.placeholder.com/40";
                                     ${book.description || 'No description available'}
                                 </div>
                                 <div class="book-details__actions">
-                                    <button class="button" onclick="showAddToCollectionModal()">
-                                        <i class="ri-folder-add-line"></i> Add to Collection
-                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -276,131 +262,6 @@ $user_avatar = "https://via.placeholder.com/40";
             } catch (error) {
                 console.error('Error loading book details:', error);
                 showToast(error.message || 'Failed to load book details', 'error');
-            }
-        }
-
-        // Show add to collection modal
-        function showAddToCollectionModal() {
-            const modalHtml = `
-                <div class="modal" id="add-to-collection-modal">
-                    <div class="modal__content">
-                        <div class="modal__header">
-                            <h3>Add to Collection</h3>
-                            <button class="button button--icon-only" onclick="closeModal()">
-                                <i class="ri-close-line"></i>
-                            </button>
-                        </div>
-                        <div class="modal__body">
-                            <div class="form-group">
-                                <label for="collection-select">Select Collection</label>
-                                <select id="collection-select" class="form-control">
-                                    <option value="">Loading collections...</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="new-collection">Or Create New Collection</label>
-                                <input type="text" id="new-collection" class="form-control" placeholder="Collection name">
-                            </div>
-                        </div>
-                        <div class="modal__footer">
-                            <button class="button button--secondary" onclick="closeModal()">Cancel</button>
-                            <button class="button" onclick="addToCollection()">Add</button>
-                        </div>
-                    </div>
-                </div>
-            `;
-
-            document.body.insertAdjacentHTML('beforeend', modalHtml);
-
-            // Load collections
-            fetch('api/collections.php', {
-                headers: { 
-                    'X-API-Key': apiKey,
-                    'Accept': 'application/json'
-                }
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(collections => {
-                const select = document.getElementById('collection-select');
-                select.innerHTML = '<option value="">Select a collection</option>';
-                collections.forEach(collection => {
-                    select.innerHTML += `<option value="${collection.id}">${collection.name}</option>`;
-                });
-            })
-            .catch(error => {
-                console.error('Error loading collections:', error);
-                showToast('Failed to load collections', 'error');
-            });
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('add-to-collection-modal');
-            if (modal) {
-                modal.remove();
-            }
-        }
-
-        async function addToCollection() {
-            const select = document.getElementById('collection-select');
-            const newCollection = document.getElementById('new-collection');
-            let collectionId = select.value;
-
-            if (newCollection.value) {
-                try {
-                    const response = await fetch('api/collections.php', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-API-Key': apiKey,
-                            'Accept': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            name: newCollection.value
-                        })
-                    });
-                    const data = await response.json();
-                    if (!response.ok) throw new Error(data.error || 'Failed to create collection');
-                    collectionId = data.id;
-                } catch (error) {
-                    showToast(error.message, 'error');
-                    return;
-                }
-            }
-
-            if (!collectionId) {
-                showToast('Please select or create a collection', 'error');
-                return;
-            }
-
-            // Add book to collection
-            try {
-                const response = await fetch('api/collections.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-API-Key': apiKey,
-                        'Accept': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        collection_id: collectionId,
-                        book_id: bookId,
-                        title: window.currentBook.title,
-                        author: window.currentBook.author || 'Unknown Author',
-                        cover_url: window.currentBook.cover_url || window.currentBook.cover?.large || window.currentBook.cover?.medium || window.currentBook.cover?.small
-                    })
-                });
-                const data = await response.json();
-                if (!response.ok) throw new Error(data.error || 'Failed to add book to collection');
-                
-                showToast('Book added to collection successfully', 'success');
-                closeModal();
-            } catch (error) {
-                showToast(error.message, 'error');
             }
         }
 
