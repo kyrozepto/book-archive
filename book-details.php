@@ -48,19 +48,10 @@ $user_avatar = "https://via.placeholder.com/40";
             </div>
             <nav class="sidebar__nav">
                 <ul>
-                    <li><a href="dashboard.php" class="nav-item"><i class="ri-book-2-line"></i><span>All Books</span></a></li>
-                    <li><a href="#" class="nav-item" id="all-journals-btn"><i class="ri-article-line"></i><span>All Journals</span></a></li>
+                    <li><a href="dashboard.php" class="nav-item"><i class="ri-book-2-line"></i><span>Books</span></a></li>
+                    <li><a href="#" class="nav-item" id="all-journals-btn"><i class="ri-article-line"></i><span>Journals</span></a></li>
                     <li><a href="notes.php" class="nav-item"><i class="ri-sticky-note-line"></i><span>Notes</span></a></li>
-                    <li><a href="#" class="nav-item"><i class="ri-share-line"></i><span>Shared</span></a></li>
                 </ul>
-
-                <div class="sidebar__section">
-                    <h2 class="sidebar__section-title">Collections</h2>
-                    <ul>
-                        <li><a href="collections.php" class="nav-item"><i class="ri-folder-line"></i><span>My Collections</span></a></li>
-                        <li><a href="#" class="nav-item" onclick="showNewCollectionModal()"><i class="ri-folder-add-line"></i><span>New Collection</span></a></li>
-                    </ul>
-                </div>
             </nav>
             <div class="sidebar__footer">
                 <a href="logout.php" class="nav-item nav-item--logout"><i class="ri-logout-box-r-line"></i><span>Logout</span></a>
@@ -113,6 +104,18 @@ $user_avatar = "https://via.placeholder.com/40";
                         </div>
                     </div>
                 </div>
+
+                <!-- Author Photos Section -->
+                <div class="author-photos-section" id="author-photos-section" style="display: none;">
+                    <div class="author-photos-section__header">
+                        <h3>Author Photos</h3>
+                    </div>
+                    <div class="author-photos-section__content">
+                        <div class="author-photos-grid" id="author-photos-grid">
+                            <!-- Author photos will be loaded here -->
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
     </div>
@@ -151,6 +154,45 @@ $user_avatar = "https://via.placeholder.com/40";
     .citation-actions {
         display: flex;
         gap: 1rem;
+    }
+
+    .author-photos-section {
+        background: white;
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin-top: 2rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .author-photos-section__header {
+        margin-bottom: 1rem;
+    }
+
+    .author-photos-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .author-photo-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .author-photo {
+        width: 150px;
+        height: 150px;
+        border-radius: 8px;
+        object-fit: cover;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .author-name {
+        font-size: 0.875rem;
+        text-align: center;
+        color: #4b5563;
     }
     </style>
 
@@ -215,11 +257,43 @@ $user_avatar = "https://via.placeholder.com/40";
                     }
                     const olData = await olResponse.json();
                     
+                    // Get author names and photos from Open Library
+                    let authorNames = 'Unknown Author';
+                    let authorPhotos = [];
+                    
+                    if (olData.authors && olData.authors.length > 0) {
+                        // Fetch author details for each author
+                        const authorPromises = olData.authors.map(async (author) => {
+                            const authorKey = author.author.key;
+                            if (!authorKey) return { name: 'Unknown Author', photo: null };
+                            
+                            try {
+                                const authorResponse = await fetch(`https://openlibrary.org${authorKey}.json`);
+                                if (!authorResponse.ok) return { name: 'Unknown Author', photo: null };
+                                
+                                const authorData = await authorResponse.json();
+                                const photoKey = authorKey.split('/').pop();
+                                return {
+                                    name: authorData.name || 'Unknown Author',
+                                    photo: `https://covers.openlibrary.org/a/olid/${photoKey}-L.jpg`
+                                };
+                            } catch (error) {
+                                console.error('Error fetching author details:', error);
+                                return { name: 'Unknown Author', photo: null };
+                            }
+                        });
+                        
+                        const authorDetails = await Promise.all(authorPromises);
+                        authorNames = authorDetails.map(a => a.name).join(', ');
+                        authorPhotos = authorDetails;
+                    }
+                    
                     // Transform Open Library data to our format
                     book = {
                         id: bookId,
                         title: olData.title,
-                        author: olData.authors?.map(a => a.author.key).join(', ') || 'Unknown Author',
+                        author: authorNames,
+                        authorPhotos: authorPhotos,
                         description: olData.description?.value || olData.description || 'No description available',
                         cover_url: olData.covers?.[0] ? `https://covers.openlibrary.org/b/id/${olData.covers[0]}-L.jpg` : null,
                         published: olData.first_publish_date || null
@@ -236,6 +310,21 @@ $user_avatar = "https://via.placeholder.com/40";
                 document.getElementById('citation-section').style.display = 'block';
                 updateCitation();
 
+                // Show author photos section if available
+                if (book.authorPhotos && book.authorPhotos.length > 0) {
+                    document.getElementById('author-photos-section').style.display = 'block';
+                    const authorPhotosGrid = document.getElementById('author-photos-grid');
+                    authorPhotosGrid.innerHTML = book.authorPhotos.map(author => `
+                        <div class="author-photo-card">
+                            <img src="${author.photo}" 
+                                 alt="Photo of ${author.name}" 
+                                 class="author-photo"
+                                 onerror="this.src='https://placehold.co/150x150/e2e8f0/94a3b8?text=No+Photo'">
+                            <span class="author-name">${author.name}</span>
+                        </div>
+                    `).join('');
+                }
+
                 // Create book details HTML
                 const detailsHtml = `
                     <div class="book-details">
@@ -247,7 +336,7 @@ $user_avatar = "https://via.placeholder.com/40";
                             </div>
                             <div class="book-details__info">
                                 <h1 class="book-details__title">${book.title}</h1>
-                                <p class="book-details__author">${book.author || 'Unknown Author'}</p>
+                                <p class="book-details__author">${book.author}</p>
                                 <div class="book-details__description">
                                     ${book.description || 'No description available'}
                                 </div>
@@ -269,20 +358,20 @@ $user_avatar = "https://via.placeholder.com/40";
             const authors = book.author || 'Unknown Author';
             const title = book.title;
             const year = new Date(book.published).getFullYear() || 'n.d.';
-            const publisher = book.publisher || 'Unknown Publisher';
+            const publisher = book.publisher === 'Unknown Publisher' ? '' : book.publisher;
             const isbn = book.isbn || '';
 
             switch(format) {
                 case 'apa':
-                    return `${authors} (${year}). ${title}. ${publisher}.${isbn ? ' ISBN: ' + isbn : ''}`;
+                    return `${authors} (${year}). ${title}.${publisher ? ' ' + publisher + '.' : ''}${isbn ? ' ISBN: ' + isbn : ''}`;
                 case 'mla':
-                    return `${authors}. "${title}." ${publisher}, ${year}.${isbn ? ' ISBN: ' + isbn : ''}`;
+                    return `${authors}. "${title}."${publisher ? ' ' + publisher + ',' : ''} ${year}.${isbn ? ' ISBN: ' + isbn : ''}`;
                 case 'chicago':
-                    return `${authors}. ${title}. ${publisher}, ${year}.${isbn ? ' ISBN: ' + isbn : ''}`;
+                    return `${authors}. ${title}.${publisher ? ' ' + publisher + ',' : ''} ${year}.${isbn ? ' ISBN: ' + isbn : ''}`;
                 case 'ieee':
-                    return `${authors}, "${title}," ${publisher}, ${year}.${isbn ? ' ISBN: ' + isbn : ''}`;
+                    return `${authors}, "${title},"${publisher ? ' ' + publisher + ',' : ''} ${year}.${isbn ? ' ISBN: ' + isbn : ''}`;
                 default:
-                    return `${authors} (${year}). ${title}. ${publisher}.${isbn ? ' ISBN: ' + isbn : ''}`;
+                    return `${authors} (${year}). ${title}.${publisher ? ' ' + publisher + '.' : ''}${isbn ? ' ISBN: ' + isbn : ''}`;
             }
         }
 

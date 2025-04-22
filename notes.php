@@ -54,15 +54,63 @@ $user_avatar = "https://via.placeholder.com/40";
             padding: 1.5rem;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        .note-card__content {
-            margin-bottom: 1rem;
-        }
         .note-card__meta {
             display: flex;
             align-items: center;
             gap: 0.5rem;
             color: #64748b;
             font-size: 0.875rem;
+            margin-top: 1rem;
+        }
+        .note-card__actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-left: auto;
+        }
+        .note-card__button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+        }
+        .note-card__edit {
+            color: #2563eb;
+        }
+        .note-card__edit:hover {
+            background-color: #dbeafe;
+        }
+        .note-card__delete {
+            color: #dc2626;
+        }
+        .note-card__delete:hover {
+            background-color: #fee2e2;
+        }
+        .note-card__save {
+            color: #16a34a;
+        }
+        .note-card__save:hover {
+            background-color: #dcfce7;
+        }
+        .note-card__cancel {
+            color: #64748b;
+        }
+        .note-card__cancel:hover {
+            background-color: #f1f5f9;
+        }
+        .note-card__editor {
+            margin-top: 1rem;
+        }
+        .note-card__editor .ql-editor {
+            min-height: 100px;
+            max-height: 300px;
+            overflow-y: auto;
         }
         .mention {
             background: #e2e8f0;
@@ -91,8 +139,8 @@ $user_avatar = "https://via.placeholder.com/40";
             </div>
             <nav class="sidebar__nav">
                 <ul>
-                    <li><a href="dashboard.php" class="nav-item"><i class="ri-book-2-line"></i><span>All Books</span></a></li>
-                    <li><a href="#" class="nav-item" id="all-journals-btn"><i class="ri-article-line"></i><span>All Journals</span></a></li>
+                    <li><a href="dashboard.php" class="nav-item"><i class="ri-book-2-line"></i><span>Books</span></a></li>
+                    <li><a href="dashboard.php" class="nav-item" id="all-journals-btn"><i class="ri-article-line"></i><span>Journals</span></a></li>
                     <li><a href="notes.php" class="nav-item active"><i class="ri-sticky-note-line"></i><span>Notes</span></a></li>
                 </ul>
             </nav>
@@ -240,17 +288,170 @@ $user_avatar = "https://via.placeholder.com/40";
                 
                 const noteList = document.getElementById('noteList');
                 noteList.innerHTML = notes.map(note => `
-                    <div class="note-card">
+                    <div class="note-card" data-note-id="${note.id}">
                         <div class="note-card__content">${note.content}</div>
                         <div class="note-card__meta">
                             <i class="ri-time-line"></i>
-                            ${new Date(note.created_at).toLocaleString()}
+                            <span>${new Date(note.created_at).toLocaleString()}</span>
+                            <div class="note-card__actions">
+                                <button class="note-card__button note-card__edit" onclick="editNote(${note.id})" title="Edit note">
+                                    <i class="ri-edit-line"></i>
+                                </button>
+                                <button class="note-card__button note-card__delete" onclick="deleteNote(${note.id})" title="Delete note">
+                                    <i class="ri-delete-bin-line"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 `).join('');
             } catch (error) {
                 showToast('Failed to load notes', 'error');
             }
+        }
+
+        // Delete note
+        async function deleteNote(noteId) {
+            if (!confirm('Are you sure you want to delete this note?')) {
+                return;
+            }
+
+            try {
+                const response = await fetch('api/notes.php', {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-API-Key': apiKey
+                    },
+                    body: JSON.stringify({
+                        note_id: noteId
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    showToast('Note deleted successfully', 'success');
+                    // Remove the note card from the UI
+                    document.querySelector(`.note-card[data-note-id="${noteId}"]`).remove();
+                } else {
+                    showToast(data.error || 'Failed to delete note', 'error');
+                }
+            } catch (error) {
+                showToast('Failed to delete note', 'error');
+            }
+        }
+
+        // Edit note
+        async function editNote(noteId) {
+            const noteCard = document.querySelector(`.note-card[data-note-id="${noteId}"]`);
+            const contentDiv = noteCard.querySelector('.note-card__content');
+            const actionsDiv = noteCard.querySelector('.note-card__actions');
+            
+            // Create editor container
+            const editorContainer = document.createElement('div');
+            editorContainer.className = 'note-card__editor';
+            editorContainer.innerHTML = '<div id="editor-' + noteId + '"></div>';
+            
+            // Create save and cancel buttons
+            const saveButton = document.createElement('button');
+            saveButton.className = 'note-card__button note-card__save';
+            saveButton.innerHTML = '<i class="ri-save-line"></i>';
+            saveButton.title = 'Save changes';
+            
+            const cancelButton = document.createElement('button');
+            cancelButton.className = 'note-card__button note-card__cancel';
+            cancelButton.innerHTML = '<i class="ri-close-line"></i>';
+            cancelButton.title = 'Cancel editing';
+            
+            // Replace actions with save/cancel
+            actionsDiv.innerHTML = '';
+            actionsDiv.appendChild(saveButton);
+            actionsDiv.appendChild(cancelButton);
+            
+            // Hide content and show editor
+            contentDiv.style.display = 'none';
+            noteCard.insertBefore(editorContainer, contentDiv.nextSibling);
+            
+            // Initialize Quill editor
+            const quill = new Quill('#editor-' + noteId, {
+                theme: 'snow',
+                modules: {
+                    toolbar: [
+                        ['bold', 'italic', 'underline', 'strike'],
+                        ['blockquote', 'code-block'],
+                        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                        [{ 'indent': '-1'}, { 'indent': '+1' }],
+                        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+                        [{ 'color': [] }, { 'background': [] }],
+                        ['clean']
+                    ]
+                }
+            });
+            
+            // Set initial content
+            quill.root.innerHTML = contentDiv.innerHTML;
+            
+            // Add event listeners
+            saveButton.onclick = async () => {
+                try {
+                    const editorContent = quill.root.innerHTML;
+                    
+                    const response = await fetch('api/notes.php', {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-API-Key': apiKey
+                        },
+                        body: JSON.stringify({
+                            note_id: noteId,
+                            content: editorContent
+                        })
+                    });
+
+                    if (!response.ok) {
+                        throw new Error('Failed to update note');
+                    }
+
+                    const data = await response.json();
+
+                    if (data.success) {
+                        showToast('Note updated successfully', 'success');
+                        // Update content and restore view
+                        contentDiv.innerHTML = editorContent;
+                        contentDiv.style.display = 'block';
+                        editorContainer.remove();
+                        // Restore edit/delete buttons
+                        actionsDiv.innerHTML = `
+                            <button class="note-card__button note-card__edit" onclick="editNote(${noteId})" title="Edit note">
+                                <i class="ri-edit-line"></i>
+                            </button>
+                            <button class="note-card__button note-card__delete" onclick="deleteNote(${noteId})" title="Delete note">
+                                <i class="ri-delete-bin-line"></i>
+                            </button>
+                        `;
+                    } else {
+                        throw new Error(data.error || 'Failed to update note');
+                    }
+                } catch (error) {
+                    showToast(error.message, 'error');
+                }
+            };
+
+            cancelButton.onclick = () => {
+                // Restore original view
+                contentDiv.style.display = 'block';
+                editorContainer.remove();
+                
+                // Restore edit/delete buttons
+                actionsDiv.innerHTML = `
+                    <button class="note-card__button note-card__edit" onclick="editNote(${noteId})" title="Edit note">
+                        <i class="ri-edit-line"></i>
+                    </button>
+                    <button class="note-card__button note-card__delete" onclick="deleteNote(${noteId})" title="Delete note">
+                        <i class="ri-delete-bin-line"></i>
+                    </button>
+                `;
+            };
         }
 
         // Toast notification function

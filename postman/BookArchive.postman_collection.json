@@ -1,0 +1,342 @@
+{
+	"info": {
+		"_postman_id": "book-archive-collection",
+		"name": "Book Archive API",
+		"description": "Collection for testing Book Archive API endpoints with API key authentication",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"testuser\",\n    \"password\": \"testpassword\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/register.php",
+							"host": ["{{base_url}}"],
+							"path": ["api", "register.php"]
+						},
+						"description": "Register a new user and get API key"
+					}
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"testuser\",\n    \"password\": \"testpassword\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/login.php",
+							"host": ["{{base_url}}"],
+							"path": ["api", "login.php"]
+						},
+						"description": "Login user and get API key"
+					}
+				}
+			]
+		},
+		{
+			"name": "Books",
+			"item": [
+				{
+					"name": "Get Books",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "{{api_key}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/books.php",
+							"host": ["{{base_url}}"],
+							"path": ["api", "books.php"]
+						},
+						"description": "Get all books for the authenticated user"
+					}
+				},
+				{
+					"name": "Get Book by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "{{api_key}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/books.php?id=1",
+							"host": ["{{base_url}}"],
+							"path": ["api", "books.php"],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Get a specific book by ID"
+					}
+				},
+				{
+					"name": "Create Book",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "{{api_key}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"The Great Gatsby\",\n    \"author\": \"F. Scott Fitzgerald\",\n    \"published_date\": \"1925-04-10\",\n    \"isbn\": \"9780743273565\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/books.php",
+							"host": ["{{base_url}}"],
+							"path": ["api", "books.php"]
+						},
+						"description": "Create a new book"
+					}
+				},
+				{
+					"name": "Update Book",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "{{api_key}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"title\": \"The Great Gatsby (Updated)\",\n    \"author\": \"F. Scott Fitzgerald\",\n    \"published_date\": \"1925-04-10\",\n    \"isbn\": \"9780743273565\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/books.php",
+							"host": ["{{base_url}}"],
+							"path": ["api", "books.php"]
+						},
+						"description": "Update an existing book"
+					}
+				},
+				{
+					"name": "Delete Book",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "{{api_key}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/books.php?id=1",
+							"host": ["{{base_url}}"],
+							"path": ["api", "books.php"],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Delete a book by ID"
+					}
+				},
+				{
+					"name": "Search Books",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "{{api_key}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/search.php?q=cosmos",
+							"host": ["{{base_url}}"],
+							"path": ["api", "search.php"],
+							"query": [
+								{
+									"key": "q",
+									"value": "cosmos",
+									"description": "Search query for books (searches in title and author)"
+								}
+							]
+						},
+						"description": "Search books by title or author"
+					}
+				}
+			]
+		},
+		{
+			"name": "Notes",
+			"item": [
+				{
+					"name": "Get All Notes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "{{api_key}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/notes.php",
+							"host": ["{{base_url}}"],
+							"path": ["api", "notes.php"]
+						},
+						"description": "Get all notes for the authenticated user"
+					}
+				},
+				{
+					"name": "Get Note by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "{{api_key}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/notes.php?id=1",
+							"host": ["{{base_url}}"],
+							"path": ["api", "notes.php"],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Get a specific note by ID"
+					}
+				},
+				{
+					"name": "Create Note",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "{{api_key}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\": \"This is a test note\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/notes.php",
+							"host": ["{{base_url}}"],
+							"path": ["api", "notes.php"]
+						},
+						"description": "Create a new note"
+					}
+				},
+				{
+					"name": "Update Note",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-API-Key",
+								"value": "{{api_key}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"content\": \"This is an updated test note\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/notes.php",
+							"host": ["{{base_url}}"],
+							"path": ["api", "notes.php"]
+						},
+						"description": "Update an existing note"
+					}
+				},
+				{
+					"name": "Delete Note",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "{{api_key}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/notes.php?id=1",
+							"host": ["{{base_url}}"],
+							"path": ["api", "notes.php"],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Delete a note by ID"
+					}
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost/book-archive",
+			"type": "string"
+		},
+		{
+			"key": "api_key",
+			"value": "your-api-key-here",
+			"type": "string"
+		}
+	]
+} 

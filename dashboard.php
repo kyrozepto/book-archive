@@ -1,7 +1,6 @@
 <?php
 session_start();
 require_once __DIR__ . '/includes/Auth.php';
-// require_once __DIR__ . '/includes/Database.php'; // Assuming Database is used elsewhere or in API
 
 $auth = new Auth();
 
@@ -19,7 +18,6 @@ if (!$user) {
 }
 
 $user_name = $user['username'];
-$user_avatar = "https://via.placeholder.com/40"; // Default or fetched avatar
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,8 +41,8 @@ $user_avatar = "https://via.placeholder.com/40"; // Default or fetched avatar
             </div>
             <nav class="sidebar__nav">
                 <ul>
-                    <li><a href="dashboard.php" class="nav-item active"><i class="ri-book-2-line"></i><span>All Books</span></a></li>
-                    <li><a href="#" class="nav-item" id="all-journals-btn"><i class="ri-article-line"></i><span>All Journals</span></a></li>
+                    <li><a href="dashboard.php" class="nav-item active"><i class="ri-book-2-line"></i><span>Books</span></a></li>
+                    <li><a href="#" class="nav-item" id="all-journals-btn"><i class="ri-article-line"></i><span>Journals</span></a></li>
                     <li><a href="notes.php" class="nav-item"><i class="ri-sticky-note-line"></i><span>Notes</span></a></li>
                 </ul>
             </nav>
@@ -67,20 +65,12 @@ $user_avatar = "https://via.placeholder.com/40"; // Default or fetched avatar
 
             <div class="content-area">
                 <div class="content-header">
-                    <h2 class="content-title">All Books</h2>
-                     <!-- Tabs could go here if needed, or filters -->
-                    <div class="tabs">
-                        <button class="tab active" data-tab="recent">Recent</button>
-                        <button class="tab" data-tab="popular">Popular</button>
-                    </div>
-                     <!-- Or Add Filter/Sort options -->
-                     <!-- <button class="button button--secondary"><i class="ri-filter-3-line"></i> Filter</button> -->
+                    <h2 class="content-title">Books</h2>
                 </div>
 
                 <div class="book-grid" id="book-results">
-                    <!-- Loading State -->
                     <div class="loading-placeholder" id="loading-state" style="display: none;">
-                        <p>Loading books...</p> <!-- Add a spinner icon here -->
+                        <p>Loading books...</p>
                     </div>
                     <!-- Empty State -->
                     <div class="empty-state" id="empty-state" style="display: none;">
@@ -88,33 +78,6 @@ $user_avatar = "https://via.placeholder.com/40"; // Default or fetched avatar
                         <p>No books found matching your search.</p>
                         <p class="empty-state__subtext">Try searching for a different title or author.</p>
                     </div>
-                    <!-- Book results will be dynamically inserted here -->
-                    <!-- Example Book Card Structure (for reference): -->
-                    <!--
-                    <article class="book-card" data-book-id="OL12345M">
-                        <div class="book-card__image-container">
-                            <img src="https://covers.openlibrary.org/b/id/8264891-M.jpg" alt="Book Cover" class="book-card__image" onerror="this.src='https://placehold.co/300x450/e2e8f0/94a3b8?text=No+Cover'">
-                        </div>
-                        <div class="book-card__content">
-                            <h3 class="book-card__title">The Lord of the Rings</h3>
-                            <p class="book-card__author">J.R.R. Tolkien</p>
-                            <div class="book-card__actions">
-                                <div class="dropdown">
-                                    <button class="button button--icon-only button--subtle dropdown-toggle" aria-label="More actions" onclick="toggleDropdown('OL12345M', this)">
-                                        <i class="ri-more-2-fill"></i>
-                                    </button>
-                                    <div class="dropdown-menu" id="dropdown-OL12345M">
-                                        <button class="dropdown-item" onclick="updateStatus('OL12345M', 'wishlist')"><i class="ri-bookmark-line"></i><span>Add to Wishlist</span></button>
-                                        <button class="dropdown-item" onclick="updateStatus('OL12345M', 'reading')"><i class="ri-book-open-line"></i><span>Mark as Reading</span></button>
-                                        <button class="dropdown-item" onclick="updateStatus('OL12345M', 'read')"><i class="ri-check-line"></i><span>Mark as Read</span></button>
-                                        <button class="dropdown-item" onclick="addToCollection('OL12345M')"><i class="ri-folder-add-line"></i><span>Add to Collection</span></button>
-                                        <button class="dropdown-item" onclick="shareBook('OL12345M')"><i class="ri-share-line"></i><span>Share</span></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    -->
                 </div>
             </div>
         </main>
@@ -130,28 +93,26 @@ $user_avatar = "https://via.placeholder.com/40"; // Default or fetched avatar
         const emptyState = document.getElementById('empty-state');
         const apiKey = '<?php echo $api_key; ?>';
         let searchTimeout;
-        let currentTab = 'recent';
-        let currentMode = 'books'; // 'books' or 'journals'
+        let currentMode = 'books'
 
-        // Add event listener for All Journals button
         document.getElementById('all-journals-btn').addEventListener('click', function(e) {
             e.preventDefault();
             currentMode = 'journals';
             document.querySelector('.nav-item.active').classList.remove('active');
             this.classList.add('active');
-            document.querySelector('.content-title').textContent = 'All Journals';
+            document.querySelector('.content-title').textContent = 'Journals';
             searchInput.placeholder = 'Search papers by title, author, or arXiv ID...';
             bookGrid.innerHTML = '';
             showEmptyState();
         });
 
-        // Add event listener for All Books button
+        // Add event listener for Books button
         document.querySelector('.nav-item:first-child').addEventListener('click', function(e) {
             e.preventDefault();
             currentMode = 'books';
             document.querySelector('.nav-item.active').classList.remove('active');
             this.classList.add('active');
-            document.querySelector('.content-title').textContent = 'All Books';
+            document.querySelector('.content-title').textContent = 'Books';
             searchInput.placeholder = 'Search books by title, author, or ISBN...';
             bookGrid.innerHTML = '';
             showEmptyState();
@@ -168,38 +129,36 @@ $user_avatar = "https://via.placeholder.com/40"; // Default or fetched avatar
             showLoading();
 
             if (currentMode === 'books') {
-                // Existing book search code
-            fetch(`/book-archive/api/books.php?search=${encodeURIComponent(searchTerm)}&tab=${currentTab}`, {
-                headers: { 
-                    'X-API-Key': apiKey,
-                    'Content-Type': 'application/json'
-                }
-            })
-            .then(response => {
-                if (!response.ok) {
-                    return response.json().then(errorData => {
-                        throw new Error(errorData.details || `Error: ${response.status}`);
-                    });
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (data.error) {
-                    throw new Error(data.error);
-                }
-                if (!data.docs || data.docs.length === 0) {
-                    showEmptyState();
-                    return;
-                }
-                displayBooks(data.docs);
-            })
-            .catch(error => {
-                console.error('Error fetching books:', error);
-                showErrorState(error.message || 'Failed to load books. Please try again.');
-                showToast(error.message || 'Error searching for books', 'error');
-            });
+                fetch(`/book-archive/api/books.php?search=${encodeURIComponent(searchTerm)}`, {
+                    headers: { 
+                        'X-API-Key': apiKey,
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        return response.json().then(errorData => {
+                            throw new Error(errorData.details || `Error: ${response.status}`);
+                        });
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.error) {
+                        throw new Error(data.error);
+                    }
+                    if (!data.docs || data.docs.length === 0) {
+                        showEmptyState();
+                        return;
+                    }
+                    displayBooks(data.docs);
+                })
+                .catch(error => {
+                    console.error('Error fetching books:', error);
+                    showErrorState(error.message || 'Failed to load books. Please try again.');
+                    showToast(error.message || 'Error searching for books', 'error');
+                });
             } else {
-                // Journal search using our API endpoint
                 fetch(`/book-archive/api/journals.php?search=${encodeURIComponent(searchTerm)}&start=0&max_results=20`, {
                     headers: { 
                         'X-API-Key': apiKey,
@@ -246,19 +205,6 @@ $user_avatar = "https://via.placeholder.com/40"; // Default or fetched avatar
                         <h3 class="book-card__title" title="${paper.title}">${paper.title}</h3>
                         <p class="book-card__author">${paper.authors.join(', ')}</p>
                         <p class="book-card__summary">${paper.summary}</p>
-                        <div class="book-card__actions">
-                            <div class="dropdown">
-                                <button class="button button--icon-only button--subtle dropdown-toggle" aria-label="More actions" onclick="event.stopPropagation(); toggleDropdown('${paper.id}', this)">
-                                    <i class="ri-more-2-fill"></i>
-                                </button>
-                                <div class="dropdown-menu" id="dropdown-${paper.id}">
-                                    <a href="${paper.pdfLink}" class="dropdown-item" target="_blank" onclick="event.stopPropagation();"><i class="ri-file-pdf-line"></i><span>View PDF</span></a>
-                                    <button class="dropdown-item" onclick="event.stopPropagation(); addToCollection('${paper.id}')"><i class="ri-folder-add-line"></i><span>Add to Collection</span></button>
-                                    <div class="dropdown-divider"></div>
-                                    <button class="dropdown-item" onclick="event.stopPropagation(); showPaperDetails('${paper.id}')"><i class="ri-eye-line"></i><span>View Details</span></button>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 `;
                 bookGrid.appendChild(paperCard);
@@ -308,9 +254,6 @@ $user_avatar = "https://via.placeholder.com/40"; // Default or fetched avatar
                                         <a href="${paper.pdfLink}" class="button" target="_blank">
                                             <i class="ri-file-pdf-line"></i> View PDF
                                         </a>
-                                        <button class="button button--secondary" onclick="addToCollection('${paper.id}')">
-                                            <i class="ri-folder-add-line"></i> Add to Collection
-                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -385,20 +328,6 @@ $user_avatar = "https://via.placeholder.com/40"; // Default or fetched avatar
                         <div class="book-card__content">
                             <h3 class="book-card__title" title="${book.title}">${book.title}</h3>
                             <p class="book-card__author">${author}</p>
-                            <div class="book-card__actions">
-                                <div class="dropdown">
-                                    <button class="button button--icon-only button--subtle dropdown-toggle" aria-label="More actions" onclick="event.stopPropagation(); toggleDropdown('${bookKey}', this)">
-                                        <i class="ri-more-2-fill"></i>
-                                    </button>
-                                    <div class="dropdown-menu" id="dropdown-${bookKey}">
-                                        <button class="dropdown-item" onclick="event.stopPropagation(); updateStatus('${bookKey}', 'wishlist', this)"><i class="ri-bookmark-line"></i><span>Add to Wishlist</span></button>
-                                        <button class="dropdown-item" onclick="event.stopPropagation(); updateStatus('${bookKey}', 'reading', this)"><i class="ri-book-open-line"></i><span>Mark as Reading</span></button>
-                                        <button class="dropdown-item" onclick="event.stopPropagation(); updateStatus('${bookKey}', 'read', this)"><i class="ri-check-line"></i><span>Mark as Read</span></button>
-                                        <div class="dropdown-divider"></div>
-                                        <button class="dropdown-item" onclick="event.stopPropagation(); showBookDetails('${bookKey}')"><i class="ri-eye-line"></i><span>View Details</span></button>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     `;
                     bookGrid.appendChild(bookCard);
@@ -411,155 +340,7 @@ $user_avatar = "https://via.placeholder.com/40"; // Default or fetched avatar
             }
         }
 
-        // --- Status Updates ---
-        async function updateStatus(bookId, status, element) {
-            const card = element.closest('.book-card');
-            const title = card.querySelector('.book-card__title').textContent;
-            const author = card.querySelector('.book-card__author').textContent;
-            const coverUrl = card.querySelector('.book-card__image').src;
-
-            // Optional: Add loading state to the button/card
-            element.disabled = true;
-            element.innerHTML = '<i class="ri-loader-4-line spinning"></i><span>Updating...</span>';
-
-            try {
-                const response = await fetch('api/items.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-API-Key': apiKey
-                    },
-                    body: JSON.stringify({
-                        type: 'book',
-                        book_id: bookId, // Send clean ID
-                        title: title,
-                        author: author,
-                        status: status,
-                        cover_url: coverUrl
-                    })
-                });
-
-                if (!response.ok) {
-                    const errorData = await response.json().catch(() => ({})); // Try to parse error details
-                    throw new Error(errorData.message || `Failed to update status (HTTP ${response.status})`);
-                }
-
-                const result = await response.json();
-                showToast(result.message || `Book status updated to ${status}`, 'success');
-
-                // TODO: Update card visually based on new status (e.g., add a badge)
-                // Example: remove existing status badges, add new one
-                card.querySelectorAll('.status-badge').forEach(badge => badge.remove());
-                const statusBadge = document.createElement('span');
-                statusBadge.className = `status-badge status-${status}`;
-                statusBadge.textContent = status.charAt(0).toUpperCase() + status.slice(1); // Capitalize
-                // Decide where to put the badge, e.g., top-right corner
-                card.querySelector('.book-card__image-container').appendChild(statusBadge);
-
-
-                // Reset button and close dropdown after a short delay
-                 setTimeout(() => {
-                    resetDropdownButton(element, status); // Pass status to potentially keep it highlighted
-                    closeAllDropdowns();
-                 }, 300);
-
-
-            } catch (error) {
-                console.error('Error updating status:', error);
-                showToast(error.message || 'Failed to update status', 'error');
-                 resetDropdownButton(element, status); // Reset button on error too
-            }
-        }
-
-        function resetDropdownButton(buttonElement, status) {
-             buttonElement.disabled = false;
-             // Restore original icon and text based on status
-             let iconClass, text;
-             switch (status) {
-                 case 'wishlist': iconClass = 'ri-bookmark-line'; text = 'Add to Wishlist'; break;
-                 case 'reading': iconClass = 'ri-book-open-line'; text = 'Mark as Reading'; break;
-                 case 'read': iconClass = 'ri-check-line'; text = 'Mark as Read'; break;
-                 default: iconClass = 'ri-question-line'; text = 'Unknown Action'; // Fallback
-             }
-             buttonElement.innerHTML = `<i class="${iconClass}"></i><span>${text}</span>`;
-        }
-
-        // Placeholder functions for other actions
-        function addToCollection(bookId) {
-            console.log('Add to collection:', bookId);
-            showToast('Add to Collection clicked (not implemented)', 'info');
-            closeAllDropdowns();
-        }
-        function shareBook(bookId) {
-            console.log('Share book:', bookId);
-            showToast('Share Book clicked (not implemented)', 'info');
-             closeAllDropdowns();
-        }
-
-
-        // --- Dropdown Logic ---
-        function toggleDropdown(identifier, buttonElement) {
-            const dropdownMenu = document.getElementById(`dropdown-${identifier}`);
-            const isCurrentlyOpen = dropdownMenu.classList.contains('show');
-
-            closeAllDropdowns(); // Close others first
-
-            if (!isCurrentlyOpen) {
-                dropdownMenu.classList.add('show');
-                // Position calculation might be needed if menus overflow
-                positionDropdown(dropdownMenu, buttonElement);
-                 // Add active class to button
-                 buttonElement.classList.add('active');
-            }
-        }
-
-        function closeAllDropdowns() {
-            document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
-                menu.classList.remove('show');
-            });
-             document.querySelectorAll('.dropdown-toggle.active').forEach(button => {
-                 button.classList.remove('active');
-             });
-        }
-
-        function positionDropdown(menu, button) {
-            // Basic positioning: ensure it doesn't go off-screen right/bottom
-             const rect = button.getBoundingClientRect();
-             const menuRect = menu.getBoundingClientRect(); // Get initial dimensions
-
-             menu.style.top = `${button.offsetHeight + 4}px`; // Position below button with some gap
-             menu.style.left = 'auto'; // Reset left
-             menu.style.right = '0'; // Align to the right edge of the button container
-
-             // Check viewport collision (optional but good UX)
-             const viewportWidth = window.innerWidth;
-             const menuRightEdge = rect.right; // Dropdown aligns right, so its right edge matches button's right edge
-
-             if (menuRightEdge + menuRect.width > viewportWidth) {
-                 // If it would overflow right, align left instead (relative to button)
-                 // menu.style.right = 'auto';
-                 // menu.style.left = '0';
-                 // This might need adjustment based on the parent 'dropdown' container position
-             }
-             // Similar check for bottom collision if needed
-        }
-
-
-        // Close dropdowns when clicking outside
-        document.addEventListener('click', function(event) {
-            const target = event.target;
-            // If click is not on a dropdown toggle or inside a dropdown menu
-            if (!target.closest('.dropdown-toggle') && !target.closest('.dropdown-menu')) {
-                closeAllDropdowns();
-            }
-             // Close user menu if click is outside
-             if (!target.closest('.user-menu__toggle') && !target.closest('.user-menu__dropdown')) {
-                 document.querySelector('.user-menu__dropdown')?.classList.remove('show');
-                 document.querySelector('.user-menu__toggle')?.classList.remove('active');
-             }
-        });
-
-         // --- User Menu Logic ---
+        // --- User Menu Logic ---
         const userMenuToggle = document.querySelector('.user-menu__toggle');
         const userMenuDropdown = document.querySelector('.user-menu__dropdown');
 
@@ -642,8 +423,8 @@ $user_avatar = "https://via.placeholder.com/40"; // Default or fetched avatar
                                     <p class="book-details__author">${data.authors?.map(a => a.author.key).join(', ') || 'Unknown Author'}</p>
                                     <p class="book-details__description">${data.description?.value || data.description || 'No description available'}</p>
                                     <div class="book-details__actions">
-                                        <button class="button" onclick="showAddToCollectionModal('${bookId}')">
-                                            <i class="ri-folder-add-line"></i> Add to Collection
+                                        <button class="button" onclick="window.location.href='book-details.php?id=${bookId}'">
+                                            <i class="ri-eye-line"></i> View Details
                                         </button>
                                     </div>
                                 </div>
@@ -668,121 +449,6 @@ $user_avatar = "https://via.placeholder.com/40"; // Default or fetched avatar
                 author_name: [bookCard.querySelector('.book-details__author').textContent],
                 cover_i: bookCard.querySelector('img').src.match(/\/b\/id\/(\d+)-/)?.[1]
             }]);
-        }
-
-        function showAddToCollectionModal(bookId) {
-            // Create modal HTML
-            const modalHtml = `
-                <div class="modal" id="add-to-collection-modal">
-                    <div class="modal__content">
-                        <div class="modal__header">
-                            <h3>Add to Collection</h3>
-                            <button class="button button--icon-only" onclick="closeModal()">
-                                <i class="ri-close-line"></i>
-                            </button>
-                        </div>
-                        <div class="modal__body">
-                            <div class="form-group">
-                                <label for="collection-select">Select Collection</label>
-                                <select id="collection-select" class="form-control">
-                                    <option value="">Loading collections...</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="new-collection">Or Create New Collection</label>
-                                <input type="text" id="new-collection" class="form-control" placeholder="Collection name">
-                            </div>
-                        </div>
-                        <div class="modal__footer">
-                            <button class="button button--secondary" onclick="closeModal()">Cancel</button>
-                            <button class="button" onclick="addToCollection('${bookId}')">Add</button>
-                        </div>
-                    </div>
-                </div>
-            `;
-
-            // Add modal to document
-            document.body.insertAdjacentHTML('beforeend', modalHtml);
-
-            // Load collections
-            fetch('/book-archive/api/collections.php', {
-                headers: { 'X-API-Key': apiKey }
-            })
-            .then(response => response.json())
-            .then(collections => {
-                const select = document.getElementById('collection-select');
-                select.innerHTML = '<option value="">Select a collection</option>';
-                collections.forEach(collection => {
-                    select.innerHTML += `<option value="${collection.id}">${collection.name}</option>`;
-                });
-            })
-            .catch(error => {
-                console.error('Error loading collections:', error);
-                showToast('Failed to load collections', 'error');
-            });
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('add-to-collection-modal');
-            if (modal) {
-                modal.remove();
-            }
-        }
-
-        async function addToCollection(bookId) {
-            const select = document.getElementById('collection-select');
-            const newCollection = document.getElementById('new-collection');
-            let collectionId = select.value;
-
-            // If new collection name is provided, create it first
-            if (newCollection.value) {
-                try {
-                    const response = await fetch('/book-archive/api/collections.php', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-API-Key': apiKey
-                        },
-                        body: JSON.stringify({
-                            name: newCollection.value
-                        })
-                    });
-                    const data = await response.json();
-                    if (!response.ok) throw new Error(data.error || 'Failed to create collection');
-                    collectionId = data.id;
-                } catch (error) {
-                    showToast(error.message, 'error');
-                    return;
-                }
-            }
-
-            if (!collectionId) {
-                showToast('Please select or create a collection', 'error');
-                return;
-            }
-
-            // Add book to collection
-            try {
-                const response = await fetch('/book-archive/api/collections.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-API-Key': apiKey
-                    },
-                    body: JSON.stringify({
-                        collection_id: collectionId,
-                        book_id: bookId
-                    })
-                });
-                const data = await response.json();
-                if (!response.ok) throw new Error(data.error || 'Failed to add book to collection');
-                
-                showToast('Book added to collection successfully', 'success');
-                closeModal();
-                closeBookDetails(bookId);
-            } catch (error) {
-                showToast(error.message, 'error');
-            }
         }
 
         // Handle book card click

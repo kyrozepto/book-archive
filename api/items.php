@@ -27,33 +27,17 @@ $user = $auth->getCurrentUser();
 switch ($method) {
     case 'GET':
         // Get all items for the user
-        $collection_id = $_GET['collection_id'] ?? null;
-        $status = $_GET['status'] ?? null;
         $type = $_GET['type'] ?? null;
         
-        $sql = "SELECT i.*, GROUP_CONCAT(t.name) as tags 
-                FROM items i 
-                LEFT JOIN item_tags it ON i.id = it.item_id 
-                LEFT JOIN tags t ON it.tag_id = t.id 
-                WHERE i.user_id = ?";
+        $sql = "SELECT * FROM items WHERE user_id = ?";
         $params = [$user['id']];
         
-        if ($collection_id) {
-            $sql .= " AND i.collection_id = ?";
-            $params[] = $collection_id;
-        }
-        
-        if ($status) {
-            $sql .= " AND i.status = ?";
-            $params[] = $status;
-        }
-        
         if ($type) {
-            $sql .= " AND i.type = ?";
+            $sql .= " AND type = ?";
             $params[] = $type;
         }
         
-        $sql .= " GROUP BY i.id ORDER BY i.created_at DESC";
+        $sql .= " ORDER BY created_at DESC";
         
         $stmt = $db->prepare($sql);
         $stmt->execute($params);
@@ -83,19 +67,17 @@ switch ($method) {
         try {
             // Insert item
             $stmt = $db->prepare("INSERT INTO items (
-                user_id, collection_id, type, title, author, description, 
-                cover_url, status, rating, notes
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                user_id, type, title, author, description,
+                cover_url, rating, notes
+            ) VALUES (?, ?, ?, ?, ?, ?, ?)");
             
             $stmt->execute([
                 $user['id'],
-                $data['collection_id'] ?? null,
                 $data['type'],
                 $data['title'],
                 $data['author'] ?? null,
                 $data['description'] ?? null,
                 $data['cover_url'] ?? null,
-                $data['status'] ?? 'wishlist',
                 $data['rating'] ?? null,
                 $data['notes'] ?? null
             ]);
@@ -146,17 +128,16 @@ switch ($method) {
         try {
             // Update item
             $stmt = $db->prepare("UPDATE items SET 
-                collection_id = ?, title = ?, author = ?, description = ?, 
-                cover_url = ?, status = ?, rating = ?, notes = ?
+                type = ?, title = ?, author = ?, description = ?,
+                cover_url = ?, rating = ?, notes = ?
                 WHERE id = ? AND user_id = ?");
             
             $stmt->execute([
-                $data['collection_id'] ?? null,
-                $data['title'] ?? null,
-                $data['author'] ?? null,
-                $data['description'] ?? null,
-                $data['cover_url'] ?? null,
-                $data['status'] ?? null,
+                $data['type'],
+                $data['title'],
+                $data['author'],
+                $data['description'],
+                $data['cover_url'],
                 $data['rating'] ?? null,
                 $data['notes'] ?? null,
                 $data['id'],

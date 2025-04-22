@@ -48,21 +48,10 @@ $user_avatar = "https://via.placeholder.com/40";
             </div>
             <nav class="sidebar__nav">
                 <ul>
-                    <li><a href="dashboard.php" class="nav-item"><i class="ri-book-2-line"></i><span>All Books</span></a></li>
-                    <li><a href="#" class="nav-item active"><i class="ri-article-line"></i><span>All Journals</span></a></li>
+                    <li><a href="dashboard.php" class="nav-item"><i class="ri-book-2-line"></i><span>Books</span></a></li>
+                    <li><a href="#" class="nav-item active"><i class="ri-article-line"></i><span>Journals</span></a></li>
                     <li><a href="notes.php" class="nav-item"><i class="ri-sticky-note-line"></i><span>Notes</span></a></li>
-                    <li><a href="#" class="nav-item"><i class="ri-share-line"></i><span>Shared</span></a></li>
                 </ul>
-
-                <div class="sidebar__section">
-                    <h2 class="sidebar__section-title">Collections</h2>
-                    <ul>
-                        <li><a href="#" class="nav-item"><i class="ri-folder-line"></i><span>Fiction</span></a></li>
-                        <li><a href="#" class="nav-item"><i class="ri-folder-line"></i><span>Non-Fiction</span></a></li>
-                        <li><a href="#" class="nav-item"><i class="ri-folder-line"></i><span>Science</span></a></li>
-                        <li><a href="#" class="nav-item"><i class="ri-folder-add-line"></i><span>New Collection</span></a></li>
-                    </ul>
-                </div>
             </nav>
             <div class="sidebar__footer">
                 <a href="logout.php" class="nav-item nav-item--logout"><i class="ri-logout-box-r-line"></i><span>Logout</span></a>
@@ -251,23 +240,56 @@ $user_avatar = "https://via.placeholder.com/40";
         }
 
         function generateCitation(paper, format) {
-            const authors = paper.authors?.join(', ') || 'Unknown Author';
+            // Format author names according to citation style
+            const formatAuthorNames = (authors, format) => {
+                if (!authors || authors.length === 0) return 'Unknown Author';
+                
+                if (format === 'apa') {
+                    // APA: Last, F. M., & Last, F. M.
+                    return authors.map(author => {
+                        const parts = author.split(' ');
+                        const lastName = parts.pop();
+                        const initials = parts.map(p => p[0] + '.').join(' ');
+                        return `${lastName}, ${initials}`;
+                    }).join(', & ');
+                } else if (format === 'mla' || format === 'chicago') {
+                    // MLA/Chicago: Last, First M., and First M. Last
+                    return authors.map((author, index) => {
+                        const parts = author.split(' ');
+                        const lastName = parts.pop();
+                        const firstName = parts.join(' ');
+                        if (index === authors.length - 1 && authors.length > 1) {
+                            return `and ${firstName} ${lastName}`;
+                        }
+                        return `${lastName}, ${firstName}`;
+                    }).join(', ');
+                } else {
+                    // IEEE: F. M. Last, F. M. Last
+                    return authors.map(author => {
+                        const parts = author.split(' ');
+                        const lastName = parts.pop();
+                        const initials = parts.map(p => p[0] + '.').join(' ');
+                        return `${initials} ${lastName}`;
+                    }).join(', ');
+                }
+            };
+
+            const authors = formatAuthorNames(paper.authors, format);
             const title = paper.title;
             const year = new Date(paper.published).getFullYear() || 'n.d.';
-            const journal = paper.journal || 'Unknown Journal';
-            const doi = paper.doi || '';
+            const arxivId = paper.id || '';
 
             switch(format) {
                 case 'apa':
-                    return `${authors} (${year}). ${title}. ${journal}.${doi ? ' https://doi.org/' + doi : ''}`;
+                    return `${authors} (${year}). ${title}. arXiv preprint arXiv:${arxivId}`;
                 case 'mla':
-                    return `${authors}. "${title}." ${journal}, ${year}.${doi ? ' https://doi.org/' + doi : ''}`;
+                    return `${authors}. "${title}." arXiv, ${year}, arXiv:${arxivId}`;
                 case 'chicago':
-                    return `${authors}. "${title}." ${journal} (${year}).${doi ? ' https://doi.org/' + doi : ''}`;
+                    return `${authors}. "${title}." arXiv, ${year}, arXiv:${arxivId}`;
                 case 'ieee':
-                    return `${authors}, "${title}," ${journal}, vol. ${paper.volume || 'n.d.'}, no. ${paper.issue || 'n.d.'}, pp. ${paper.pages || 'n.d.'}, ${year}.${doi ? ' https://doi.org/' + doi : ''}`;
+                    return `${authors}, "${title}," arXiv, ${year}, arXiv:${arxivId}`;
                 default:
-                    return `${authors} (${year}). ${title}. ${journal}.${doi ? ' https://doi.org/' + doi : ''}`;
+                    return `${authors} (${year}). ${title}. arXiv preprint arXiv:${arxivId}`;
             }
         }
 

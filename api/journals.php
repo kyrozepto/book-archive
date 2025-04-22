@@ -73,7 +73,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             'summary' => (string)$entry->summary,
             'pdfLink' => $pdfLink,
             'published' => (string)$entry->published,
-            'updated' => (string)$entry->updated
+            'updated' => (string)$entry->updated,
+            'journal' => 'arXiv',
+            'doi' => '',
+            'volume' => '',
+            'issue' => '',
+            'pages' => ''
         ];
     }
 
