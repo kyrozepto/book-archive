@@ -10,20 +10,15 @@ class Auth {
     }
 
     public function register($username, $password) {
-        // Check if username already exists
         $stmt = $this->db->prepare("SELECT id FROM users WHERE username = ?");
         $stmt->execute([$username]);
         if ($stmt->rowCount() > 0) {
             throw new Exception("Username already exists");
         }
 
-        // Hash password
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        
-        // Generate API key
         $api_key = bin2hex(random_bytes(32));
 
-        // Insert new user
         $stmt = $this->db->prepare("INSERT INTO users (username, password, api_key) VALUES (?, ?, ?)");
         if ($stmt->execute([$username, $hashedPassword, $api_key])) {
             return $api_key;

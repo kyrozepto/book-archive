@@ -153,7 +153,7 @@ $user_avatar = "https://via.placeholder.com/40";
                         ['clean']
                     ]
                 },
-                placeholder: 'Write your note here... Use @ to mention books or journals'
+                placeholder: 'Create new note or save your book and journal for reference'
             });
 
             // Load existing notes
