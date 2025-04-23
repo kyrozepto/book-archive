@@ -18,6 +18,7 @@ Web application for searching literature references such as books and academic j
 #### App
 - **Application URL**: http://localhost/book-archive
 - **API URL**: http://localhost/book-archive/postman/api/
+- **GitHub URL**: https://github.com/kyrozepto/book-archive/
 - **Postman Collection**: ```postman\BookArchive.postman_collection.json```
 
 #### Contributor
