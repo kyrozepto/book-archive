@@ -131,7 +131,6 @@ $user_avatar = "https://via.placeholder.com/40";
 </head>
 <body>
     <div class="dashboard-layout">
-        <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar__header">
                 <i class="ri-book-3-line sidebar__logo-icon"></i>
@@ -149,7 +148,6 @@ $user_avatar = "https://via.placeholder.com/40";
             </div>
         </aside>
 
-        <!-- Main content -->
         <main class="main-content">
             <header class="header">
                 <div class="header-actions">
@@ -172,13 +170,11 @@ $user_avatar = "https://via.placeholder.com/40";
                     </div>
                 </div>
                 <div class="note-list" id="noteList">
-                    <!-- Notes will be loaded here -->
                 </div>
             </div>
         </main>
     </div>
 
-    <!-- Toast Container -->
     <div id="toast-container"></div>
 
     <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
@@ -186,7 +182,6 @@ $user_avatar = "https://via.placeholder.com/40";
         const apiKey = '<?php echo $api_key; ?>';
         let quill;
 
-        // Initialize Quill editor
         document.addEventListener('DOMContentLoaded', () => {
             quill = new Quill('#editor', {
                 theme: 'snow',
@@ -204,10 +199,8 @@ $user_avatar = "https://via.placeholder.com/40";
                 placeholder: 'Create new note or save your book and journal for reference'
             });
 
-            // Load existing notes
             loadNotes();
 
-            // Handle @ mentions
             quill.on('text-change', function() {
                 const text = quill.getText();
                 const atIndex = text.lastIndexOf('@');
@@ -221,9 +214,7 @@ $user_avatar = "https://via.placeholder.com/40";
             });
         });
 
-        // Show mention suggestions
         function showMentionSuggestions(query) {
-            // Fetch books and journals matching the query
             fetch(`api/search.php?q=${query}&type=all`, {
                 headers: { 'X-API-Key': apiKey }
             })
@@ -242,7 +233,6 @@ $user_avatar = "https://via.placeholder.com/40";
             });
         }
 
-        // Insert mention into editor
         function insertMention(mention) {
             const range = quill.getSelection();
             if (range) {
@@ -253,7 +243,6 @@ $user_avatar = "https://via.placeholder.com/40";
             document.querySelector('.mention-suggestions')?.remove();
         }
 
-        // Save note
         async function saveNote() {
             const content = quill.root.innerHTML;
             try {
@@ -278,7 +267,6 @@ $user_avatar = "https://via.placeholder.com/40";
             }
         }
 
-        // Load notes
         async function loadNotes() {
             try {
                 const response = await fetch('api/notes.php', {
@@ -309,7 +297,6 @@ $user_avatar = "https://via.placeholder.com/40";
             }
         }
 
-        // Delete note
         async function deleteNote(noteId) {
             if (!confirm('Are you sure you want to delete this note?')) {
                 return;
@@ -331,7 +318,6 @@ $user_avatar = "https://via.placeholder.com/40";
 
                 if (response.ok) {
                     showToast('Note deleted successfully', 'success');
-                    // Remove the note card from the UI
                     document.querySelector(`.note-card[data-note-id="${noteId}"]`).remove();
                 } else {
                     showToast(data.error || 'Failed to delete note', 'error');
@@ -341,18 +327,15 @@ $user_avatar = "https://via.placeholder.com/40";
             }
         }
 
-        // Edit note
         async function editNote(noteId) {
             const noteCard = document.querySelector(`.note-card[data-note-id="${noteId}"]`);
             const contentDiv = noteCard.querySelector('.note-card__content');
             const actionsDiv = noteCard.querySelector('.note-card__actions');
             
-            // Create editor container
             const editorContainer = document.createElement('div');
             editorContainer.className = 'note-card__editor';
             editorContainer.innerHTML = '<div id="editor-' + noteId + '"></div>';
             
-            // Create save and cancel buttons
             const saveButton = document.createElement('button');
             saveButton.className = 'note-card__button note-card__save';
             saveButton.innerHTML = '<i class="ri-save-line"></i>';
@@ -363,16 +346,13 @@ $user_avatar = "https://via.placeholder.com/40";
             cancelButton.innerHTML = '<i class="ri-close-line"></i>';
             cancelButton.title = 'Cancel editing';
             
-            // Replace actions with save/cancel
             actionsDiv.innerHTML = '';
             actionsDiv.appendChild(saveButton);
             actionsDiv.appendChild(cancelButton);
             
-            // Hide content and show editor
             contentDiv.style.display = 'none';
             noteCard.insertBefore(editorContainer, contentDiv.nextSibling);
             
-            // Initialize Quill editor
             const quill = new Quill('#editor-' + noteId, {
                 theme: 'snow',
                 modules: {
@@ -388,10 +368,8 @@ $user_avatar = "https://via.placeholder.com/40";
                 }
             });
             
-            // Set initial content
             quill.root.innerHTML = contentDiv.innerHTML;
             
-            // Add event listeners
             saveButton.onclick = async () => {
                 try {
                     const editorContent = quill.root.innerHTML;
@@ -416,11 +394,9 @@ $user_avatar = "https://via.placeholder.com/40";
 
                     if (data.success) {
                         showToast('Note updated successfully', 'success');
-                        // Update content and restore view
                         contentDiv.innerHTML = editorContent;
                         contentDiv.style.display = 'block';
                         editorContainer.remove();
-                        // Restore edit/delete buttons
                         actionsDiv.innerHTML = `
                             <button class="note-card__button note-card__edit" onclick="editNote(${noteId})" title="Edit note">
                                 <i class="ri-edit-line"></i>
@@ -438,11 +414,9 @@ $user_avatar = "https://via.placeholder.com/40";
             };
 
             cancelButton.onclick = () => {
-                // Restore original view
                 contentDiv.style.display = 'block';
                 editorContainer.remove();
                 
-                // Restore edit/delete buttons
                 actionsDiv.innerHTML = `
                     <button class="note-card__button note-card__edit" onclick="editNote(${noteId})" title="Edit note">
                         <i class="ri-edit-line"></i>
@@ -454,7 +428,6 @@ $user_avatar = "https://via.placeholder.com/40";
             };
         }
 
-        // Toast notification function
         function showToast(message, type = 'info', duration = 3000) {
             const container = document.getElementById('toast-container');
             if (!container) return;

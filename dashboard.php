@@ -33,7 +33,6 @@ $user_name = $user['username'];
 </head>
 <body>
     <div class="dashboard-layout">
-        <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar__header">
                 <i class="ri-book-3-line sidebar__logo-icon"></i>
@@ -51,7 +50,6 @@ $user_name = $user['username'];
             </div>
         </aside>
 
-        <!-- Main content -->
         <main class="main-content">
             <header class="header">
                 <div class="search-container">
@@ -72,7 +70,6 @@ $user_name = $user['username'];
                     <div class="loading-placeholder" id="loading-state" style="display: none;">
                         <p>Loading books...</p>
                     </div>
-                    <!-- Empty State -->
                     <div class="empty-state" id="empty-state" style="display: none;">
                         <i class="ri-search-eye-line"></i>
                         <p>No books found matching your search.</p>
@@ -83,7 +80,6 @@ $user_name = $user['username'];
         </main>
     </div>
 
-    <!-- Toast Container -->
     <div id="toast-container"></div>
 
     <script>
@@ -106,7 +102,6 @@ $user_name = $user['username'];
             showEmptyState();
         });
 
-        // Add event listener for Books button
         document.querySelector('.nav-item:first-child').addEventListener('click', function(e) {
             e.preventDefault();
             currentMode = 'books';
@@ -118,7 +113,6 @@ $user_name = $user['username'];
             showEmptyState();
         });
 
-        // --- Search Functionality ---
         function performSearch() {
             const searchTerm = searchInput.value.trim();
             if (searchTerm.length < 2) {
@@ -212,12 +206,10 @@ $user_name = $user['username'];
         }
 
         function showPaperDetails(paperId) {
-            // Find the paper in the current results
             const paperCard = document.querySelector(`[data-paper-id="${paperId}"]`);
             const originalContent = paperCard.innerHTML;
             paperCard.innerHTML = '<div class="loading-placeholder"><p>Loading paper details...</p></div>';
 
-            // Fetch detailed paper information from our API
             fetch(`/book-archive/api/journals.php?search=${paperId}&max_results=1`, {
                 headers: { 
                     'X-API-Key': apiKey,
@@ -268,7 +260,6 @@ $user_name = $user['username'];
                 });
         }
 
-        // Update existing event listeners
         searchInput.addEventListener('input', () => {
             clearTimeout(searchTimeout);
             searchTimeout = setTimeout(performSearch, 500);
@@ -281,7 +272,6 @@ $user_name = $user['username'];
             }
         });
 
-        // --- Display Logic ---
         function showLoading() {
             bookGrid.innerHTML = '';
             loadingState.style.display = 'block';
@@ -306,16 +296,15 @@ $user_name = $user['username'];
 
         function displayBooks(books) {
             loadingState.style.display = 'none';
-            bookGrid.innerHTML = ''; // Clear grid before adding new items
+            bookGrid.innerHTML = '';
 
             if (books && books.length > 0) {
                 emptyState.style.display = 'none';
                 books.forEach(book => {
                     const coverId = book.cover_i || '';
-                    // Use Medium size covers, fallback to placeholder
                     const coverUrl = coverId ? `https://covers.openlibrary.org/b/id/${coverId}-M.jpg` : 'https://placehold.co/300x450/e2e8f0/94a3b8?text=No+Cover';
-                    const author = book.author_name ? book.author_name.join(', ') : 'Unknown Author'; // Join multiple authors
-                    const bookKey = book.key.replace('/works/', ''); // Clean key if needed
+                    const author = book.author_name ? book.author_name.join(', ') : 'Unknown Author';
+                    const bookKey = book.key.replace('/works/', '');
 
                     const bookCard = document.createElement('article');
                     bookCard.className = 'book-card';
@@ -334,25 +323,23 @@ $user_name = $user['username'];
                 });
             } else {
                 loadingState.style.display = 'none';
-                emptyState.style.display = 'flex'; // Use flex for alignment
+                emptyState.style.display = 'flex';
                 emptyState.querySelector('p').textContent = 'No books found matching your search.';
-                emptyState.querySelector('.empty-state__subtext').style.display = 'block'; // Show subtext
+                emptyState.querySelector('.empty-state__subtext').style.display = 'block';
             }
         }
 
-        // --- User Menu Logic ---
         const userMenuToggle = document.querySelector('.user-menu__toggle');
         const userMenuDropdown = document.querySelector('.user-menu__dropdown');
 
         if (userMenuToggle && userMenuDropdown) {
             userMenuToggle.addEventListener('click', (event) => {
-                event.stopPropagation(); // Prevent triggering the global click listener
+                event.stopPropagation();
                 const isOpen = userMenuDropdown.classList.toggle('show');
-                userMenuToggle.classList.toggle('active', isOpen); // Add active class to toggle
+                userMenuToggle.classList.toggle('active', isOpen);
             });
         }
 
-        // --- Toast Notifications ---
         function showToast(message, type = 'info', duration = 3000) {
             const container = document.getElementById('toast-container');
             if (!container) return;
@@ -360,7 +347,7 @@ $user_name = $user['username'];
             const toast = document.createElement('div');
             toast.className = `toast toast--${type}`;
 
-            let iconClass = 'ri-information-line'; // Default icon
+            let iconClass = 'ri-information-line';
             if (type === 'success') iconClass = 'ri-check-line';
             if (type === 'error') iconClass = 'ri-error-warning-line';
             if (type === 'warning') iconClass = 'ri-alert-line';
@@ -373,33 +360,23 @@ $user_name = $user['username'];
 
             container.appendChild(toast);
 
-            // Auto dismiss
             setTimeout(() => {
                 toast.classList.add('toast--fade-out');
-                 // Remove element after fade out animation completes
                 toast.addEventListener('animationend', () => {
                     toast.remove();
                 });
             }, duration);
         }
 
-        // --- Initial Load (Example) ---
         document.addEventListener('DOMContentLoaded', () => {
-            // Optionally, load initial set of books (e.g., 'recent')
-            // performSearch(); // Or call a function to load default view
              console.log("Dashboard loaded");
-             // You might want to load 'Recent' books by default if your API supports it
-             // fetchDefaultBooks();
         });
 
-        // Add after the displayBooks function
         function showBookDetails(bookId) {
-            // Show loading state
             const bookCard = document.querySelector(`[data-book-id="${bookId}"]`);
             const originalContent = bookCard.innerHTML;
             bookCard.innerHTML = '<div class="loading-placeholder"><p>Loading book details...</p></div>';
 
-            // Fetch book details from Open Library API
             fetch(`https://openlibrary.org/works/${bookId}.json`)
                 .then(response => response.json())
                 .then(data => {
@@ -442,7 +419,6 @@ $user_name = $user['username'];
 
         function closeBookDetails(bookId) {
             const bookCard = document.querySelector(`[data-book-id="${bookId}"]`);
-            // Restore original book card content
             displayBooks([{
                 key: bookId,
                 title: bookCard.querySelector('h2').textContent,
@@ -451,7 +427,6 @@ $user_name = $user['username'];
             }]);
         }
 
-        // Handle book card click
         function handleBookCardClick(id) {
             const card = document.querySelector(`[data-paper-id="${id}"]`) || document.querySelector(`[data-book-id="${id}"]`);
             if (!card) return;

@@ -40,7 +40,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         exit;
     }
 
-    // Parse the XML response
     $xml = simplexml_load_string($response);
     if ($xml === false) {
         http_response_code(500);

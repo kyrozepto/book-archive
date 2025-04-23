@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($_POST['action'] === 'register') {
             $api_key = $auth->register($_POST['username'], $_POST['password']);
             if ($api_key) {
-                $success = "Registration successful! Your API key is: " . $api_key;
+                $success = "Registration successful!";
             } else {
                 $error = "Registration failed. Username might be taken.";
             }
@@ -36,10 +36,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>BookArchive</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
     <style>
+        body {
+            font-family: "DM Sans", sans-serif;
+        }
         .auth-container {
             min-height: 100vh;
             display: flex;
@@ -47,13 +50,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         .auth-illustration {
             flex: 1;
-            background: linear-gradient(135deg, #22c55e 0%, #15803d 100%);
+            background: url('assets/cosmiccliffs.jpg') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 2rem;
             color: white;
             text-align: center;
+            position: relative;
+        }
+        .auth-illustration::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .auth-illustration > div {
+            position: relative;
+            z-index: 2;
         }
         .auth-form-container {
             flex: 1;
@@ -130,7 +148,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .auth-button {
             width: 100%;
             padding: 0.75rem;
-            background: #22c55e;
+            background: #000000;
             color: white;
             border: none;
             border-radius: 0.5rem;
@@ -139,7 +157,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             transition: all 0.2s;
         }
         .auth-button:hover {
-            background: #15803d;
+            background: #333333;
         }
         .alert {
             padding: 1rem;
@@ -176,9 +194,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="auth-container">
         <div class="auth-illustration">
             <div>
-                <i class="ri-book-3-line" style="font-size: 4rem; margin-bottom: 1.5rem;"></i>
-                <h1 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">Book Archive</h1>
-                <p style="font-size: 1.25rem; opacity: 0.9;">A way to find your references</p>
+                <h1 style="font-size: 2.5rem; font-weight: 600;">Book Archive</h1>
+                <p style="font-size: 1.1rem; opacity: 0.7;">A way to find your references</p>
             </div>
         </div>
         <div class="auth-form-container">

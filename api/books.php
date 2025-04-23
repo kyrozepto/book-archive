@@ -19,7 +19,7 @@ if (!$auth->validateApiKey($api_key)) {
     exit;
 }
 
-// Get search query
+// search query
 $search = $_GET['search'] ?? '';
 if (empty($search)) {
     http_response_code(400);

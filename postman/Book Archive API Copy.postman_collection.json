@@ -1,0 +1,294 @@
+{
+	"info": {
+		"_postman_id": "a56e0084-9113-4f15-b1e3-60f073e82352",
+		"name": "Book Archive API Copy",
+		"description": "Book Archive API endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "35136293"
+	},
+	"item": [
+		{
+			"name": "Books",
+			"item": [
+				{
+					"name": "Search Books",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "{{api_key}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/book-archive/postman/api/books.php?search=quantum&start=0&max_results=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"book-archive",
+								"postman",
+								"api",
+								"books.php"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "quantum"
+								},
+								{
+									"key": "start",
+									"value": "0"
+								},
+								{
+									"key": "max_results",
+									"value": "10"
+								}
+							]
+						},
+						"description": "Search for books using Open Library API"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Book Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "{{api_key}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost/book-archive/postman/api/books.php?id={{book_id}}",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"book-archive",
+								"postman",
+								"api",
+								"books.php"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{book_id}}"
+								}
+							]
+						},
+						"description": "Get detailed information about a specific book"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Journals",
+			"item": [
+				{
+					"name": "Search Journals",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "{{api_key}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost/book-archive/postman/api/journals.php?search=diffusion&start=0&max_results=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"book-archive",
+								"postman",
+								"api",
+								"journals.php"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "diffusion"
+								},
+								{
+									"key": "start",
+									"value": "0"
+								},
+								{
+									"key": "max_results",
+									"value": "10"
+								}
+							]
+						},
+						"description": "Search for academic journals using arXiv API"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Notes",
+			"item": [
+				{
+					"name": "Get All Notes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "{{api_key}}",
+								"type": "text"
+							}
+						],
+						"url": "localhost/book-archive/postman/api/notes.php",
+						"description": "Get all notes for the authenticated user"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Note",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "{{api_key}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\": \"Your note content here\"\n}"
+						},
+						"url": "localhost/book-archive/postman/api/notes.php",
+						"description": "Create a new note"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Note",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "{{api_key}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"content\": \"Updated note content\"\n}"
+						},
+						"url": "localhost/book-archive/postman/api/notes.php",
+						"description": "Update an existing note"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Note",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-API-Key",
+								"value": "{{api_key}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1\n}"
+						},
+						"url": "localhost/book-archive/postman/api/notes.php",
+						"description": "Delete a note"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Account",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"testuser2\",\n    \"password\": \"testuser2\"\n}"
+						},
+						"url": "http://localhost/book-archive/postman/api/register.php",
+						"description": "Register a new user and get API key"
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"testuser2\",\n    \"password\": \"testuser2\"\n}"
+						},
+						"url": "http://localhost/book-archive/postman/api/login.php",
+						"description": "Login user and get API key"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "api_key",
+			"value": "your_api_key_here",
+			"type": "string"
+		},
+		{
+			"key": "search_query",
+			"value": "programming",
+			"type": "string"
+		},
+		{
+			"key": "book_id",
+			"value": "OL1234567M",
+			"type": "string"
+		}
+	]
+}

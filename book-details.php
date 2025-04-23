@@ -40,7 +40,6 @@ $user_avatar = "https://via.placeholder.com/40";
 </head>
 <body>
     <div class="dashboard-layout">
-        <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar__header">
                 <i class="ri-book-3-line sidebar__logo-icon"></i>
@@ -48,8 +47,8 @@ $user_avatar = "https://via.placeholder.com/40";
             </div>
             <nav class="sidebar__nav">
                 <ul>
-                    <li><a href="dashboard.php" class="nav-item"><i class="ri-book-2-line"></i><span>Books</span></a></li>
-                    <li><a href="#" class="nav-item" id="all-journals-btn"><i class="ri-article-line"></i><span>Journals</span></a></li>
+                    <li><a href="dashboard.php" class="nav-item"><i class="ri-book-2-line"></i><span>Find Books</span></a></li>
+                    <li><a href="#" class="nav-item" id="all-journals-btn"><i class="ri-article-line"></i><span>Find Journals</span></a></li>
                     <li><a href="notes.php" class="nav-item"><i class="ri-sticky-note-line"></i><span>Notes</span></a></li>
                 </ul>
             </nav>
@@ -58,7 +57,6 @@ $user_avatar = "https://via.placeholder.com/40";
             </div>
         </aside>
 
-        <!-- Main content -->
         <main class="main-content">
             <header class="header">
                 <div class="header-actions">
@@ -73,13 +71,11 @@ $user_avatar = "https://via.placeholder.com/40";
 
             <div class="content-area">
                 <div class="book-details-container" id="book-details">
-                    <!-- Loading state -->
                     <div class="loading-placeholder">
                         <p>Loading book details...</p>
                     </div>
                 </div>
 
-                <!-- Citation Section -->
                 <div class="citation-section" id="citation-section" style="display: none;">
                     <div class="citation-section__header">
                         <h3>Citation</h3>
@@ -105,14 +101,12 @@ $user_avatar = "https://via.placeholder.com/40";
                     </div>
                 </div>
 
-                <!-- Author Photos Section -->
                 <div class="author-photos-section" id="author-photos-section" style="display: none;">
                     <div class="author-photos-section__header">
                         <h3>Author Photos</h3>
                     </div>
                     <div class="author-photos-section__content">
                         <div class="author-photos-grid" id="author-photos-grid">
-                            <!-- Author photos will be loaded here -->
                         </div>
                     </div>
                 </div>
@@ -120,7 +114,6 @@ $user_avatar = "https://via.placeholder.com/40";
         </main>
     </div>
 
-    <!-- Toast Container -->
     <div id="toast-container"></div>
 
     <style>
@@ -200,7 +193,6 @@ $user_avatar = "https://via.placeholder.com/40";
         const apiKey = '<?php echo $api_key; ?>';
         const bookId = '<?php echo htmlspecialchars($book_id); ?>';
 
-        // Toast notification function
         function showToast(message, type = 'info', duration = 3000) {
             const container = document.getElementById('toast-container');
             if (!container) return;
@@ -229,12 +221,10 @@ $user_avatar = "https://via.placeholder.com/40";
             }, duration);
         }
 
-        // Fetch book details
         async function loadBookDetails() {
             try {
                 let book = null;
                 
-                // First try to get the book from our API
                 const ourApiResponse = await fetch(`/book-archive/api/books.php?search=${encodeURIComponent(bookId)}&max_results=1`, {
                     headers: { 
                         'X-API-Key': apiKey,
@@ -249,7 +239,6 @@ $user_avatar = "https://via.placeholder.com/40";
                     }
                 }
 
-                // If not found in our database, try Open Library
                 if (!book) {
                     const olResponse = await fetch(`https://openlibrary.org/works/${bookId}.json`);
                     if (!olResponse.ok) {
@@ -257,7 +246,6 @@ $user_avatar = "https://via.placeholder.com/40";
                     }
                     const olData = await olResponse.json();
                     
-                    // Get author names and photos from Open Library
                     let authorNames = 'Unknown Author';
                     let authorPhotos = [];
                     
@@ -423,10 +411,8 @@ $user_avatar = "https://via.placeholder.com/40";
             }
         }
 
-        // Load book details when page loads
         document.addEventListener('DOMContentLoaded', loadBookDetails);
 
-        // Add event listener for citation format change
         document.getElementById('citation-format').addEventListener('change', updateCitation);
     </script>
 </body>

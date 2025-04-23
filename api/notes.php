@@ -25,7 +25,6 @@ header('Content-Type: application/json');
 
 switch ($_SERVER['REQUEST_METHOD']) {
     case 'GET':
-        // Get all notes for the user
         $stmt = $db->prepare("
             SELECT id, content, created_at 
             FROM notes 
@@ -35,7 +34,6 @@ switch ($_SERVER['REQUEST_METHOD']) {
         $stmt->execute([$user['id']]);
         $notes = $stmt->fetchAll(PDO::FETCH_ASSOC);
         
-        // Process mentions in notes
         foreach ($notes as &$note) {
             $note['content'] = processMentions($note['content']);
         }
@@ -44,7 +42,6 @@ switch ($_SERVER['REQUEST_METHOD']) {
         break;
         
     case 'POST':
-        // Create new note
         $data = json_decode(file_get_contents('php://input'), true);
         
         if (!isset($data['content'])) {
@@ -62,9 +59,6 @@ switch ($_SERVER['REQUEST_METHOD']) {
             
             $noteId = $db->lastInsertId();
             
-            // Process mentions and create relationships
-            processMentionsAndCreateRelationships($data['content'], $noteId);
-            
             http_response_code(201);
             echo json_encode([
                 'message' => 'Note created successfully',
@@ -77,7 +71,6 @@ switch ($_SERVER['REQUEST_METHOD']) {
         break;
         
     case 'DELETE':
-        // Handle note deletion
         $data = json_decode(file_get_contents('php://input'), true);
         
         if (!isset($data['note_id'])) {
@@ -88,7 +81,6 @@ switch ($_SERVER['REQUEST_METHOD']) {
 
         $note_id = $data['note_id'];
         
-        // Delete the note
         $stmt = $db->prepare("DELETE FROM notes WHERE id = ? AND user_id = ?");
         $stmt->execute([$note_id, $user['id']]);
         
@@ -101,7 +93,6 @@ switch ($_SERVER['REQUEST_METHOD']) {
         break;
 
     case 'PUT':
-        // Handle note update
         $data = json_decode(file_get_contents('php://input'), true);
         
         if (!isset($data['note_id']) || !isset($data['content'])) {
@@ -113,7 +104,6 @@ switch ($_SERVER['REQUEST_METHOD']) {
         $note_id = $data['note_id'];
         $content = $data['content'];
         
-        // Update the note
         $stmt = $db->prepare("UPDATE notes SET content = ? WHERE id = ? AND user_id = ?");
         $stmt->execute([$content, $note_id, $user['id']]);
         
@@ -131,9 +121,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
         break;
 }
 
-// Process mentions in note content
 function processMentions($content) {
-    // Convert @book-id and @journal-id mentions to styled spans with links
     $content = preg_replace_callback(
         '/@(book|journal)-([a-zA-Z0-9\.]+)/',
         function($matches) {
@@ -145,38 +133,4 @@ function processMentions($content) {
         $content
     );
     return $content;
-}
-
-// Process mentions and create relationships
-function processMentionsAndCreateRelationships($content, $noteId) {
-    global $db;
-    
-    // Find all @book-id and @journal-id mentions in the content
-    preg_match_all('/@(book|journal)-([a-zA-Z0-9\.]+)/', $content, $matches, PREG_SET_ORDER);
-    
-    if (!empty($matches)) {
-        foreach ($matches as $match) {
-            $type = $match[1];
-            $id = $match[2];
-            
-            // Verify the item exists
-            $stmt = $db->prepare("
-                SELECT id 
-                FROM items 
-                WHERE id = ? AND type = ?
-                LIMIT 1
-            ");
-            $stmt->execute([$id, $type]);
-            $item = $stmt->fetch(PDO::FETCH_ASSOC);
-            
-            if ($item) {
-                // Create relationship between note and item
-                $stmt = $db->prepare("
-                    INSERT INTO note_items (note_id, item_id, item_type) 
-                    VALUES (?, ?, ?)
-                ");
-                $stmt->execute([$noteId, $id, $type]);
-            }
-        }
-    }
 } 

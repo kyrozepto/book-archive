@@ -1,20 +1,16 @@
 <?php
-// Database configuration
+// Database config
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'book_archive');
 define('DB_USER', 'root');
 define('DB_PASS', '');
 
-// Create database if it doesn't exist
+// if not exist
 try {
     $pdo = new PDO("mysql:host=" . DB_HOST, DB_USER, DB_PASS);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
-    // Create database
     $pdo->exec("CREATE DATABASE IF NOT EXISTS " . DB_NAME);
     $pdo->exec("USE " . DB_NAME);
-    
-    // Create users table
     $pdo->exec("CREATE TABLE IF NOT EXISTS users (
         id INT AUTO_INCREMENT PRIMARY KEY,
         username VARCHAR(50) NOT NULL UNIQUE,
@@ -23,7 +19,6 @@ try {
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )");
 
-    // Create notes table
     $pdo->exec("CREATE TABLE IF NOT EXISTS notes (
         id INT(11) NOT NULL AUTO_INCREMENT,
         user_id INT(11) NOT NULL,

@@ -40,7 +40,6 @@ $user_avatar = "https://via.placeholder.com/40";
 </head>
 <body>
     <div class="dashboard-layout">
-        <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar__header">
                 <i class="ri-book-3-line sidebar__logo-icon"></i>
@@ -58,7 +57,6 @@ $user_avatar = "https://via.placeholder.com/40";
             </div>
         </aside>
 
-        <!-- Main content -->
         <main class="main-content">
             <header class="header">
                 <div class="header-actions">
@@ -73,13 +71,11 @@ $user_avatar = "https://via.placeholder.com/40";
 
             <div class="content-area">
                 <div class="paper-details-container" id="paper-details">
-                    <!-- Loading state -->
                     <div class="loading-placeholder">
                         <p>Loading paper details...</p>
                     </div>
                 </div>
 
-                <!-- Citation Section -->
                 <div class="citation-section" id="citation-section" style="display: none;">
                     <div class="citation-section__header">
                         <h3>Citation</h3>
@@ -108,7 +104,6 @@ $user_avatar = "https://via.placeholder.com/40";
         </main>
     </div>
 
-    <!-- Toast Container -->
     <div id="toast-container"></div>
 
     <style>
@@ -149,7 +144,6 @@ $user_avatar = "https://via.placeholder.com/40";
         const apiKey = '<?php echo $api_key; ?>';
         const paperId = '<?php echo htmlspecialchars($paper_id); ?>';
 
-        // Toast notification function
         function showToast(message, type = 'info', duration = 3000) {
             const container = document.getElementById('toast-container');
             if (!container) return;
@@ -157,7 +151,7 @@ $user_avatar = "https://via.placeholder.com/40";
             const toast = document.createElement('div');
             toast.className = `toast toast--${type}`;
 
-            let iconClass = 'ri-information-line'; // Default icon
+            let iconClass = 'ri-information-line';
             if (type === 'success') iconClass = 'ri-check-line';
             if (type === 'error') iconClass = 'ri-error-warning-line';
             if (type === 'warning') iconClass = 'ri-alert-line';
@@ -170,7 +164,6 @@ $user_avatar = "https://via.placeholder.com/40";
 
             container.appendChild(toast);
 
-            // Auto dismiss
             setTimeout(() => {
                 toast.classList.add('toast--fade-out');
                 toast.addEventListener('animationend', () => {
@@ -179,10 +172,9 @@ $user_avatar = "https://via.placeholder.com/40";
             }, duration);
         }
 
-        // Fetch paper details
         async function loadPaperDetails() {
             try {
-                // Remove version suffix if present (e.g., 1709.06308v1 -> 1709.06308)
+                // Remove version suffix
                 const basePaperId = paperId.replace(/v\d+$/, '');
                 
                 const response = await fetch(`/book-archive/api/journals.php?search=${encodeURIComponent(basePaperId)}&max_results=1`, {
@@ -206,7 +198,7 @@ $user_avatar = "https://via.placeholder.com/40";
 
                 window.currentPaper = data.papers[0];
                 
-                // Show citation section
+                // citation section
                 document.getElementById('citation-section').style.display = 'block';
                 updateCitation();
 
@@ -245,7 +237,6 @@ $user_avatar = "https://via.placeholder.com/40";
                 if (!authors || authors.length === 0) return 'Unknown Author';
                 
                 if (format === 'apa') {
-                    // APA: Last, F. M., & Last, F. M.
                     return authors.map(author => {
                         const parts = author.split(' ');
                         const lastName = parts.pop();
@@ -253,7 +244,6 @@ $user_avatar = "https://via.placeholder.com/40";
                         return `${lastName}, ${initials}`;
                     }).join(', & ');
                 } else if (format === 'mla' || format === 'chicago') {
-                    // MLA/Chicago: Last, First M., and First M. Last
                     return authors.map((author, index) => {
                         const parts = author.split(' ');
                         const lastName = parts.pop();
@@ -264,7 +254,6 @@ $user_avatar = "https://via.placeholder.com/40";
                         return `${lastName}, ${firstName}`;
                     }).join(', ');
                 } else {
-                    // IEEE: F. M. Last, F. M. Last
                     return authors.map(author => {
                         const parts = author.split(' ');
                         const lastName = parts.pop();
@@ -334,10 +323,8 @@ $user_avatar = "https://via.placeholder.com/40";
             }
         }
 
-        // Load paper details when page loads
         document.addEventListener('DOMContentLoaded', loadPaperDetails);
 
-        // Add event listener for citation format change
         document.getElementById('citation-format').addEventListener('change', updateCitation);
     </script>
 </body>
